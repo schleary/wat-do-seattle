@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'activity/new'
+
+  get 'user/show'
+
+  get   "/",                      to: "home#index",    as: :home_index
+  root                                "home#index",    as: :root
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
