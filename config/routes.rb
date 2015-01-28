@@ -1,12 +1,31 @@
 Rails.application.routes.draw do
 
-  get 'activities/new'
+  # Home
+  get   '/',                            to: 'home#index',    as: :home_index
+  root                                      'home#index',    as: :root
 
-  get 'users/show'
+  # Users
+  get	    "/users",                     to:	"users#index",   as: :users
+  get	    "/users/new",                 to:	"users#new",     as: :users_new
+  post    "/users",                     to:	"users#create",  as: :users_create
+  get	    "/users/:id",                 to:	"users#show",    as: :users_show
+  get	    "/users/:id/edit",            to:	"users#edit",    as: :users_edit
+  patch	  "/users/:id",                 to:	"users#update",  as: :users_update
+  get     "/users/:id/delete",          to: "users#destroy", as: :users_destroy
+  delete  "/users/:id",                 to:	"users#destroy", as: :users_delete
+  get     "/users/:id/upvote",          to: "users#upvote",  as: :users_upvote
 
-  get   "/",                      to: "home#index",    as: :home_index
-  root                                "home#index",    as: :root
 
+  # Activities
+  get	    "/activities",               to:	"activities#index",   as: :activities
+  get	    "/activities/new",           to:	"activities#new",     as: :activities_new
+  post    "/activities",               to:	"activities#create",  as: :activities_create
+  get	    "/activities/:id",           to:	"activities#show",    as: :activities_show
+  get	    "/activities/:id/edit",      to:	"activities#edit",    as: :activities_edit
+  patch	  "/activities/:id",           to:	"activities#update",  as: :activities_update
+  get     "/activities/:id/delete",    to:  "activities#destroy", as: :activities_destroy
+  delete  "/activities/:id",           to:	"activities#destroy", as: :activities_delete
+  get     "/activities/:id/upvote",    to:  "activities#upvote",  as: :activities_upvote
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
