@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'activity/new'
+  get 'activities/new'
 
-  get 'user/show'
+  get 'users/show'
 
   get   "/",                      to: "home#index",    as: :home_index
   root                                "home#index",    as: :root

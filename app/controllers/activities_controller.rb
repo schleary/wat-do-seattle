@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class ActivitiesController < ApplicationController
   def new
   end
 
@@ -25,7 +25,7 @@ class UserController < ApplicationController
 
   private
 
-  def user_params
+  def activities_params
   end
 
 end

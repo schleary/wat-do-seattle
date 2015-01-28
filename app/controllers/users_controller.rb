@@ -1,4 +1,4 @@
-class ActivityController < ApplicationController
+class UsersController < ApplicationController
   def new
   end
 
@@ -21,6 +21,11 @@ class ActivityController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def users_params
   end
 
 end
