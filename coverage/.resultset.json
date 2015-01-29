@@ -23,6 +23,7 @@
       ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/activities_controller.rb": [
         1,
+        null,
         1,
         1,
         null,
@@ -115,6 +116,13 @@
         null,
         null
       ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/models/activity.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/models/user.rb": [
         1,
         null,
@@ -125,6 +133,6 @@
         null
       ]
     },
-    "timestamp": 1422568566
+    "timestamp": 1422571838
   }
 }

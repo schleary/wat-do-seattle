@@ -1,17 +1,21 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
+RSpec.describe Activity, :type => :model do
 
-  let(:user) {
-    User.new(
-      email: 'a@b.com',
-      name: 'Holly',
+  let(:activity) {
+    Activity.new(
+      name: "Eating Toast",
+      price: 2,
+      url: "toast.com",
+      description: "Well... eat the toast",
+      min_activity_level: 1,
+      max_activity_level: 5
     )
   }
 
   describe 'validations' do
     it 'is valid' do
-      expect(user).to be_valid
+      expect(activity).to be_valid
     end
 
     # it 'has an admin default value of false' do
