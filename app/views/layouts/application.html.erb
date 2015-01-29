@@ -32,7 +32,7 @@
             <h4 class="modal-title" id="myModalLabel">Sign In</h4>
           </div>
           <div class="modal-body">
-            <%= bootstrap_form_for @user, url: { action: "create" } do |f| %>
+            <%= bootstrap_form_for @user, url: users_path do |f| %>
               <%= f.text_field :name %>
               <%= f.email_field :email %>
           </div>
