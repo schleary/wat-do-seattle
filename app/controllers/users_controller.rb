@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    puts "NEW"
     @user = User.new
   end
 
@@ -10,9 +11,17 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts "CREATE"
+    @user = User.new(users_params)
+    if @user.save
+      redirect_to users_show_path(@user)
+    else
+      render 'new'
+    end
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -27,6 +36,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
+    params.require(:user).permit(:name, :email)
   end
 
 end
