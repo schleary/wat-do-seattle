@@ -1,0 +1,85 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/hollyleary/Ada/wat-do-seattle/app/helpers/activities_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/helpers/home_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/helpers/sessions_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/users_controller.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/models/user.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1422565552
+  }
+}
