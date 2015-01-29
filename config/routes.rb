@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get   '/',                            to: 'home#index',    as: :home_index
   root                                      'home#index',    as: :root
 
-
+  get     '/auth/:provider/callback',   to: 'sessions#create'
   # get   '/auth/:provider',              to: 'sessions#new',  as: :sign_in
   # get   '/auth/:provider/google_oauth2',to: 'users#new',     as: :sign_in
   # get   '/auth/callback',               to: 'users#create',  as: :google_callback

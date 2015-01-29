@@ -1,5 +1,7 @@
 class ActivitiesController < ApplicationController
+  
   def new
+    redirect_to root_path
   end
 
   def show

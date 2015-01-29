@@ -21,6 +21,58 @@
         1,
         null
       ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/activities_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/home_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/users_controller.rb": [
         1,
         1,
@@ -34,9 +86,9 @@
         null,
         null,
         1,
-        1,
-        1,
-        1,
+        2,
+        2,
+        2,
         null,
         0,
         null,
@@ -58,16 +110,9 @@
         1,
         null,
         1,
-        1,
+        2,
         null,
         null,
-        null
-      ],
-      "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
         null
       ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/models/user.rb": [
@@ -80,6 +125,6 @@
         null
       ]
     },
-    "timestamp": 1422565552
+    "timestamp": 1422568566
   }
 }
