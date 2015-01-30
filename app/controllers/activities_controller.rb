@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activities_params)
+    puts activities_params
     if @activity.save
       redirect_to root_path
     else

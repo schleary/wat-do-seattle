@@ -13,10 +13,10 @@ RSpec.describe ActivitiesController, :type => :controller do
   describe "POST 'create'" do
      it "redirects to home page" do
        post :create, activity: {
-         name: "Toast-bating",
+         name: "Ttoast-bating",
          price: 2,
-         url: "boast.com",
-         description: "boast-eating at its finest",
+         url: "toast.com",
+         description: "toast-eating at its finest",
          min_activity_level: 1,
          max_activity_level: 3
        }
@@ -27,10 +27,10 @@ RSpec.describe ActivitiesController, :type => :controller do
    describe "GET 'show'" do
      it 'is successful' do
        activity = Activity.create(
-         name: "Toast-cating",
+         name: "boast-cating",
          price: 2,
-         url: "coast.com",
-         description: "coast-eating at its finest",
+         url: "boast.com",
+         description: "boast-eating at its finest",
          min_activity_level: 1,
          max_activity_level: 3
     )
@@ -43,30 +43,23 @@ RSpec.describe ActivitiesController, :type => :controller do
    describe "PATCH 'update'" do
      it 'updates an activity' do
        activity = Activity.create(
-         name: "Toast-dating",
+         name: "coast-dating",
          price: 2,
-         url: "doast.com",
-         description: "doast-eating at its finest",
+         url: "coast.com",
+         description: "coast-eating at its finest",
          min_activity_level: 1,
          max_activity_level: 3
         )
        patch :update, id: activity.id, activity: {
-         name: "Toes-fating",
+         name: "does-fating",
          price: 5,
-         url: "toes.com",
-         description: "Look at your toes",
+         url: "does.com",
+         description: "dook at your toes",
          min_activity_level: 1,
          max_activity_level: 2
         }
        expect(response).to redirect_to activity_show_path(activity.id)
      end
-    #  it "redirects to the activity show page" do
-    #    pending
-    #  end
    end
-
-  #  describe "DELETE 'destroy'" do
-  #    pending
-  #  end
 
 end
