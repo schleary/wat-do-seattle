@@ -32,6 +32,14 @@
             <h4 class="modal-title" id="myModalLabel">Sign In</h4>
           </div>
           <div class="modal-body">
+            <% if @current_user %>
+              <!-- <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li> -->
+              SIGNED IN
+            <% else %>
+              <!-- <li><%= link_to 'Sign In With Twitter', 'auth/twitter' %> <span class="sr-only">(current)</span></li> -->
+              SIGN IN
+            <% end %>
+
             <%= bootstrap_form_for @user, url: users_path do |f| %>
               <%= f.text_field :name %>
               <%= f.email_field :email %>
@@ -45,8 +53,6 @@
         </div>
       </div>
     </div>
-
-    <%= link_to "Sign In", users_new_path(@user) %>
 
     <%= yield %>
 
