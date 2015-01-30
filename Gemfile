@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'bootstrap_form'
 
+gem 'whenever', :require => false
+
 group :development do
   gem "better_errors"
 end

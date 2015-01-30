@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129203117) do
+ActiveRecord::Schema.define(version: 20150130214401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20150129203117) do
     t.text     "description"
     t.integer  "min_activity_level"
     t.integer  "max_activity_level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.datetime "date_time_start"
+    t.datetime "date_time_end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
