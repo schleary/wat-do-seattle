@@ -29,8 +29,15 @@
         null,
         null,
         1,
+        1,
+        1,
+        1,
+        null,
+        0,
         null,
         null,
+        null,
+        1,
         1,
         null,
         null,
@@ -38,6 +45,12 @@
         null,
         null,
         1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
         null,
         null,
         1,
@@ -45,13 +58,8 @@
         null,
         1,
         null,
-        null,
         1,
-        null,
-        null,
-        1,
-        null,
-        1,
+        2,
         null,
         null,
         null
@@ -64,7 +72,6 @@
         null
       ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/home_controller.rb": [
-        1,
         1,
         1,
         1,
@@ -133,6 +140,6 @@
         null
       ]
     },
-    "timestamp": 1422571838
+    "timestamp": 1422576274
   }
 }
