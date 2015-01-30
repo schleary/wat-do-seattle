@@ -4,12 +4,12 @@ RSpec.describe Activity, :type => :model do
 
   let(:activity) {
     Activity.new(
-      name: "mating Toast",
+      name: "goast-tating",
       price: 2,
-      url: "moast.com",
-      description: "Well... eat the toast",
+      url: "goast.com",
+      description: "goast-eating at its finest",
       min_activity_level: 1,
-      max_activity_level: 5
+      max_activity_level: 3
     )
   }
 
