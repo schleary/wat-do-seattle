@@ -13,10 +13,10 @@ RSpec.describe ActivitiesController, :type => :controller do
   describe "POST 'create'" do
      it "redirects to home page" do
        post :create, activity: {
-         name: "Toast-Eating",
+         name: "Toast-bating",
          price: 2,
-         url: "toast.com",
-         description: "Toast-eating at its finest",
+         url: "boast.com",
+         description: "boast-eating at its finest",
          min_activity_level: 1,
          max_activity_level: 3
        }
@@ -27,10 +27,10 @@ RSpec.describe ActivitiesController, :type => :controller do
    describe "GET 'show'" do
      it 'is successful' do
        activity = Activity.create(
-         name: "Toast-Eating",
+         name: "Toast-cating",
          price: 2,
-         url: "toast.com",
-         description: "Toast-eating at its finest",
+         url: "coast.com",
+         description: "coast-eating at its finest",
          min_activity_level: 1,
          max_activity_level: 3
     )
@@ -43,15 +43,15 @@ RSpec.describe ActivitiesController, :type => :controller do
    describe "PATCH 'update'" do
      it 'updates an activity' do
        activity = Activity.create(
-         name: "Toast-Eating",
+         name: "Toast-dating",
          price: 2,
-         url: "toast.com",
-         description: "Toast-eating at its finest",
+         url: "doast.com",
+         description: "doast-eating at its finest",
          min_activity_level: 1,
          max_activity_level: 3
         )
        patch :update, id: activity.id, activity: {
-         name: "Toes-Eating",
+         name: "Toes-fating",
          price: 5,
          url: "toes.com",
          description: "Look at your toes",
