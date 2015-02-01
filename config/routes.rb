@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  # Angular
+  root 'home#index'
+  get '*path' => 'home#index'
+
   # Home
-  get   '/',                            to: 'home#index',    as: :home_index
-  root                                      'home#index',    as: :root
+  # get   '/',                            to: 'home#index',    as: :home_index
+  # root                                      'home#index',    as: :root
 
   get     '/auth/:provider/callback',   to: 'sessions#create'
   # get   '/auth/:provider',              to: 'sessions#new',  as: :sign_in

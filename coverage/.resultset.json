@@ -21,6 +21,53 @@
         1,
         null
       ],
+      "/Users/hollyleary/Ada/wat-do-seattle/db/schema.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/activities_controller.rb": [
         1,
         null,
@@ -32,7 +79,6 @@
         1,
         1,
         1,
-        1,
         null,
         0,
         null,
@@ -60,7 +106,7 @@
         1,
         null,
         1,
-        3,
+        2,
         null,
         null,
         null
@@ -70,9 +116,19 @@
         null,
         null,
         1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        8,
+        null,
+        null,
         null
       ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/home_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -124,6 +180,16 @@
         null,
         null
       ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/mailers/event_mailer.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        0,
+        null,
+        null
+      ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/models/activity.rb": [
         1,
         null,
@@ -131,6 +197,10 @@
         null,
         1,
         null,
+        null
+      ],
+      "/Users/hollyleary/Ada/wat-do-seattle/app/models/event.rb": [
+        1,
         null
       ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/models/user.rb": [
@@ -143,6 +213,6 @@
         null
       ]
     },
-    "timestamp": 1422638859
+    "timestamp": 1422828134
   }
 }
