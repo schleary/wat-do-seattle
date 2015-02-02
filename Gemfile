@@ -25,6 +25,16 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+end
+
+gem 'therubyracer', platforms: :ruby
+
 gem "omniauth-google-oauth2"
 
 gem "binding_of_caller"

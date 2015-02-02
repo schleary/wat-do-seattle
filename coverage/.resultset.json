@@ -21,53 +21,6 @@
         1,
         null
       ],
-      "/Users/hollyleary/Ada/wat-do-seattle/db/schema.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/activities_controller.rb": [
         1,
         null,
@@ -213,6 +166,6 @@
         null
       ]
     },
-    "timestamp": 1422828134
+    "timestamp": 1422915815
   }
 }
