@@ -1,0 +1,6 @@
+.dashboard-view-container{
+	position: relative;
+}
+.dashboard-ui-view{
+	@extend .main-view-container;
+}

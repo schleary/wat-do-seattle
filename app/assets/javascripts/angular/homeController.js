@@ -1,4 +1,4 @@
 watDoModule.controller('homeController', ['$scope', '$http', function($scope, $http) {
   console.log("Home!");
-  // console.log($scope);
+  console.log($scope);
 }]);

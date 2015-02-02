@@ -15,7 +15,7 @@ angular
             url: '/',
             templateUrl: 'home.html',
             controller: 'HomeCtrl'
-        }), 
+        })
 
         // an abstract state that just serves as a
         // parent for the below child states
@@ -44,5 +44,5 @@ angular
     $urlRouterProvider.otherwise('/');
 
     // enable HTML5 Mode for SEO
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 });
