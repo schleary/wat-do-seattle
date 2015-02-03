@@ -86,7 +86,7 @@
 
     <sidebar>
       <div class="side-nav">
-        Profile
+        <%= link_to 'Profile', root_path %>
       </div>
       <div class="side-nav">
         Events
@@ -99,37 +99,11 @@
       </div>
     </sidebar>
 
-    <div class="jumbotron">
-    <h1>Wat Do? Seattle</h1>
+    <div class="mid-content">
 
-      <!-- Button trigger modal -->
-      <%= link_to 'Sign In', "#", data: {toggle: "modal", target: "#myModal"} %>
+      <%= yield %>
 
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Sign In</h4>
-            </div>
-            <div class="modal-body">
-              <% if @current_user %>
-                <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li>
-              <% else %>
-                <li><%= link_to 'Sign In With Google', 'auth/google' %> <span class="sr-only">(current)</span></li>
-              <% end %>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <%= yield %>
 
   </div>
 </body>

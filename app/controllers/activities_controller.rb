@@ -22,7 +22,7 @@ class ActivitiesController < ApplicationController
   end
 
   def results
-    @activity = Activity.all
+    @activities = Activity.all
   end
 
   def show

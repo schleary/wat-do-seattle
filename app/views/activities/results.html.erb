@@ -1,1 +1,18 @@
-results
+<h2>Your Top Results:</h2>
+
+<% if @activities.any?%>
+  <% @activities.each_with_index do |activity, i| %>
+  <div class = "title">
+    <%= i+ 1 %>).
+  <!-- make this a link with the provided url -->
+    <%= link_to activity.name, "#{activity.url}", :target => '_blank' %><br>
+  </div>
+  <div class = "content">
+    Description: <%= activity.description %><br>c
+    Price: ~$<%= activity.min_price %>.00<br>
+    Price: ~$<%= activity.max_price %>.00<br>
+  </div>
+  <% end %>
+<% else %>
+  Sorry! We couldn't find any matches for you! Try again!
+<% end %>

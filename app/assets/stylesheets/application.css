@@ -12,10 +12,17 @@
  *
  */
 
+.mid-content{
+  float: left;
+}
+
 sidebar{
   float: right;
-  display:inline-block;
   margin-left:5px;
+}
+
+.form-horizontal{
+  width: 950px;
 }
 
 .side-nav{
@@ -26,4 +33,38 @@ sidebar{
 
 .jumbotron{
   width: 970px;
+}
+
+#slider-snap{
+  width: 31%;
+  margin: 3% 5% 1% 18.25%;
+}
+
+
+.min-example-val:before {
+  content: "Min Activity Level: ";
+  font-size: 12px;
+  margin-right: 1.5%;
+  margin-left: 18.25%;
+}
+
+.max-example-val:before {
+  content: "Max Activity Level: ";
+  font-size: 12px;
+  margin-right: 1.5%;
+  margin-left: 18.25%;
+}
+
+.activity-text{
+  padding-top: 7px;
+  margin-bottom: 0;
+  text-align: right;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 0px;
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-weight: 700;
 }

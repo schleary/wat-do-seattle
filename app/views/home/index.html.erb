@@ -1,6 +1,34 @@
-<div class="main-view-container" ui-view>
+<div class="jumbotron">
+  <h1><%= link_to 'Wat Do? ', root_path %><small>Seattle</small></h1>
+  <p>
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+    when an unknown printer took a galley of type and scrambled it to make a type specimen
+    book.
+  </p><br>
 
-  <div ng-include="'navbar.html'"></div>
   <!-- Button trigger modal -->
+  <%= link_to 'Sign In', "#", data: {toggle: "modal", target: "#myModal"} %>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <% if @current_user %>
+            <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li>
+          <% else %>
+            <li><%= link_to 'Sign In With Google', 'auth/google' %> <span class="sr-only">(current)</span></li>
+          <% end %>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
