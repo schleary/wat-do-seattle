@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
-  # Angular
-  root 'home#index'
-  get '*path' => 'home#index'
+  # # Angular
+  # root 'home#index'
+  # get '*path' => 'home#index'
+
+  resources :sessions
 
   # Home
-  # get   '/',                            to: 'home#index',    as: :home_index
-  # root                                      'home#index',    as: :root
+  get   '/',                            to: 'home#index',    as: :home_index
+  root                                      'home#index',    as: :root
 
-  get     '/auth/:provider/callback',   to: 'sessions#create'
+  get     '/auth/:provider/callback',     to: 'users#create'
   # get   '/auth/:provider',              to: 'sessions#new',  as: :sign_in
   # get   '/auth/:provider/google_oauth2',to: 'users#new',     as: :sign_in
   # get   '/auth/callback',               to: 'users#create',  as: :google_callback

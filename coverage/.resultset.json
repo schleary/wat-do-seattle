@@ -78,6 +78,8 @@
         8,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/hollyleary/Ada/wat-do-seattle/app/controllers/home_controller.rb": [
@@ -166,6 +168,6 @@
         null
       ]
     },
-    "timestamp": 1422915815
+    "timestamp": 1422990791
   }
 }

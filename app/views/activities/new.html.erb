@@ -1,2 +1,83 @@
-<h1>Activity#new</h1>
-<p>Find me in app/views/activity/new.html.erb</p>
+
+<h2>Suggest a Thing</h2>
+
+<%= bootstrap_form_for @activity, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", url: {action: "create"}  do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :url %>
+  <%= f.text_area :description %>
+  <%= f.number_field :price, prepend: "$", append: ".00"  %>
+
+  <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
+  <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>
+  <div class="activity-text">Activity Level</div><div id='slider-snap'></div>
+  <span class="min-example-val" id="slider-snap-value-lower"></span>
+  <br>
+  <span class="max-example-val" id="slider-snap-value-upper"></span>
+  <br>
+  <br>
+
+  <!-- <%= f.select :price, (
+    [
+      ['Inactive (ex: Watching a Movie)', { 'min_activity_level' => '1' }],
+      ['Some Mental Activity (ex: Reading a Book)', { 'min_activity_level' => '2' }],
+      ['Mentally Active (ex: Playing Chess)', { 'min_activity_level' => '3' }],
+      ['Moderate (ex: Light Yoga)', { 'min_activity_level' => '4' }],
+      ['Vigorous (ex: Running)', { 'min_activity_level' => '5' }],
+      ['Extreme (ex: Mountain Climbing)', { 'min_activity_level' => '6' }],
+      ['Dont Care (Surprise Me!)', { 'min_activity_level' => '7' }]
+    ]
+  ) %> -->
+  <%= f.submit "Submit" %>
+<% end %>
+<br>
+
+<%= javascript_include_tag 'jquery.nouislider.all.min' %>
+<%= javascript_include_tag 'slider' %>
+<%= stylesheet_link_tag    'jquery.nouislider.min', media: 'all', 'data-turbolinks-track' => true %>
+<br>
+<br>
+
+<script>
+$( document ).ready(function() {
+  $('#slider-snap').noUiSlider({
+  	start: [ 1, 3 ],
+  	snap: true,
+  	connect: true,
+  	range: {
+  		'min': 0,
+  		'20%': 1,
+  		'40%': 2,
+  		'60%': 3,
+  		'80%': 4,
+  		'max': 5
+  	}
+  });
+
+  $('#slider-snap').Link('lower').to(function(minSliderValue) {
+    var values = ['Inactive (ex: Watching a Movie)',
+                  'Some Mental Activity (ex: Reading a Book)',
+                  'Mentally Active (ex: Playing Chess)',
+                  'Moderate (ex: Light Yoga)',
+                  'Vigorous (ex: Running)',
+                  'Extreme (ex: Mountain Climbing)',
+                  'Dont Care (Surprise Me!)'];
+
+    $("#min_activity_level").attr("value", parseInt(minSliderValue));
+     $('#slider-snap-value-lower').html(values[parseInt(minSliderValue)]);
+  });
+
+  $('#slider-snap').Link('upper').to(function(maxSliderValue) {
+    var values = ['Inactive (ex: Watching a Movie)',
+                  'Some Mental Activity (ex: Reading a Book)',
+                  'Mentally Active (ex: Playing Chess)',
+                  'Moderate (ex: Light Yoga)',
+                  'Vigorous (ex: Running)',
+                  'Extreme (ex: Mountain Climbing)',
+                  'Dont Care (Surprise Me!)'];
+
+    $("#max_activity_level").attr("value", parseInt(maxSliderValue));
+     $('#slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
+  });
+
+});
+</script>
