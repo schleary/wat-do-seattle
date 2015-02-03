@@ -32,6 +32,10 @@ Rails.application.routes.draw do
   get	    "/activities",               to:	"activities#index",   as: :activities
   get	    "/activities/new",           to:	"activities#new",     as: :activity_new
   post    "/activities",               to:	"activities#create",  as: :activity_create
+
+  get     "/activities/query",         to:  "activities#query",    as: :activities_query
+  get     "/activities/results",       to:  "activities#results", as: :activities_results
+
   get	    "/activities/:id",           to:	"activities#show",    as: :activity_show
   get	    "/activities/:id/edit",      to:	"activities#edit",    as: :activity_edit
   patch	  "/activities/:id",           to:	"activities#update",  as: :activity_update

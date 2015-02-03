@@ -4,13 +4,26 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new
   end
 
+  def index
+    @activities = Activity.all
+  end
+
   def create
     @activity = Activity.new(activities_params)
     if @activity.save
-      redirect_to root_path
+      redirect_to activity_show_path(@activity.id)
     else
       render 'new'
     end
+  end
+
+  def query
+    @activity = Activity.new
+    redirect_to activities_results_path
+  end
+
+  def results
+    @activity = Activity.all
   end
 
   def show
