@@ -57,7 +57,7 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
