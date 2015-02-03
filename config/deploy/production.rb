@@ -17,7 +17,7 @@
 
 server '54.149.91.239',
   user: 'ubuntu',
-  roles: %w{web app},
+  roles: %w{web app db},
   ssh_options: {
     keys: %w(/Users/hollyleary/.ssh/ec2-wat-do.pem),
     forward_agent: false,
