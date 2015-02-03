@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.8.0/application.js' type='text/javascript'></script>    
     <link href='./assets/0.8.0/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.8.0/favicon_green.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.8.0/favicon_yellow.png" />
     <link rel="icon" type="image/png" href="./assets/0.8.0/favicon.png" />
   </head>
   
@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-02-03T11:13:11-08:00">2015-02-03T11:13:11-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-02-03T13:52:10-08:00">2015-02-03T13:52:10-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">92.31%</span></span>
+    (<span class="covered_percent"><span class="yellow">84.51%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="green">
-         1.13
+       <span class="red">
+         0.99
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>13</b> files in total.
-    <b>65</b> relevant lines. 
+    <b>71</b> relevant lines. 
     <span class="green"><b>60</b> lines covered</span> and
-    <span class="red"><b>5</b> lines missed </span>
+    <span class="red"><b>11</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#cb9177792b1ee394948eac9977cc70518ec3ce19" class="src_link" title="app/controllers/activities_controller.rb">app/controllers/activities_controller.rb</a></td>
-        <td class="yellow strong">90.0 %</td>
-        <td>41</td>
-        <td>20</td>
+        <td class="red strong">69.23 %</td>
+        <td>53</td>
+        <td>26</td>
         <td>18</td>
-        <td>2</td>
-        <td>1.0</td>
+        <td>8</td>
+        <td>0.7</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>2.2</td>
+        <td>2.0</td>
       </tr>
       
       <tr>
@@ -189,20 +189,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="green">91.84%</span></span>
+    (<span class="covered_percent"><span class="yellow">81.82%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="green">
-         1.18
+       <span class="yellow">
+         1.0
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>4</b> files in total.
-    <b>49</b> relevant lines. 
+    <b>55</b> relevant lines. 
     <span class="green"><b>45</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed </span>
+    <span class="red"><b>10</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -220,12 +220,12 @@
       
       <tr>
         <td class="strong"><a href="#cb9177792b1ee394948eac9977cc70518ec3ce19" class="src_link" title="app/controllers/activities_controller.rb">app/controllers/activities_controller.rb</a></td>
-        <td class="yellow strong">90.0 %</td>
-        <td>41</td>
-        <td>20</td>
+        <td class="red strong">69.23 %</td>
+        <td>53</td>
+        <td>26</td>
         <td>18</td>
-        <td>2</td>
-        <td>1.0</td>
+        <td>8</td>
+        <td>0.7</td>
       </tr>
       
       <tr>
@@ -235,7 +235,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>2.2</td>
+        <td>2.0</td>
       </tr>
       
       <tr>
@@ -514,11 +514,11 @@
         <div class="source_table" id="cb9177792b1ee394948eac9977cc70518ec3ce19">
   <div class="header">
     <h3>app/controllers/activities_controller.rb</h3>
-    <h4><span class="yellow">90.0 %</span> covered</h4>
+    <h4><span class="red">69.23 %</span> covered</h4>
     <div>
-      <b>20</b> relevant lines. 
+      <b>26</b> relevant lines. 
       <span class="green"><b>18</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -564,67 +564,67 @@
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">  def create</code>
+          <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="8">
           
-          <code class="ruby">    @activity = Activity.new(activities_params)</code>
+          
+          <code class="ruby">    @activities = Activity.all</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    if @activity.save</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      redirect_to root_path</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="12">
-          
-          
-          <code class="ruby">      render &#39;new&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="13">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">  def show</code>
+          <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="12">
           
-          <code class="ruby">    @activity = Activity.find(params[:id])</code>
+          
+          <code class="ruby">    @activity = Activity.new(activities_params)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="13">
+          
+          
+          <code class="ruby">    if @activity.save</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="14">
+          
+          
+          <code class="ruby">      redirect_to activity_show_path(@activity.id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">      render &#39;new&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
@@ -642,61 +642,61 @@
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">  def edit</code>
+          <code class="ruby">  def query</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    @activity = Activity.new</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="23">
           
-          <code class="ruby">  def update</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">    @activity = Activity.find(params[:id])</code>
+          <code class="ruby">  def results</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="25">
           
-          <code class="ruby">    if @activity.update(activities_params)</code>
+          
+          <code class="ruby">    @activity = Activity.all</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="26">
           
-          <code class="ruby">      redirect_to activity_show_path</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      render &#39;edit&#39;</code>
+          <code class="ruby">  def show</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">    @activity = Activity.find(params[:id])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
@@ -714,7 +714,7 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">  def destroy</code>
+          <code class="ruby">  def edit</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
@@ -732,40 +732,112 @@
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def update</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    @activity = Activity.find(params[:id])</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">  def activities_params</code>
+          <code class="ruby">    if @activity.update(activities_params)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="38">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
           
-          <code class="ruby">    params.require(:activity).permit(:name, :price, :url, :description, :min_activity_level, :max_activity_level)</code>
+          <code class="ruby">      redirect_to activity_show_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="40">
+          
+          
+          <code class="ruby">      render &#39;edit&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def destroy</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def activities_params</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    params.require(:activity).permit(:name, :min_price, :max_price, :url, :description, :min_activity_level, :max_activity_level)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">end</code>
@@ -849,8 +921,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="11">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="7" data-linenumber="11">
+          <span class="hits">7</span>
           
           <code class="ruby">    @current_user ||= User.find(session[:user_id]) if (session[:user_id])</code>
         </li>
@@ -1464,7 +1536,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :name, :price, :url, :description, :min_activity_level, :max_activity_level, presence: true</code>
+          <code class="ruby">  validates :name, :min_price, :max_price, :url, :description, :min_activity_level, :max_activity_level, presence: true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">

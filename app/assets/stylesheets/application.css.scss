@@ -11,3 +11,19 @@
  * file per style scope.
  *
  */
+
+sidebar{
+  float: right;
+  display:inline-block;
+  margin-left:5px;
+}
+
+.side-nav{
+  width: 150px;
+  height:150px;
+  border: solid 1px;
+}
+
+.jumbotron{
+  width: 970px;
+}
