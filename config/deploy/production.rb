@@ -16,7 +16,7 @@
 # used to set extended properties on the server.
 
 server '54.149.91.239',
-  user: 'wat-do-seattle',
+  user: 'ubuntu',
   roles: %w{web app},
   ssh_options: {
     keys: %w(/Users/hollyleary/.ssh/ec2-wat-do.pem),

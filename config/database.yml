@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: wat-do-seattle_production
-  username: wat-do-seattle
+  username: ubuntu
   password: <%= ENV['WAT-DO-SEATTLE_DATABASE_PASSWORD'] %>

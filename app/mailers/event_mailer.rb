@@ -3,6 +3,6 @@ class EventMailer < ActionMailer::Base
 
   def notify
     # @event = Event.new
-    mail(to: "schleary@gmail.com", subject: "You have an event coming up!").deliver()
+    mail(to: "bookis.smuin@gmail.com", subject: "You have an event coming up!").deliver()
   end
 end
