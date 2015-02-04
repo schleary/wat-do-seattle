@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EventsControllerController, :type => :controller do
+RSpec.describe EventsController, :type => :controller do
 
   describe "GET create" do
     it "returns http success" do

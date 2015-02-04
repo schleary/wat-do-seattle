@@ -1,4 +1,4 @@
-class EventsControllerController < ApplicationController
+class EventsController < ApplicationController
   def create
     @event = Event.new(events_params)
     if @event.save

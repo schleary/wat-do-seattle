@@ -8,13 +8,12 @@
     <%= link_to activity.name, "#{activity.url}", :target => '_blank' %><br>
   </div>
   <div class = "content">
-    Description: <%= activity.description %><br>c
-    Price: ~$<%= activity.min_price %>.00<br>
-    Price: ~$<%= activity.max_price %>.00
+    Description: <%= activity.description %><br>
+    Price Range: $<%= activity.min_price %>.00 - $<%= activity.max_price %>.00 <br>
   </div>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createEvent">
     Create an Event
-  </button><br>
+  </button><br><br>
 
 
 
