@@ -35,7 +35,7 @@ end
 
 gem 'therubyracer', platforms: :ruby
 
-gem "omniauth-google-oauth2"
+gem "omniauth-google"
 
 gem "binding_of_caller"
 # Use jquery as the JavaScript library

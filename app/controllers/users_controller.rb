@@ -3,12 +3,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-  end
-
-  def save
-  end
-
   def create
     auth_hash = request.env['omniauth.auth']
     @user = User.find_by_uid(auth_hash.uid)
@@ -24,7 +18,7 @@ class UsersController < ApplicationController
       else
         redirect_to @user
       end
-    end    
+    end
     # @user = User.new(users_params)
     # if @user.save
     #   redirect_to users_show_path(@user)

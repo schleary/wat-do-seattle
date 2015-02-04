@@ -1,0 +1,13 @@
+<h2>My Friends</h2>
+<% for friendship in @user.friendships %>
+  <%=h friendship.friend.name %>
+  (<%= link_to "Remove", friendship, :method => :delete %>)<br>
+<% end %>
+
+<p><%= link_to "Find Friends", users_path %></p>
+
+<h2>Friended by Users</h2>
+
+<% for user in @user.inverse_friends %>
+  <%=h user.name %>
+<% end %>
