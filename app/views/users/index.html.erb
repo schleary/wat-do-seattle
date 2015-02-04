@@ -1,6 +1,6 @@
 <h2>Wat Do? Users </h2>
 
-<% for user in @users %>
+<% @users.each do |user| %>
   <%= user.name %>
-  <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+  <%= link_to "Add Friend", friendship_create_path(:friend_id => user), :method => :post %><br>
 <% end %>

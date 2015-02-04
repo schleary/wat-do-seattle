@@ -34,6 +34,17 @@ Rails.application.routes.draw do
   delete  "/users/:id",                 to:	"users#destroy", as: :users_delete
   get     "/users/:id/upvote",          to: "users#upvote",  as: :users_upvote
 
+  # Friendships
+  get 	  "/friendship",                     to:	"friendships#index",   as: :friendship
+  get	    "/friendship/new",                 to:	"friendships#new",     as: :friendship_new
+  post    "/friendship/create",              to:	"friendships#create",  as: :friendship_create
+  get	    "/friendship/:id",                 to:	"friendships#show",    as: :friendship_show
+  get	    "/friendship/:id/edit",            to:	"friendships#edit",    as: :friendship_edit
+  patch	  "/friendship/:id",                 to:	"friendships#update",  as: :friendship_update
+  get     "/friendship/:id/delete",          to: "friendships#destroy", as: :friendship_destroy
+  delete  "/friendship/:id",                 to:	"friendships#destroy", as: :friendship_delete
+  get     "/friendship/:id/upvote",          to: "friendships#upvote",  as: :friendship_upvote
+
 
   # Activities
   get	    "/activities",               to:	"activities#index",   as: :activities
