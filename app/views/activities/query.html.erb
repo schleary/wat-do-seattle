@@ -2,7 +2,6 @@
 <br>
 
 <%= bootstrap_form_for @activity, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", url: {action: "results"}  do |f| %>
-  <%= f.number_field :min_price, prepend: "$", append: ".00"  %>
   <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
   <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
   <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>

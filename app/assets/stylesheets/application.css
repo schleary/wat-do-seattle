@@ -28,7 +28,33 @@ sidebar{
 .side-nav{
   width: 150px;
   height:150px;
-  border: solid 1px;
+  text-decoration: none;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.nav-profile{
+  background-image: url("http://placekitten.com/g/150/150");
+  background-size: 150px 150px;
+  background-repeat: no-repeat;
+}
+
+.nav-events{
+  background-image: url("http://placekitten.com/g/150/150");
+  background-size: 150px 150px;
+  background-repeat: no-repeat;
+}
+
+.nav-friends{
+  background-image: url("http://placekitten.com/g/150/150");
+  background-size: 150px 150px;
+  background-repeat: no-repeat;
+}
+
+.nav-great{
+  background-image: url("http://placekitten.com/g/150/150");
+  background-size: 150px 150px;
+  background-repeat: no-repeat;
 }
 
 .jumbotron{

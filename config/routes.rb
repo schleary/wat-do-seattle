@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'friendships/create'
-
-  get 'friendships/destroy'
-
   # # Angular
   # root 'home#index'
   # get '*path' => 'home#index'
@@ -14,7 +10,7 @@ Rails.application.routes.draw do
   get   '/',                              to: 'home#index',    as: :home_index
   root                                        'home#index',    as: :root
 
-  get     '/auth/google',          to: 'users#new'
+  get     '/auth/google',                 to: 'users#new'
   post    '/auth/:provider/callback',     to: 'users#create'
 
   # get   '/auth/:provider/callback',     to: 'users#create'
@@ -27,7 +23,7 @@ Rails.application.routes.draw do
   get	    "/users",                     to:	"users#index",   as: :users
   get	    "/users/new",                 to:	"users#new",     as: :users_new
   post    "/users",                     to:	"users#create",  as: :users_create
-  get	    "/users/:id",                 to:	"users#show",    as: :users_show
+  get	    "/users/:id",                 to:	"users#show",    as: :user_show
   get	    "/users/:id/edit",            to:	"users#edit",    as: :users_edit
   patch	  "/users/:id",                 to:	"users#update",  as: :users_update
   get     "/users/:id/delete",          to: "users#destroy", as: :users_destroy

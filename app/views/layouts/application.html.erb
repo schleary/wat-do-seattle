@@ -85,17 +85,65 @@
     </nav>
 
     <sidebar>
-      <div class="side-nav">
-        <%= link_to 'Profile', root_path %>
+      <div class="nav-profile">
+        <% if @current_user %>
+          <%= link_to user_show_path do %>
+            <div class="side-nav" >
+              Profile
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to '/auth/google_oauth2' do %>
+            <div class="side-nav">
+              Profile
+            </div>
+          <% end %>
+        <% end %>
       </div>
-      <div class="side-nav">
-        Events
+      <div class="nav-events">
+        <% if @current_user %>
+          <%= link_to events_show_path do %>
+            <div class="side-nav">
+              Events
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to '/auth/google_oauth2' do %>
+            <div class="side-nav">
+              Events
+            </div>
+          <% end %>
+        <% end %>
       </div>
-      <div class="side-nav">
-        Friends
+      <div class="nav-friends">
+        <% if @current_user %>
+          <%= link_to friends_path do %>
+            <div class="side-nav">
+              Friends
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to '/auth/google_oauth2' do %>
+            <div class="side-nav">
+              Friends
+            </div>
+          <% end %>
+        <% end %>
       </div>
-      <div class="side-nav">
-        Great
+      <div class="nav-friends">
+      <% if @current_user %>
+          <%= link_to friends_path do %>
+            <div class="side-nav">
+              Friends
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to '/auth/google_oauth2' do %>
+            <div class="side-nav">
+              Friends
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </sidebar>
 

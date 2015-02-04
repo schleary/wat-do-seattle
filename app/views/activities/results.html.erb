@@ -10,9 +10,47 @@
   <div class = "content">
     Description: <%= activity.description %><br>c
     Price: ~$<%= activity.min_price %>.00<br>
-    Price: ~$<%= activity.max_price %>.00<br>
+    Price: ~$<%= activity.max_price %>.00
   </div>
-  <% end %>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createEvent">
+    Create an Event
+  </button><br>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="createEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for @event, url: { action: "create" } do |f| %>
+          <%= f.hidden_field :name, label: activity.name %>
+          <!-- current_user.user.user_id -->
+          <%= f.datetime_select :date_time_start, label: "Start Time"%>
+          <%= f.datetime_select :date_time_end, label: "End Time"%>
+      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <%= f.submit "Save", class: "btn btn-default"%>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<% end %>
 <% else %>
-  Sorry! We couldn't find any matches for you! Try again!
+Sorry! We couldn't find any matches for you! <%= link_to 'Try again!', activities_query_path %>
 <% end %>
