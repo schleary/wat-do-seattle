@@ -61,10 +61,6 @@ gem 'spring',        group: :development
 # gem 'unicorn'
 gem 'dotenv-rails'
 
-gem 'therubyracer'
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-digitalocean'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
