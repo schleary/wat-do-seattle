@@ -76,7 +76,7 @@
               <% if @current_user %>
                 <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li>
               <% else %>
-                <li><%= link_to 'Sign In', 'auth/google' %> <span class="sr-only">(current)</span></li>
+                <li><%= link_to 'Sign In', '/auth/google_oauth2' %> <span class="sr-only">(current)</span></li>
               <% end %>
             </ul>
           </ul>
