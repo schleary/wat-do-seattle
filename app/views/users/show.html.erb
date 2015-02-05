@@ -1,2 +1,14 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<%= @user.name %>
+If user == current user, can change profile image
+<%= @user.image_url.to_s %>
+<% @user.admin? %>
+   Admin
+<% end %>
+
+Number of Friends
+Recent Activities
+Add Friendship
+
+======
+
+badges, 
