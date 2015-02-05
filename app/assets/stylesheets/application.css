@@ -22,14 +22,6 @@
   float: center;
 }
 
-.mid-content{
-  float: left;
-  width: 87%;
-  padding-left: 5%;
-  padding-top: 5%;
-  background-color: #F0F0F0;
-}
-
 sidebar{
   float: right;
   margin-left:5px;

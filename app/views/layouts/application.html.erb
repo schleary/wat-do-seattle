@@ -87,8 +87,8 @@
 
     <sidebar>
       <div class="nav-profile">
-        <% if @current_user %>
-          <%= link_to user_show_path do %>
+        <% if current_user %>
+          <%= link_to user_show_path(current_user.id) do %>
             <div class="side-nav" >
               Profile
             </div>
@@ -102,8 +102,8 @@
         <% end %>
       </div>
       <div class="nav-events">
-        <% if @current_user %>
-          <%= link_to events_show_path do %>
+        <% if current_user %>
+          <%= link_to events_path do %>
             <div class="side-nav">
               Events
             </div>
@@ -116,9 +116,9 @@
           <% end %>
         <% end %>
       </div>
-      <div class="nav-friends">
-        <% if @current_user %>
-          <%= link_to friends_path do %>
+      <div class="nav-events">
+        <% if current_user %>
+          <%= link_to friendship_path do %>
             <div class="side-nav">
               Friends
             </div>
@@ -126,33 +126,15 @@
         <% else %>
           <%= link_to '/auth/google_oauth2' do %>
             <div class="side-nav">
-              Friends
+              Events
             </div>
           <% end %>
         <% end %>
       </div>
-      <div class="nav-friends">
-      <% if @current_user %>
-          <%= link_to friends_path do %>
-            <div class="side-nav">
-              Friends
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to '/auth/google_oauth2' do %>
-            <div class="side-nav">
-              Friends
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+
     </sidebar>
 
-    <div class="mid-content">
-
       <%= yield %>
-
-    </div>
 
   </div>
 </body>
