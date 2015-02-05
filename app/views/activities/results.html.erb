@@ -13,6 +13,7 @@
     <%= i+ 1 %>).
   <!-- make this a link with the provided url -->
     <%= link_to activity.name, "#{activity.url}", :target => '_blank' %><br>
+    <%= image_tag activity.image_url.to_s %>
   </div>
   <div class = "content">
     Description: <%= activity.description %><br>

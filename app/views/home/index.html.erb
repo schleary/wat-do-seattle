@@ -18,10 +18,11 @@
           <h4 class="modal-title" id="myModalLabel">Sign In</h4>
         </div>
         <div class="modal-body">
-          <% if @current_user %>
-            <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li>
+          <% if current_user %>
+            Signed in as <strong><%= current_user.name %></strong>!
+            <%= link_to "Sign out", signout_path, id: "sign_out" %>
           <% else %>
-            <li><%= link_to 'Sign In With Google', 'auth/google' %> <span class="sr-only">(current)</span></li>
+            <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
           <% end %>
         </div>
 

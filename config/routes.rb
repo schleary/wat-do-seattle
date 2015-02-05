@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
 
-  # # Angular
-  # root 'home#index'
-  # get '*path' => 'home#index'
-
   # Home
   get   '/',                              to: 'home#index',    as: :home_index
   root                                        'home#index',    as: :root
 
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'auth/:provider/callback',          to: 'sessions#create'
+  get 'auth/failure',                     to: redirect('/')
+  get 'signout',                          to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
 
