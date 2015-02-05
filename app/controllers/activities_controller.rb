@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activities_params)
     if @activity.save
+      flash[:notice] = "Thank you for the activity suggestion!"
       redirect_to activity_show_path(@activity.id)
     else
       render 'new'

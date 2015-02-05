@@ -1,5 +1,8 @@
 <h1><%= link_to @activity.name, @activity.url, :target => '_blank' %></h1>
-<%= image_tag @activity.image_url.to_s %>
+<% if @activity.image_url? %>
+  <%= image_tag @activity.image_url.to_s %>
+<% end %>
+
 <%= @activity.description %><br>
 Price: $<%= @activity.min_price %> - $<%= @activity.min_price %><br>
 Activity Level Range: <%= @activity.min_activity_level %> - <%= @activity.max_activity_level %>

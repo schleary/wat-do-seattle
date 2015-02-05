@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = @current_user || User.find(params[:id])
+    @user = current_user || User.find(params[:id])
   end
 
   def edit

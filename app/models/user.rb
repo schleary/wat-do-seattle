@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   # validates :email, presence: true, uniqueness: true, format: { with: /@/ }
-  # validates :admin, default: false
+  validates :admin, default: false
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|

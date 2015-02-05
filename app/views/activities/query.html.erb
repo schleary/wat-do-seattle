@@ -1,4 +1,5 @@
 <h2>Find a Thing</h2>
+<%= link_to "See All Activities", activities_path %>
 <br>
 
 <%= bootstrap_form_for @activity, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", url: {action: "results"}  do |f| %>

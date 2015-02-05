@@ -1,1 +1,5 @@
-FRIENDSHIPS INDEX
+<h2>My Friends</h2>
+
+<% @friendships.each do |friendship| %>
+  <%= friendship.friend.user.name %>
+<% end %>
