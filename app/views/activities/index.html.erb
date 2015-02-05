@@ -1,6 +1,9 @@
+<h2>All Activities</h2>
 <% @activities.each do |activity| %>
   <hr>
   <%= activity.name %>
-  <img src="<%= activity.image_url %>" height="125px">
+  <% if activity.image_url %>
+    <img src="<%= activity.image_url %>" height="125px">
+  <% end %>
   <%= activity.description %>
 <% end %>

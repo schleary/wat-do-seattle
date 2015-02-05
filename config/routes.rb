@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get     "/users/:id/upvote",          to: "users#upvote",  as: :users_upvote
 
   # Friendships
-  get 	  "/friendship",                     to:	"friendships#index",   as: :friendship
+  get 	  "/friendships",                    to:	"friendships#index",   as: :friendship
   get	    "/friendship/new",                 to:	"friendships#new",     as: :friendship_new
   post    "/friendship/create",              to:	"friendships#create",  as: :friendship_create
   get	    "/friendship/:id",                 to:	"friendships#show",    as: :friendship_show
