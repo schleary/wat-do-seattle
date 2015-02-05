@@ -12,8 +12,13 @@ class EventsController < ApplicationController
   end
 
   def index
+    @events = Event.all.where(:user_id => @current_user.id)
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+  
   def destroy
   end
 

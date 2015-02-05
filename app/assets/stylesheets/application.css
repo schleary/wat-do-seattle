@@ -12,8 +12,22 @@
  *
  */
 
+.container{
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+  float: center;
+}
+
 .mid-content{
   float: left;
+  width: 87%;
+  padding-left: 5%;
+  padding-top: 5%;
+  background-color: #F0F0F0;
 }
 
 sidebar{
