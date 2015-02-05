@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
   validates :name, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true, format: { with: /@/ }
+  # validates :email, presence: true, uniqueness: true, format: { with: /@/ }
   # validates :admin, default: false
 
   def self.from_omniauth(auth)
