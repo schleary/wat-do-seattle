@@ -73,10 +73,11 @@
               </ul>
             </li>
             <ul class="nav navbar-nav">
-              <% if @current_user %>
-                <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li>
+              <% if current_user %>
+                Signed in as <strong><%= current_user.name %></strong>!
+                <%= link_to "Sign out", signout_path, id: "sign_out" %>
               <% else %>
-                <li><%= link_to 'Sign In', '/auth/google_oauth2' %> <span class="sr-only">(current)</span></li>
+                <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
               <% end %>
             </ul>
           </ul>

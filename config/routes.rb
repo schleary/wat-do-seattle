@@ -4,14 +4,19 @@ Rails.application.routes.draw do
   # root 'home#index'
   # get '*path' => 'home#index'
 
-  resources :sessions
-
   # Home
   get   '/',                              to: 'home#index',    as: :home_index
   root                                        'home#index',    as: :root
 
-  get     '/auth/google',                 to: 'users#new'
-  post    '/auth/:provider/callback',     to: 'users#create'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+
+  # get     '/auth/google',                 to: 'users#new'
+  # post    '/auth/:provider/callback',     to: 'users#create'
+  # get     '/auth/failure',                 to: redirect('/')
 
   # get   '/auth/:provider/callback',     to: 'users#create'
   # get   '/auth/:provider',              to: 'sessions#new',  as: :sign_in

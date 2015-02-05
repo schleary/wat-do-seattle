@@ -35,7 +35,8 @@ end
 
 gem 'therubyracer', platforms: :ruby
 
-gem "omniauth-google"
+# gem "omniauth-google"
+gem "omniauth-google-oauth2", "~> 0.2.1"
 
 gem "binding_of_caller"
 # Use jquery as the JavaScript library
@@ -57,9 +58,13 @@ gem 'spring',        group: :development
 # gem 'bower-rails'
 # gem 'angular-rails-templates'
 
+gem 'carrierwave'
+gem 'fog'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 gem 'dotenv-rails'
+gem "mini_magick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

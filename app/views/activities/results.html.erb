@@ -1,3 +1,10 @@
+<div class="search-terms">
+  <h2>Your Search Terms:</h2>
+  Maximum Price: <%=@query["activity"]["max_price"]%> <br>
+  Activity Level Range: <%= @query["activity"]["min_activity_level"]%> - <%= @query["activity"]["max_activity_level"] %>
+
+</div>
+
 <h2>Your Top Results:</h2>
 
 <% if @activities.any?%>

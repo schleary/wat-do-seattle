@@ -8,7 +8,6 @@
   <%= f.text_area :description %>
   <%= f.number_field :min_price, prepend: "$", append: ".00"  %>
   <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
-
   <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
   <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>
   <div class="activity-text">Activity Level</div><div id='slider-snap'></div>
