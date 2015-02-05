@@ -12,13 +12,27 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all.where(:user_id => @current_user.id)
+    @events = Event.all
+    # .where(:user_id => @current_user.id)
   end
 
   def show
     @event = Event.find(params[:id])
   end
-  
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(events_params)
+      redirect_to @event
+    else
+      render :edit
+    end
+  end
+
   def destroy
   end
 

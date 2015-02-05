@@ -3,3 +3,7 @@
 Time: <%= @event.date_time_start %> -
 <%= @event.date_time_end %>
 <%= @event.activity.description %>
+
+<%= link_to "Edit #{@event.activity.name}", event_edit_path(@event), class:"btn btn-default" %>
+<%= link_to "delete", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
+<%= link_to "View All Events", events_path, class:"btn btn-default" %>

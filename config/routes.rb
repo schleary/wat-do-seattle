@@ -56,6 +56,20 @@ Rails.application.routes.draw do
   get     "/activities/:id/delete",    to:  "activities#destroy", as: :activity_destroy
   delete  "/activities/:id",           to:	"activities#destroy", as: :activity_delete
 
+  # Events
+  get	    "/events",               to:	"events#index",   as: :events
+  get	    "/events/new",           to:	"events#new",     as: :event_new
+  post    "/events",               to:	"events#create",  as: :event_create
+
+  get     "/events/query",         to:  "events#query",   as: :events_query
+  post    "/events/results",       to:  "events#results", as: :events_results
+
+  get	    "/events/:id",           to:	"events#show",    as: :event_show
+  get	    "/events/:id/edit",      to:	"events#edit",    as: :event_edit
+  patch	  "/events/:id",           to:	"events#update",  as: :event_update
+  get     "/events/:id/delete",    to:  "events#destroy", as: :event_destroy
+  delete  "/events/:id",           to:	"events#destroy", as: :event_delete
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
