@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205191118) do
+ActiveRecord::Schema.define(version: 20150206214529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150205191118) do
     t.datetime "updated_at"
     t.string   "image_url"
     t.string   "activity_id"
-    t.string   "user_id"
+    t.integer  "user_id"
   end
 
   create_table "friends", force: true do |t|
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20150205191118) do
   end
 
   create_table "friendships", force: true do |t|
-    t.string   "user_id"
-    t.string   "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "friend_id"
   end
 
   create_table "users", force: true do |t|

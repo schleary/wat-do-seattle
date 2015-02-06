@@ -13,11 +13,12 @@ class FriendshipsController < ApplicationController
   end
 
   def index
-    @user = current_user || User.find(params[:id])
+    @user = current_user 
     # @friendships = Friendship.all.where(:user_id => current_user.id)
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def destroy
