@@ -32,3 +32,20 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  function displayContent(json) {
+		 var string = "<table>";
+            var len = json.feed.entry.length;
+            for (var i=0; i<len; i++) {
+                  var itemNum = json.feed.entry[i];
+                  var cost = json.feed.entry[i];
+                  var msrp = json.feed.entry[i];
+				  
+            }
+			string += "</table>";
+			$(string).appendTo('body');
+        }
+		</script>
+<script src="https://docs.google.com/spreadsheets/d/16UQqqGfytzWGxnJbA-2VfSM85LhEOFD0-Ny8dj6sSTU/pubhtml" type="text/javascript"></script>
