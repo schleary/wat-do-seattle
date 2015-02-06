@@ -1,1 +1,5 @@
 <h2>My Profile </h2>
+
+<% if current_user %>
+  <%= link_to "Account", users_edit_path %>
+<% end %>

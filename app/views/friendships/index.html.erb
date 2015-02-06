@@ -1,8 +1,8 @@
 <h2>Friends</h2>
 <ul>
-  <% for friendship in @user.friendships %>
+  <% @user.friendships.each do |friendship| %>
     <li>
-      <%=h friendship.friend.name %>
+      <%= friendship.friend.name %>
       (<%= link_to "remove", friendship, :method => :delete %>)
     </li>
   <% end %>

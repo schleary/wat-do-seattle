@@ -37,18 +37,26 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user || User.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+    @user = current_user
+    if @user.destroy
+      session[:user_id] = nil
+      redirect_to root_path
+    else
+      render "show"
+    end
   end
 
   private
 
   def users_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :admin)
   end
 
 end
