@@ -1,5 +1,25 @@
 == README
 
+wat-do-seattle.com
+
+API:
+-----
+Non-secure:
+curl -H 'Accept: application/vnd.example.v1' http://localhost:3000/api/activities
+
+Secure:
+
+uncomment:
+api_key.rb
+  # before_create :generate_access_token
+activities_controller.rb
+  # before_filter :restrict_access
+
+ApiKey.create!
+> "some_key"
+curl http://localhost:3000/api/activities -H 'Authorization: Token token="some_key"'
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
