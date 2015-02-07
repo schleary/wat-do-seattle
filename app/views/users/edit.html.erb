@@ -9,9 +9,11 @@
 <hr>
 
 <h3>Edit Your Profile: </h3>
-<%= bootstrap_form_for users_update_path do |f| %>
+<%= bootstrap_form_for users_update_path(@user), url: {action: "update"} do |f| %>
 
-    <%= f.text_field :name %>
+    <%= f.file_field :image, label: "Update Profile Picture" %>
+
+    <%= f.text_field :name, placeholder: @user.name %>
 
     <% if @user.email %>
       <% unless @user.confirmed %>
@@ -37,7 +39,10 @@
       <div class="alert alert-warning" role="alert">
         Submit and confirm an email address in order to request admin status.
       </div>
+
     <% end %>
+
+<hr>
 
     <%= f.submit class: "btn btn-default", value: "Update Account"%>
 <% end %>

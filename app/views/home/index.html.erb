@@ -18,7 +18,7 @@
           <h4 class="modal-title" id="myModalLabel">Sign In</h4>
         </div>
         <div class="modal-body">
-          <% if @current_user %>
+          <% if current_user %>
             <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li>
           <% else %>
             <li><%= link_to 'Sign In With Google', 'auth/google' %> <span class="sr-only">(current)</span></li>
@@ -42,7 +42,7 @@
                   var itemNum = json.feed.entry[i];
                   var cost = json.feed.entry[i];
                   var msrp = json.feed.entry[i];
-				  
+
             }
 			string += "</table>";
 			$(string).appendTo('body');

@@ -41,6 +41,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    @user.update(user_params)
+    flash[:notice] = "Your account has been updated!"
+    redirect_to user_edit_path
+
   end
 
   def destroy
