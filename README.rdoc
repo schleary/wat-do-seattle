@@ -19,6 +19,23 @@ ApiKey.create!
 > "some_key"
 curl http://localhost:3000/api/activities -H 'Authorization: Token token="some_key"'
 
+Script:
+
+in app.rb:
+config.autoload_paths << Rails.root.join('support')
+
+create support folder in root
+  create activity.rb file here
+   class Activity
+    class << self
+    def awesome_function
+    puts "Here!"
+    end
+    end
+  end
+
+start console
+Activity.awesome_function should return the function
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(events_params)
     if @event.save
-      redirect_to event_show_path
+      redirect_to event_show_path(@event)
     else
       flash[:error] = "There was a problem creating this event"
     end

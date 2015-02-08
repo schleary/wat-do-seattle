@@ -29,6 +29,7 @@ module WatDoSeattle
 
     config.assets.paths << Rails.root.join("lib","assets","bower_components","bootstrap-sass-official", "assets", "stylesheets")
     config.assets.paths << Rails.root.join("lib","assets","bower_components","bootstrap-sass-official", "assets","fonts")
+    config.autoload_paths << Rails.root.join('support')
     
   end
 end

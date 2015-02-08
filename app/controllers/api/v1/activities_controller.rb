@@ -17,6 +17,10 @@ module Api
 
       respond_to :json
 
+      def upload_activities
+        Activity.create_activites(params[:json])
+      end
+
       def index
         respond_with Activity.all
       end

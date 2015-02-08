@@ -66,6 +66,8 @@ gem 'fog'
 gem 'dotenv-rails'
 gem "mini_magick"
 
+gem 'json'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

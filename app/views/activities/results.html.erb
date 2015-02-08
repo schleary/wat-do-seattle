@@ -15,7 +15,7 @@
     <%= link_to activity.name, "#{activity.url}", :target => '_blank' %><br>
 
       <%= image_tag activity.image_url.to_s %>
-  
+
   </div>
   <div class = "content">
     Description: <%= activity.description %><br>
@@ -38,7 +38,7 @@
           <h4 class="modal-title" id="myModalLabel">Modal title</h4>
         </div>
         <div class="modal-body">
-          <%= bootstrap_form_for @event, url: { action: "create" } do |f| %>
+          <%= bootstrap_form_for(@event, url: event_create_path) do |f| %>
             <%= f.hidden_field :activity_id, :value => activity.id %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
 

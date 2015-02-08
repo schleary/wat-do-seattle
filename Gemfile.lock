@@ -302,6 +302,7 @@ DEPENDENCIES
   fog
   jbuilder (~> 2.0)
   jquery-rails
+  json
   mini_magick
   omniauth-google-oauth2 (~> 0.2.1)
   pg
