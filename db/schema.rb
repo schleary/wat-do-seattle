@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207071348) do
+ActiveRecord::Schema.define(version: 20150209190641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150207071348) do
     t.text     "image"
     t.datetime "oauth_expires_at"
     t.string   "provider"
+    t.boolean  "confirmed",        default: false
   end
 
 end

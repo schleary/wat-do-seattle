@@ -42,9 +42,21 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(user_params)
+    email1 = @user.email
+    @user.update(users_params)
+    if params[:user][:admin] == "1"
+      @user.admin = nil
+      @user.save
+    end
+    email2 = @user.email
+    unless email1 == email2
+      @user.confirmed = false
+      @user.save
+      # Resque.enqueue(EmailSubscribeJob, @user.id)
+      flash[:notice] = "Expect an email confirming your subscription shortly!"
+    end
     flash[:notice] = "Your account has been updated!"
-    redirect_to user_edit_path
+    redirect_to user_show_path
 
   end
 
@@ -58,10 +70,44 @@ class UsersController < ApplicationController
     end
   end
 
+
+
+
+  def confirm
+    @user = @current_user
+    @user.confirm
+    @user.save
+    redirect_to @user
+  end
+
+  def become_admin
+    @user = User.find(params[:id])
+    if @user.confirmed
+      @user.adminify
+      @user.save
+      redirect_to @current_user
+    else
+      render "admin_request"
+    end
+  end
+
+  def deny_request
+    @user = User.find(params[:id])
+    @user.turn_down
+    @user.save
+    redirect_to user_path(@current_user.id)
+  end
+
+  def admin_request
+    @user = @current_user
+  end
+
+
+
   private
 
   def users_params
-    params.require(:user).permit(:name, :admin)
+    params.require(:user).permit(:name, :admin, :email, :image)
   end
 
 end

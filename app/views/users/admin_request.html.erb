@@ -1,0 +1,17 @@
+<p>
+  So, <%= @user.name %>, you've learned the secret url,
+  and would like to become an admin.
+</p>
+
+<% if @user.confirmed %>
+  <p>
+   Go ahead, click this
+   <%= link_to "button", adminify_path(@user), class: "btn btn-default" %>,
+   and adminify yourself!
+ </p>
+<% else %>
+  <p>
+    Before you can become an admin,
+    you must submit and confirm your <%= link_to "email address.", users_edit_path %>
+  </p>
+<% end %>

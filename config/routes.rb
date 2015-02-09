@@ -2,22 +2,6 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
-  namespace :api, defaults: {format: 'json'} do
-    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
-      resources :activities do
-        collection do
-          post 'upload_activites'
-        end
-        # member do
-        #   get 'events'
-        # end
-      end
-    end
-    # scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do
-    #   resources :activities
-    # end
-  end
-
   resources :sessions, only: [:create, :destroy]
 
   # Home
@@ -38,6 +22,12 @@ Rails.application.routes.draw do
   get     "/users/:id/delete",          to: "users#destroy", as: :users_destroy
   delete  "/users/:id",                 to:	"users#destroy", as: :users_delete
   get     "/users/:id/upvote",          to: "users#upvote",  as: :users_upvote
+
+  get   '/users/:id/confirm',             to: 'users#confirm', as: :confirm_user
+  get   '/users/:id/deny_admin',          to: 'users#deny_request', as: :deny_request
+  get   '/users/:id/9847hfh9f824oifnsdlkvhosiehlrisklevishfleh',to: 'users#admin_request'
+  get   '/users/:id/4ruoirwnv24vpoifho4ehvjrhg4owihfaoihfaajksdhviuwgifbw4f', to: 'users#become_admin', as: :adminify
+
 
   # Friendships
   get 	  "/friendships",                    to:	"friendships#index",   as: :friendship
@@ -78,6 +68,22 @@ Rails.application.routes.draw do
   patch	  "/events/:id",           to:	"events#update",  as: :event_update
   get     "/events/:id/delete",    to:  "events#destroy", as: :event_destroy
   delete  "/events/:id",           to:	"events#destroy", as: :event_delete
+
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+      resources :activities do
+        collection do
+          post 'upload_activites'
+        end
+        # member do
+        #   get 'events'
+        # end
+      end
+    end
+    # scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do
+    #   resources :activities
+    # end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

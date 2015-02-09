@@ -9,7 +9,7 @@
 <hr>
 
 <h3>Edit Your Profile: </h3>
-<%= bootstrap_form_for users_update_path(@user), url: {action: "update"} do |f| %>
+<%= bootstrap_form_for @user, url: {action: "update"} do |f| %>
 
     <%= f.file_field :image, label: "Update Profile Picture" %>
 
