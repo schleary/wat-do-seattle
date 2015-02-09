@@ -6,5 +6,5 @@ class Activity < ActiveRecord::Base
   validates :name, :description, :url, uniqueness: true
 
   mount_uploader :image, ImageUploader
-  
+
 end

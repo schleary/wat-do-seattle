@@ -2,7 +2,7 @@
 <%= link_to "See All Activities", activities_path %>
 <br>
 
-<%= bootstrap_form_for @activity, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", url: {action: "results"}  do |f| %>
+<%= bootstrap_form_for activities_results_path, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
   <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
   <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
   <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>

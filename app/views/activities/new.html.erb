@@ -2,7 +2,7 @@
 <h2>Suggest a Thing</h2>
 <br>
 
-<%= bootstrap_form_for @activity, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", url: {action: "create"}  do |f| %>
+<%= bootstrap_form_for activity_create_path, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
   <%= f.text_field :name %>
   <%= f.text_field :url %>
   <%= f.text_area :description %>

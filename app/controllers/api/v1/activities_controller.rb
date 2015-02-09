@@ -20,26 +20,26 @@ module Api
       def upload_activities
         Activity.create_activites(params[:json])
       end
-
-      def index
-        respond_with Activity.all
-      end
-
-      def show
-        respond_with Activity.find(params[:id])
-      end
-
-      def create
-        respond_with Activity.create(params[:product])
-      end
-
-      def update
-        respond_with Activity.update(params[:id], params[:product])
-      end
-
-      def destroy
-        respond_with Activity.destroy(params[:id])
-      end
+      #
+      # def index
+      #   respond_with Activity.all
+      # end
+      #
+      # def show
+      #   respond_with Activity.find(params[:id])
+      # end
+      #
+      # def create
+      #   respond_with Activity.create(params[:product])
+      # end
+      #
+      # def update
+      #   respond_with Activity.update(params[:id], params[:product])
+      # end
+      #
+      # def destroy
+      #   respond_with Activity.destroy(params[:id])
+      # end
 
       private
 
