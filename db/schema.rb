@@ -46,13 +46,6 @@ ActiveRecord::Schema.define(version: 20150209190641) do
     t.integer  "activity_id"
   end
 
-  create_table "friends", force: true do |t|
-    t.string   "user_id"
-    t.string   "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "friendships", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
