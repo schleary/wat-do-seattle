@@ -1,3 +1,5 @@
+require 'dotenv'
+Dotenv.load
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
@@ -33,7 +35,7 @@ set :deploy_to, '/var/www/wat-do-seattle'
 # set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, { "S3_KEY" => ENV["S3_KEY"], "S3_SECRET" => ENV["S3_SECRET"] }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
