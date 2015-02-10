@@ -27,17 +27,17 @@ class ActivitiesController < ApplicationController
 
   def results
     @query = params
-    @activities = Activity.where(
-                                  max_price: 0..@query["activity"]["max_price"].to_i,
-                                  min_activity_level: @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i
-                                  # You want an 'OR' here
-                                  # max_activity_level: @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i
-                                  )
+    # @activities = Activity.where(
+    #                               max_price: 0..@query["activity"]["max_price"].to_i,
+    #                               min_activity_level: @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i
+    #                               # You want an 'OR' here
+    #                               # max_activity_level: @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i
+    #                               )
 
-    # @activities = Activity.where("max_price= ? AND (min_activity_level= ? OR max_activity_level= ?)",
-    #                               0..@query["activity"]["max_price"].to_i,
-    #                               @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i,
-    #                               @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i)
+    @activities = Activity.where("max_price in (?) AND (min_activity_level in (?) OR max_activity_level in (?))",
+                                  0..@query["activity"]["max_price"].to_i,
+                                  @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i,
+                                  @query["activity"]["min_activity_level"].to_i..@query["activity"]["max_activity_level"].to_i)
 
 
     @event = Event.new
