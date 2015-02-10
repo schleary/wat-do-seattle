@@ -1,5 +1,5 @@
 <h2>My Profile </h2>
-
+<img src="<%= @user.image_url %>" height="125px">
 <% if current_user %>
   <%= link_to "Account", users_edit_path %>
 <% end %>
