@@ -452,13 +452,13 @@ require 'json'
 
   # create_activites_via_static_json_string
   def quick_create
+    puts JSON_INPUT.class
     create_activites(JSON_INPUT)
   end
 
   def create_activites(json_string_input)
-    # puts JSON_INPUT
     json_hash = JSON.parse(json_string_input)
-    puts json_hash.inspect
+    return json_hash
   end
 
   end
