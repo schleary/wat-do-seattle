@@ -42,7 +42,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a class="navbar-brand" href="<%=activities_query_path%>">Find a Thing</a>
-            <li><a class="navbar-brand" href="<%=activity_new_path%>">Suggest a Thing</a>
+                <% if current_user.admin == true && current_user.confirmed %>
+                  <li><a class="navbar-brand" href="<%=activity_new_path%>">Suggest a Thing</a>
+                <% end %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -88,7 +90,7 @@
     </nav>
 
     <sidebar>
-      
+
       <div style="background-image: url('<%= current_user.image_url (:preview) %>')" >
         <!-- <div class="nav-profile"> -->
         <% if current_user %>

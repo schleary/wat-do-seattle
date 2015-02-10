@@ -24,4 +24,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def adminify
+    self.admin = true
+  end
+
+  def turn_down
+    self.admin = false
+  end
+
+  def confirm
+    self.confirmed = true
+  end
+
+
 end

@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   delete  "/users/:id",                 to:	"users#destroy", as: :users_delete
   get     "/users/:id/upvote",          to: "users#upvote",  as: :users_upvote
 
-  get   '/users/:id/confirm',             to: 'users#confirm', as: :confirm_user
-  get   '/users/:id/deny_admin',          to: 'users#deny_request', as: :deny_request
+  get   '/users/:id/confirm',             to: 'users#confirm',                                    as: :confirm_user
+  get   '/users/:id/deny_admin',          to: 'users#deny_request',                               as: :deny_request
   get   '/users/:id/9847hfh9f824oifnsdlkvhosiehlrisklevishfleh',to: 'users#admin_request'
   get   '/users/:id/4ruoirwnv24vpoifho4ehvjrhg4owihfaoihfaajksdhviuwgifbw4f', to: 'users#become_admin', as: :adminify
 
