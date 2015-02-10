@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.all.where(:user_id => current_user)
     # .where(:user_id => @current_user.id)
   end
 

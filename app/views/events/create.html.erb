@@ -1,6 +1,0 @@
-<%= bootstrap_form_for @event, url: { action: "create" } do |f| %>
-  <%= f.hidden_field :activity_id, :value => activity.id %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.datetime_select :date_time_start, label: "Start Time"%>
-  <%= f.datetime_select :date_time_end, label: "End Time"%>
-<%= f.submit "Save"%>
