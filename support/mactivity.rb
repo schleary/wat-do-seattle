@@ -1,6 +1,6 @@
 require 'json'
 
- class Activity
+ class Mactivity
 
    JSON_INPUT = "{
      \"Sheet1\": [
