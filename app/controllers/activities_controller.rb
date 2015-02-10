@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    @event = Event.new
   end
 
   def create
