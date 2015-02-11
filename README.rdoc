@@ -3,8 +3,10 @@
 wat-do-seattle.com
 
 To Consume the API:
-------------------
+=======================
 
+Read-Only:
+----------
 GET requests with JSON response:
 
 To see all activities (index):
@@ -17,19 +19,25 @@ OR, from the console:
 /something here might be wrong
 curl -H 'Accept: application/vnd.wat-do-seattle.v1' http://wat-do-seattle.com/api/products
 
-Secure:
-You'll need the key and secret, which you can request here:
+
+Write/Secure:
+-------------
+- Visit wat-do-seattle.com
+- Sign in / Create an account
+- Go to Profile/Accounts
+- Enter email address and check request admin status
+- If you are granted access, you will be given a name and password
 
 Then, in console:
 curl http://wat-do-seattle/api/activities -u "name:password"
 
 OR, from browser:
 http://wat-do-seattle/api/activities
-where you'll be prompted to enter the username and password
+where you'll be prompted to enter the name and password
 
 
-
-POST requests (must have )
+POST requests:
+--------------
 JSON Hash must have the following format:
 
 JSON_INPUT = "{
@@ -49,21 +57,6 @@ JSON_INPUT = "{
 
 All attributes must be filled out, with quotes escaped.
 
-
-Non-secure:
-curl -H 'Accept: application/vnd.example.v1' http://localhost:3000/api/activities
-
-Secure:
-
-uncomment:
-api_key.rb
-  # before_create :generate_access_token
-activities_controller.rb
-  # before_filter :restrict_access
-
-ApiKey.create!
-> "some_key"
-curl http://localhost:3000/api/activities -H 'Authorization: Token token="some_key"'
 
 
 This README would normally document whatever steps are necessary to get the

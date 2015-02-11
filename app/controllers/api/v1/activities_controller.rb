@@ -2,7 +2,7 @@ module Api
   module V1
     class ActivitiesController < ApplicationController
 
-      http_basic_authenticate_with name: ENV["API_KEY"], password: ENV["API_SECRET"]
+      http_basic_authenticate_with name: ENV["API_KEY"], password: ENV["API_SECRET"], except: [:index, :show]
 
       # before_filter :restrict_access
 

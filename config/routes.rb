@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'}  do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :activities, only: [:index, :show]
+      
     end
   end
 
@@ -77,7 +78,7 @@ Rails.application.routes.draw do
   post    "/activities/results",       to:  "activities#results", as: :activities_results
 
   # to upload my own bulk json
-  get     "activities/init_activities",to:  "activities#init_activities"
+  get     "/activities/init_activities",to:  "activities#init_activities"
 
   get	    "/activities/:id",           to:	"activities#show",    as: :activity_show
   get	    "/activities/:id/edit",      to:	"activities#edit",    as: :activity_edit

@@ -1,5 +1,7 @@
 class ActivitiesController < ApplicationController
 
+  http_basic_authenticate_with name: ENV["API_KEY"], password: ENV["API_SECRET"], only: [:init_activities]
+
   def new
     @activity = Activity.new
   end
