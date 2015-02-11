@@ -2,8 +2,34 @@
 
 wat-do-seattle.com
 
-To Use the API:
+To Consume the API:
 ------------------
+
+GET requests with JSON response:
+
+To see all activities (index):
+http://wat-do-seattle.com/api/activities
+
+To see a specific activity (show):
+http://wat-do-seattle.com/api/activities/<enter an activity id # here and exclude carrots>
+
+OR, from the console:
+/something here might be wrong
+curl -H 'Accept: application/vnd.wat-do-seattle.v1' http://wat-do-seattle.com/api/products
+
+Secure:
+You'll need the key and secret, which you can request here:
+
+Then, in console:
+curl http://wat-do-seattle/api/activities -u "name:password"
+
+OR, from browser:
+http://wat-do-seattle/api/activities
+where you'll be prompted to enter the username and password
+
+
+
+POST requests (must have )
 JSON Hash must have the following format:
 
 JSON_INPUT = "{

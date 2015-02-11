@@ -2,9 +2,7 @@ module Api
   module V1
     class ActivitiesController < ApplicationController
 
-      #move to external configuration
-      # http_basic_authenticate_with name: "name", password: "secret"
-
+      http_basic_authenticate_with name: ENV["API_KEY"], password: ENV["API_SECRET"]
 
       # before_filter :restrict_access
 
@@ -22,26 +20,26 @@ module Api
         puts "API CONTROLLER"
         Script.create_activites(params[:data])
       end
-      #
-      # def index
-      #   respond_with Activity.all
-      # end
-      #
-      # def show
-      #   respond_with Activity.find(params[:id])
-      # end
-      #
-      # def create
-      #   respond_with Activity.create(params[:product])
-      # end
-      #
-      # def update
-      #   respond_with Activity.update(params[:id], params[:product])
-      # end
-      #
-      # def destroy
-      #   respond_with Activity.destroy(params[:id])
-      # end
+
+      def index
+        respond_with Activity.all
+      end
+
+      def show
+        respond_with Activity.find(params[:id])
+      end
+
+      def create
+        respond_with Activity.create(params[:product])
+      end
+
+      def update
+        respond_with Activity.update(params[:id], params[:product])
+      end
+
+      def destroy
+        respond_with Activity.destroy(params[:id])
+      end
 
       private
 

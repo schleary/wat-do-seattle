@@ -7,6 +7,30 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
+  # Insecure API
+  namespace :api, defaults: {format: 'json'}  do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :activities, only: [:index, :show]
+    end
+  end
+
+  # namespace :api, defaults: {format: 'json'} do
+  #   scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+  #     resources :activities do
+  #       collection do
+  #         # /api/activities/upload_activites in order to post to the API
+  #         post 'upload_activites'
+  #       end
+  #       # member do
+  #       #   get 'events'
+  #       # end
+  #     end
+  #   end
+  #   # scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do
+  #   #   resources :activities
+  #   # end
+  # end
+
   # Home
   get   '/',                              to: 'home#index',    as: :home_index
   root                                        'home#index',    as: :root
@@ -76,22 +100,7 @@ Rails.application.routes.draw do
   get     "/events/:id/delete",    to:  "events#destroy", as: :event_destroy
   delete  "/events/:id",           to:	"events#destroy", as: :event_delete
 
-  namespace :api, defaults: {format: 'json'} do
-    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
-      resources :activities do
-        collection do
-          # /api/activities/upload_activites in order to post to the API
-          post 'upload_activites'
-        end
-        # member do
-        #   get 'events'
-        # end
-      end
-    end
-    # scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do
-    #   resources :activities
-    # end
-  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
