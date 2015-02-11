@@ -91,8 +91,8 @@
 
     <sidebar>
 
-      <div style="background-image: url('<%= current_user.image_url (:preview) %>')" >
-        <!-- <div class="nav-profile"> -->
+    
+        <div class="nav-profile">
         <% if current_user %>
           <%= link_to user_show_path(current_user.id) do %>
             <div class="side-nav" >
