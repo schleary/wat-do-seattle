@@ -90,9 +90,11 @@
     </nav>
 
     <sidebar>
-
-    
-        <div class="nav-profile">
+      <% if current_user %>
+        <div style="background-image: url('<%= current_user.image_url (:preview) %>')" >
+      <% else %>
+        <div class = "nav-profile">
+      <% end %>
         <% if current_user %>
           <%= link_to user_show_path(current_user.id) do %>
             <div class="side-nav" >
@@ -107,7 +109,12 @@
           <% end %>
         <% end %>
       </div>
-      <div class="nav-events">
+
+      <% if current_user %>
+        <div style="background-image: url('<%= current_user.image_url (:preview) %>')" >
+      <% else %>
+        <div class = "nav-events">
+      <% end %>
         <% if current_user %>
           <%= link_to events_path do %>
             <div class="side-nav">
@@ -122,7 +129,12 @@
           <% end %>
         <% end %>
       </div>
-      <div class="nav-events">
+
+      <% if current_user %>
+        <div style="background-image: url('<%= current_user.image_url (:preview) %>')" >
+      <% else %>
+        <div class = "nav-friends">
+      <% end %>
         <% if current_user %>
           <%= link_to friendship_path do %>
             <div class="side-nav">
@@ -132,12 +144,11 @@
         <% else %>
           <%= link_to '/auth/google_oauth2' do %>
             <div class="side-nav">
-              Events
+              Friends
             </div>
           <% end %>
         <% end %>
       </div>
-
 
     </sidebar>
 

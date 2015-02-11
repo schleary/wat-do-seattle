@@ -7,11 +7,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
-  # Insecure API
+  # API
   namespace :api, defaults: {format: 'json'}  do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      resources :activities, only: [:index, :show]
-      
+      resources :activities
     end
   end
 

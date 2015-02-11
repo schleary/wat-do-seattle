@@ -13,7 +13,7 @@
  */
 body{
   height:100%;
-  background-image: url("speaker.jpg");
+  /*background-image: url("speaker.jpg");*/
   /*background: -webkit-linear-gradient(lightpink, green); /* For Safari 5.1 to 6.0 */
   /*background: -o-linear-gradient(lightpink, green); /* For Opera 11.1 to 12.0 */
   /*background: -moz-linear-gradient(lightpink, green); /* For Firefox 3.6 to 15 */
@@ -52,12 +52,12 @@ sidebar{
   color: white;
   text-shadow: 2px 2px black;
 }
-/*
+
 .nav-profile{
-  background-image: url("http://placekitten.com/g/150/150");
+  background-image: url("speaker.jpg");
   background-size: 150px 150px;
   background-repeat: no-repeat;
-}*/
+}
 
 .nav-events{
   background-image: url("http://placekitten.com/g/150/150");

@@ -2,7 +2,6 @@
   <h2>Your Search Terms:</h2>
   Maximum Price: <%=@query["activity"]["max_price"]%> <br>
   Activity Level Range: <%= @query["activity"]["min_activity_level"]%> - <%= @query["activity"]["max_activity_level"] %>
-
 </div>
 
 <h2>Your Top Results:</h2>
@@ -13,51 +12,38 @@
     <%= i+ 1 %>).
   <!-- make this a link with the provided url -->
     <%= link_to activity.name, "#{activity.url}", :target => '_blank' %><br>
-
-      <%= image_tag activity.image_url.to_s %>
-
+    <%= image_tag activity.image_url.to_s %>
   </div>
   <div class = "content">
     Description: <%= activity.description %><br>
     Price Range: $<%= activity.min_price %>.00 - $<%= activity.max_price %>.00 <br>
   </div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent'>
-    Create an Event
-  </button><br><br>
+  <% if current_user %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent'>
+      Create an Event
+    </button><br><br>
 
+    <!-- Modal -->
+    <div class="modal fade" id=createEvent tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <%= bootstrap_form_for(@event, url: event_create_path) do |f| %>
+              <%= f.hidden_field :activity_id, :value => activity.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
 
-
-
-
-  <!-- Modal -->
-  <div class="modal fade" id=createEvent tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          <%= bootstrap_form_for(@event, url: event_create_path) do |f| %>
-            <%= f.hidden_field :activity_id, :value => activity.id %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-
-            <%= f.datetime_select :date_time_start, label: "Start Time"%>
-            <%= f.datetime_select :date_time_end, label: "End Time"%>
-            <%= f.submit "Save", class: "btn btn-default"%>
-          <% end %>
+              <%= f.datetime_select :date_time_start, label: "Start Time"%>
+              <%= f.datetime_select :date_time_end, label: "End Time"%>
+              <%= f.submit "Save", class: "btn btn-default"%>
+            <% end %>
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-
-
-
-
-
-
   <% end %>
 <% else %>
   Sorry! We couldn't find any matches for you! <%= link_to 'Try again!', activities_query_path %>
