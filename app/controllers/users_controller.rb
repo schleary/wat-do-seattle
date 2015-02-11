@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     unless email1 == email2
       @user.confirmed = false
       @user.save
-      Resque.enqueue(EmailConfirmJob, @user.id)
+      # Resque.enqueue(EmailConfirmJob, @user.id)
       flash[:notice] = "Expect an email confirming your subscription shortly!"
     end
     flash[:notice] = "Your account has been updated!"

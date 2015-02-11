@@ -1,6 +1,6 @@
 require 'dotenv'
 Dotenv.load
-f# config valid only for current version of Capistrano
+# config valid only for current version of Capistrano
 lock '3.3.5'
 
 set :application, 'wat-do-seattle'
