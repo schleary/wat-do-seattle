@@ -8,7 +8,7 @@ class EventMailer < ActionMailer::Base
       subject: "Welcome to Wat Do? [Seattle]!",
       from: "schleary@gmail.com"
     )
-    mail(to: "bookis.smuin@gmail.com", subject: "You have an event coming up!").deliver()
+    # mail(to: "bookis.smuin@gmail.com", subject: "You have an event coming up!").deliver()
   end
 
   def notify(user_id)
@@ -20,10 +20,10 @@ class EventMailer < ActionMailer::Base
     )
 
     # @event = Event.new
-    mail(to: "bookis.smuin@gmail.com", subject: "You have an event coming up!").deliver()
+    # mail(to: "bookis.smuin@gmail.com", subject: "You have an event coming up!").deliver()
   end
 
-  def reminder(user_id)
+  def remind(user_id)
     @user = User.find(user_id)
     mail(
       to: @user.email,
@@ -32,7 +32,7 @@ class EventMailer < ActionMailer::Base
     )
 
     # @event = Event.new
-    mail(to: "bookis.smuin@gmail.com", subject: "You have an event coming up!").deliver()
+    # mail(to: "bookis.smuin@gmail.com", subject: "You have an event coming up!").deliver()
   end
 
 

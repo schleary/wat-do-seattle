@@ -1,6 +1,9 @@
+require 'resque/server'
 require 'api_constraints'
 
 Rails.application.routes.draw do
+
+  mount Resque::Server, :at => "/resque"
 
   resources :sessions, only: [:create, :destroy]
 

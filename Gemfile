@@ -33,6 +33,8 @@ group :development do
   gem 'capistrano-passenger'
 end
 
+gem 'resque'
+
 gem 'therubyracer', platforms: :ruby
 
 # gem "omniauth-google"
