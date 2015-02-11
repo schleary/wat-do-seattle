@@ -52,11 +52,14 @@ Rails.application.routes.draw do
   get     "/activities/query",         to:  "activities#query",   as: :activities_query
   post    "/activities/results",       to:  "activities#results", as: :activities_results
 
+  get     "activities/init_activities",to:  "activities#init_activities"
+
   get	    "/activities/:id",           to:	"activities#show",    as: :activity_show
   get	    "/activities/:id/edit",      to:	"activities#edit",    as: :activity_edit
   patch	  "/activities/:id",           to:	"activities#update",  as: :activity_update
   get     "/activities/:id/delete",    to:  "activities#destroy", as: :activity_destroy
   delete  "/activities/:id",           to:	"activities#destroy", as: :activity_delete
+
 
   # Events
   get	    "/events",               to:	"events#index",   as: :events

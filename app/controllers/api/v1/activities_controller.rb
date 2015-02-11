@@ -18,7 +18,8 @@ module Api
       respond_to :json
 
       def upload_activities
-        Activity.create_activites(params[:json])
+        # data might be json. need to test
+        Script.create_activites(params[:data])
       end
       #
       # def index

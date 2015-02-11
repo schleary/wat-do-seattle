@@ -52,6 +52,10 @@ class ActivitiesController < ApplicationController
   def destroy
   end
 
+  def init_activities
+    Script.quick_create
+  end
+
   private
 
   def activities_params
