@@ -19,6 +19,7 @@ module Api
 
       def upload_activities
         # data might be json. need to test
+        puts "API CONTROLLER"
         Script.create_activites(params[:data])
       end
       #

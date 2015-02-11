@@ -2,8 +2,28 @@
 
 wat-do-seattle.com
 
-API:
------
+To Use the API:
+------------------
+JSON Hash must have the following format:
+
+JSON_INPUT = "{
+  \"activities\": [
+    {
+      \"name\": \"Seattle Shenter\",
+      \"url\": \"http://www.seattlecenter.com/\",
+      \"image_url\": \"http://www.spaceneedle.com/wp-content/uploads/2013/08/view-from-heli.jpg/\",
+      \"min_price\": \"0\",
+      \"max_price\": \"10\",
+      \"min_activity_level\": \"0\",
+      \"max_activity_level\": \"5\",
+      \"description\": \"What a cool place to go/\",
+    }
+  ]
+}"
+
+All attributes must be filled out, with quotes escaped.
+
+
 Non-secure:
 curl -H 'Accept: application/vnd.example.v1' http://localhost:3000/api/activities
 
@@ -19,23 +39,6 @@ ApiKey.create!
 > "some_key"
 curl http://localhost:3000/api/activities -H 'Authorization: Token token="some_key"'
 
-Script:
-
-in app.rb:
-config.autoload_paths << Rails.root.join('support')
-
-create support folder in root
-  create activity.rb file here
-   class Activity
-    class << self
-    def awesome_function
-    puts "Here!"
-    end
-    end
-  end
-
-start console
-Mactivity.quick_create should return the hash
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

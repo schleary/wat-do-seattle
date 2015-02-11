@@ -5,7 +5,7 @@ require 'json'
    JSON_INPUT = "{
      \"activities\": [
        {
-         \"name\": \"Seattle Center\",
+         \"name\": \"Seattle Shenter\",
          \"image_url\": \"http://www.seattlecenter.com/\",
          \"min_price\": \"0\"
        }
@@ -25,7 +25,7 @@ require 'json'
     if json_hash['activities'] != nil && json_hash['activities'].length > 0
       json_hash['activities'].each do |activity|
         a = Activity.new(activity)
-        puts a.save
+        a.save
       end
     end
   end
