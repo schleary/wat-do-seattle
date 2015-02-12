@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-    # @users = User.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id)
     # @users = Friendship.user.where.not(user_id: current_user.id)
-    @users = User.where.not(id: current_user.friendships.friend_id)
+    # @users = User.where.not(id: current_user.friendships.friend_id)
   end
 
   def new
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     @user = @current_user
     @user.confirm
     @user.save
-    redirect_to @user
+    redirect_to users_path
   end
 
   def become_admin
@@ -110,7 +110,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:name, :admin, :email, :image)
+    params.require(:user).permit(:email, :name, :created_at, :admin, :image_url, :image, :confirmed)
   end
 
 end
