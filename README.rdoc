@@ -5,7 +5,8 @@ wat-do-seattle.com
 == To Consume the API:
 =======================
 
-== Read Only:
+Read Only:
+----------
 
 GET requests with JSON response:
 
@@ -24,7 +25,8 @@ OR, from the console:
 curl -H 'Accept: application/vnd.wat-do-seattle.v1' http://wat-do-seattle.com/api/products
 
 
-== Write/Post (Secure):
+Write/Post (Secure):
+--------------------
 
 - Visit wat-do-seattle.com
 - Sign in / Create an account
