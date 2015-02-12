@@ -5,8 +5,8 @@ wat-do-seattle.com
 == To Consume the API:
 =======================
 
-== Read-Only:
-----------
+== Read Only:
+
 GET requests with JSON response:
 
 To see all activities (index):
@@ -24,8 +24,8 @@ OR, from the console:
 curl -H 'Accept: application/vnd.wat-do-seattle.v1' http://wat-do-seattle.com/api/products
 
 
-== Write/Secure:
--------------
+== Write/Post (Secure):
+
 - Visit wat-do-seattle.com
 - Sign in / Create an account
 - Go to Profile/Accounts
@@ -35,7 +35,7 @@ curl -H 'Accept: application/vnd.wat-do-seattle.v1' http://wat-do-seattle.com/ap
 IF you are granted access:
 
 
-In console (with hash and name:password examples), you can POST (create) one or many Activities via JSON hash:
+In console (with hash and name:password examples), you can POST (create) one or many Activities via JSON hash with the following command:
 
 curl -X POST -H "Content-Type: application/json" -u "name:password" -d '{"activities": [{"name": "Seattle Shenter", "url": "http://www.seattlecenter.com", "min_price": "0", "max_price": "10", "min_activity_level": "0", "max_activity_level": "5", "description": "What a cool place to go"}]}' http://wat-do-seattle.com/api/activities
 
