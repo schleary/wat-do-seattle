@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user || User.find(params[:id])
+    @users = User.where(admin: nil, confirmed: true)
   end
 
   def update
@@ -88,7 +89,7 @@ class UsersController < ApplicationController
     if @user.confirmed
       @user.adminify
       @user.save
-      redirect_to @current_user
+      redirect_to users_path
     else
       render "admin_request"
     end
@@ -98,7 +99,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.turn_down
     @user.save
-    redirect_to user_path(@current_user.id)
+    redirect_to users_path
   end
 
   def admin_request
