@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    # @users = User.where.not(id: current_user.id)
+    # @users = Friendship.user.where.not(user_id: current_user.id)
+    @users = User.where.not(id: current_user.friendships.friend_id)
   end
 
   def new

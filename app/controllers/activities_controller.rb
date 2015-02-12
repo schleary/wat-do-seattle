@@ -9,6 +9,9 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     @event = Event.new
+    @invite = Invite.new
+    # should be friends only
+    @users = User.all
   end
 
   def create
