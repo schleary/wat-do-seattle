@@ -30,7 +30,9 @@ module Api
       end
 
       def create
-        respond_with Activity.create(params[:product])
+        puts "CREATE API"
+        Script.create_activites(params.to_h)
+        # respond_with Activity.create(params[:product])
       end
 
       def update
@@ -43,17 +45,32 @@ module Api
 
       private
 
+      def activity_params
+        params.require(:activity).permit(
+          :name,
+          :min_price,
+          :max_price,
+          :url,
+          :description,
+          :min_activity_level,
+          :max_activity_level,
+          :image,
+          :image_url
+        )
+      end
+
+
       # def generate_access_token
       #   begin
       #     self.access_token = SecureRandom.hex
       #   end while self.class.exists?(access_token: access_token)
       # end
 
-      def restrict_access
-        authenticate_or_request_with_http_token do |token, options|
-          ApiKey.exists?(access_token: token)
-        end
-      end
+      # def restrict_access
+      #   authenticate_or_request_with_http_token do |token, options|
+      #     ApiKey.exists?(access_token: token)
+      #   end
+      # end
 
     end
   end

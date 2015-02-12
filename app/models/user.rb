@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
+  has_many :invitations, :through => :events
+  has_many :inverse_invites, :class_name => "Invite", :foreign_key => "guest_id"
+
   validates :name, presence: true
   # validates :email, presence: true, uniqueness: true, format: { with: /@/ }
   validates :admin, default: false

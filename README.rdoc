@@ -28,34 +28,11 @@ Write/Secure:
 - Enter email address and check request admin status
 - If you are granted access, you will be given a name and password
 
-Then, in console:
-curl http://wat-do-seattle/api/activities -u "name:password"
-
-OR, from browser:
-http://wat-do-seattle/api/activities
-where you'll be prompted to enter the name and password
+Then, in console (with hash and name:passwod examples), you can POST (create) one or many Activities via JSON hash:
+curl -X POST -H "Content-Type: application/json" -u "name:password" -d '{"activities": [{"name": "Seattle Shenter", "url": "http://www.seattlecenter.com", "min_price": "0", "max_price": "10", "min_activity_level": "0", "max_activity_level": "5", "description": "What a cool place to go"}]}' http://wat-do-seattle.com/api/activities
 
 
-POST requests:
---------------
-JSON Hash must have the following format:
-
-JSON_INPUT = "{
-  \"activities\": [
-    {
-      \"name\": \"Seattle Shenter\",
-      \"url\": \"http://www.seattlecenter.com/\",
-      \"image_url\": \"http://www.spaceneedle.com/wp-content/uploads/2013/08/view-from-heli.jpg/\",
-      \"min_price\": \"0\",
-      \"max_price\": \"10\",
-      \"min_activity_level\": \"0\",
-      \"max_activity_level\": \"5\",
-      \"description\": \"What a cool place to go/\",
-    }
-  ]
-}"
-
-All attributes must be filled out, with quotes escaped.
+All attributes must be filled out.
 
 
 
