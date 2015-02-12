@@ -2,25 +2,29 @@
 
 wat-do-seattle.com
 
-To Consume the API:
+== To Consume the API:
 =======================
 
-Read-Only:
+== Read-Only:
 ----------
 GET requests with JSON response:
 
 To see all activities (index):
+
 http://wat-do-seattle.com/api/activities
 
+
 To see a specific activity (show):
-http://wat-do-seattle.com/api/activities/<enter an activity id # here and exclude carrots>
+
+http://wat-do-seattle.com/api/activities/< enter an activity id # here and exclude carrots>
+
 
 OR, from the console:
-/something here might be wrong
+
 curl -H 'Accept: application/vnd.wat-do-seattle.v1' http://wat-do-seattle.com/api/products
 
 
-Write/Secure:
+== Write/Secure:
 -------------
 - Visit wat-do-seattle.com
 - Sign in / Create an account
@@ -28,37 +32,13 @@ Write/Secure:
 - Enter email address and check request admin status
 - If you are granted access, you will be given a name and password
 
-Then, in console (with hash and name:passwod examples), you can POST (create) one or many Activities via JSON hash:
+IF you are granted access:
+
+
+In console (with hash and name:password examples), you can POST (create) one or many Activities via JSON hash:
+
 curl -X POST -H "Content-Type: application/json" -u "name:password" -d '{"activities": [{"name": "Seattle Shenter", "url": "http://www.seattlecenter.com", "min_price": "0", "max_price": "10", "min_activity_level": "0", "max_activity_level": "5", "description": "What a cool place to go"}]}' http://wat-do-seattle.com/api/activities
 
 
-All attributes must be filled out.
 
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+All attributes must be filled out, with internal quotes and apostrophes escaped.
