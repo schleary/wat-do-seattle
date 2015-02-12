@@ -11,6 +11,39 @@
  * file per style scope.
  *
  */
+
+/* Flatten das boostrap */
+
+.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
+  -moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border-collapse: collapse !important;
+	background-image: none !important;
+}
+
+.btn-geckoboard {
+	background: #7EB348;
+	background-image: none;
+	border:none;
+	color: #fff;
+	letter-spacing: 1px;
+	font-weight: 600;
+	text-decoration: none ! important;
+	text-shadow: none;
+	text-transform: uppercase;
+	transition: all 0.3s ease-in-out 0s;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+}
+.btn-geckoboard:hover {
+	background: #333;
+	color: #fff;
+}
+
+
 body{
   height:100%;
   /*background-image: url("speaker.jpg");*/
