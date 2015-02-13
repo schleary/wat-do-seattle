@@ -47,6 +47,7 @@
 
 
 body{
+  /*background-color: #333;*/
   height:100%;
   /*background-image: url("speaker.jpg");*/
   /*background: -webkit-linear-gradient(lightpink, green); /* For Safari 5.1 to 6.0 */
@@ -114,6 +115,7 @@ sidebar{
 
 .jumbotron{
   width: 970px;
+  background-color: #555;
 }
 
 #slider-snap{

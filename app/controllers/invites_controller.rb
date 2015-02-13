@@ -18,7 +18,12 @@ class InvitesController < ApplicationController
       new_invite.guest_id = params["event"]["invites"][key].to_i
       new_invite.user_id = @user.id
       new_invite.event_id = @event.id
-      new_invite.save
+      if new_invite.save
+        notification = Notification.new(:user_id => new_invite.guest_id, :description => "#{@user.name} has invited you to an event!")
+        notification.save
+        puts "SAVEd"
+        puts notification.inspect
+      end
 
     end
 

@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>WatDoSeattle22</title>
+  <%= favicon_link_tag 'favicon.ico' %>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
@@ -55,7 +56,7 @@
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
               <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Notifications</a>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-exclamation-circle"></i> Notifications</a>
                 <ul class="dropdown-menu" role="menu">
                   <% if @notifications != nil %>
                     <li><a href="#">Action</a></li>
@@ -107,13 +108,13 @@
         <% if current_user %>
           <%= link_to user_show_path(current_user.id) do %>
             <div class="side-nav" >
-              Profile
+              <i class="fa fa-user"></i> Profile
             </div>
           <% end %>
         <% else %>
           <%= link_to '/auth/google_oauth2' do %>
             <div class="side-nav">
-              Profile
+              <i class="fa fa-user"></i> Profile
             </div>
           <% end %>
         <% end %>
@@ -127,13 +128,13 @@
         <% if current_user %>
           <%= link_to events_path do %>
             <div class="side-nav">
-              Events
+              <i class="fa fa-calendar"></i> Events
             </div>
           <% end %>
         <% else %>
           <%= link_to '/auth/google_oauth2' do %>
             <div class="side-nav">
-              Events
+              <i class="fa fa-calendar"></i> Events
             </div>
           <% end %>
         <% end %>
@@ -147,13 +148,13 @@
         <% if current_user %>
           <%= link_to friendship_path do %>
             <div class="side-nav">
-              Friends
+              <i class="fa fa-users"></i> Friends
             </div>
           <% end %>
         <% else %>
           <%= link_to '/auth/google_oauth2' do %>
             <div class="side-nav">
-              Friends
+              <i class="fa fa-users"></i> Friends
             </div>
           <% end %>
         <% end %>
@@ -168,5 +169,6 @@
     </div>
 
   </div>
+
 </body>
 </html>

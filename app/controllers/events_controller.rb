@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     puts params.inspect
     puts "Events"
     if @event.save
+      flash[:notice] = "You have successfully created a new event!"
       redirect_to event_show_path(@event)
     else
       flash[:error] = "There was a problem creating this event"

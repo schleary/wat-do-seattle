@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if (session[:user_id])
   end
 
+  def index
+    puts Notification.all
+    @notifications = Notification.all.where(:user_id => current_user.id)
+  end
 end
