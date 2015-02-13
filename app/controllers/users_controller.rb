@@ -56,11 +56,10 @@ class UsersController < ApplicationController
       @user.confirmed = false
       @user.save
       Resque.enqueue(EmailConfirmJob, @user.id)
-      puts "EMAILED"
-      flash[:notice] = "Expect an email confirming your subscription shortly!"
+      flash[:notice] = "Expect a confirmation email shortly!"
     end
     flash[:notice] = "Your account has been updated!"
-    redirect_to user_show_path
+    redirect_to users_edit_path
 
   end
 
@@ -79,7 +78,7 @@ class UsersController < ApplicationController
     @user.confirm
     @user.save
     flash[:notice] = "Your email has been confirmed."
-    redirect_to users_path
+    redirect_to users_edit_path
   end
 
   def become_admin
@@ -87,9 +86,12 @@ class UsersController < ApplicationController
     if @user.confirmed
       @user.adminify
       @user.save
+      flash[:notice] = "Congratulations! You have been granted admin status."
+      Resque.enqueue(EmailAdminifyJob, @user.id)
       redirect_to users_path
     else
-      render "admin_request"
+      flash[:error] = "We were unable to process your admin request."
+      redirect_to users_edit_path
     end
   end
 
@@ -97,8 +99,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.turn_down
     @user.save
-    flash[:notice] = "We regret to inform you that your request for admin access has been denied!"
-    redirect_to users_path
+    flash[:notice] = "We regret to inform you that your request for admin access has been denied."
+    redirect_to users_edit_path
   end
 
   def admin_request

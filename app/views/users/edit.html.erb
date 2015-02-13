@@ -13,7 +13,6 @@
 
 <%= bootstrap_form_for @user, url: {action: "update"} do |f| %>
   <%= f.file_field :image, label: "Update Profile Picture" %>
-  <%= f.text_field :name, placeholder: @user.name %>
 
   <% if @user.email %>
     <%= f.email_field :email %>
