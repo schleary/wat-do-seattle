@@ -1,16 +1,16 @@
 <h2>All Activities</h2>
-<% @activities.each do |activity| %>
+<% @activities.each_with_index do |activity, i| %>
   <hr>
   <%= activity.name %>
   <img src="<%= activity.image_url %>" height="125px">
   <%= activity.description %>
   <% if current_user %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent'>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
       Create an Event
     </button><br><br>
 
     <!-- Modal -->
-    <div class="modal fade" id=createEvent tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id=createEvent<%=i%> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
