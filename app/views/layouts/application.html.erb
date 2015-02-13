@@ -55,7 +55,7 @@
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
               <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></a>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Notifications</a>
                 <ul class="dropdown-menu" role="menu">
                   <% if @notifications != nil %>
                     <li><a href="#">Action</a></li>
@@ -67,16 +67,16 @@
                 </ul>
               </li>
               <li>
-                <a class="nav navbar-nav" href="<%=user_show_path(current_user)%>"><%= current_user.name %></a>
+                <a class="nav navbar-nav" href="<%=user_show_path(current_user)%>"><i class="fa fa-user"></i> <%= current_user.name %></a>
               </li>
               <li>
-                <a class="nav navbar-nav" href="<%=signout_path%>">Sign Out</a>
+                <a class="nav navbar-nav" href="<%=signout_path%>"><i class="fa fa-sign-out"></i> Sign Out</a>
               </li>
             <% else %>
               <li>
-                <a class="nav navbar-nav" href="/auth/google_oauth2">Sign In</a>
+                <a class="nav navbar-nav" href="/auth/google_oauth2"><i class="fa fa-sign-in"></i> Sign In</a>
               </li>
-            
+
             <% end %>
 
             <!-- <li><a href="#">Link</a></li>
