@@ -9,14 +9,8 @@ class InvitesController < ApplicationController
   end
 
   def createInvites
-    puts "*************************** Seriously"
-
-    puts params[:id]
     @event = Event.find(params[:id])
     @user = current_user
-
-    #@event.invites
-
     new_invites = []
     params["event"]["invites"].keys.each do |key|
       puts params["event"]["invites"][key]
@@ -28,7 +22,7 @@ class InvitesController < ApplicationController
 
     end
 
-    # redirect to event show page for @event
+    redirect_to event_show_path(@event)
   end
 
   def create

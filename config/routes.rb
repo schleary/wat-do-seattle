@@ -3,8 +3,6 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
-  get 'notifications/index'
-
   mount Resque::Server, :at => "/resque"
 
   resources :sessions, only: [:create, :destroy]
@@ -105,7 +103,7 @@ Rails.application.routes.draw do
 
   post "/events/:id/invites", to: "invites#createInvites", as: :event_invite_create
 
-
+  get   '/notifications/index',    to: "notifications#index",   as: :notifications
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
