@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
   def create
     @event = Event.new(events_params)
+    puts "Events"
+    puts params.inspect
+    puts "Events"
     if @event.save
       redirect_to event_show_path(@event)
     else
@@ -18,6 +21,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @user = current_user
   end
 
   def edit

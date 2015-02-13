@@ -101,6 +101,9 @@ Rails.application.routes.draw do
   delete  "/events/:id",           to:	"events#destroy", as: :event_delete
 
 
+  post "/events/:id/invites", to: "invites#createInvites", as: :event_invite_create
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

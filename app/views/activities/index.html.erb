@@ -18,11 +18,15 @@
             <h4 class="modal-title" id="myModalLabel">Modal title</h4>
           </div>
           <div class="modal-body">
-            <%= bootstrap_form_for(@event, url: event_create_path) do |f| %>
+            <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
               <%= f.hidden_field :activity_id, :value => activity.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
               <%= f.datetime_select :date_time_start, label: "Start Time"%>
               <%= f.datetime_select :date_time_end, label: "End Time"%>
+              <!-- f.invites :date_time_start, label: "Start Time" -->
+              <br><br>
+              <hr>
               <!--  f.select :guests_ids, User.all.collect {|x| [x.name, x.id]}, {}, :multiple => true -->
               <%= f.submit "Save", class: "btn btn-default"%>
             <% end %>
