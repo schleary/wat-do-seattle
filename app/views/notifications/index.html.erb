@@ -1,8 +1,8 @@
 <h2>Notifications </h2>
 <hr>
 <% if @notifications.any? %>
-  <% @notifications.each do |notification| %>s
-    <%= notification %>
+  <% @notifications.each do |notification| %>
+    <%= notification.description %>
     <hr>
   <% end %>
 <% else %>
