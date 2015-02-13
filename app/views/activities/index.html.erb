@@ -21,7 +21,7 @@
             <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
               <%= f.hidden_field :activity_id, :value => activity.id %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.simple_format :description, :value => activity.description, label: "Description" %>
+              <%= f.text_area :description, label: "Description" %>
 
               <%= f.datetime_select :date_time_start, label: "Start Time"%>
               <%= f.datetime_select :date_time_end, label: "End Time"%>

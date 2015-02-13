@@ -35,7 +35,7 @@
             <%= bootstrap_form_for(@event, url: event_create_path) do |f| %>
               <%= f.hidden_field :activity_id, :value => activity.id %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.text_field :description, :value => activity.description, label: activity.description %>
+              <%= f.text_area :description, label: "Description" %>
               <%= f.datetime_select :date_time_start, label: "Start Time"%>
               <%= f.datetime_select :date_time_end, label: "End Time"%>
               <%= f.submit "Save", class: "btn btn-default"%>
