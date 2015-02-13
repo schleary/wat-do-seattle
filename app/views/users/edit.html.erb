@@ -1,4 +1,4 @@
-<h2>Hello, <%= @user.name %></h2>
+<h2>Hello, <%= @user.name %> <% if @user.admin %> (Admin) <% end %></h2>
 
 <% if flash[:notice] %>
   <div class="alert alert-success" role="alert">
@@ -10,48 +10,35 @@
 
 <h3>Edit Your Profile: </h3>
 <img src="<%= @user.image_url(:preview) %>">
+
 <%= bootstrap_form_for @user, url: {action: "update"} do |f| %>
+  <%= f.file_field :image, label: "Update Profile Picture" %>
+  <%= f.text_field :name, placeholder: @user.name %>
 
-    <%= f.file_field :image, label: "Update Profile Picture" %>
-
-    <%= f.text_field :name, placeholder: @user.name %>
-
-    <% if @user.email %>
-      <% unless @user.confirmed %>
+  <% if @user.email %>
+    <%= f.email_field :email %>
+    <% unless @user.confirmed %>
       <div class="alert alert-warning" role="alert">
-        Email Unconfirmed
+        Unconfirmed email address.
       </div>
-      <% end %>
-
-      <%= f.email_field :email %>
-    <% else %>
-      <%= f.email_field :email, placeholder: "Update email address to receive event invites and reminders" %>
     <% end %>
+  <% else %>
+    <%= f.email_field :email, placeholder: "Email unconfirmed" %>
+  <% end %>
 
-    <% if @user.admin %>
+  <% if @user.admin == false %>
+    <%= f.check_box :admin, label: "Request admin status (email required)" %>
+  <% elsif (@user.admin == nil) %>
+    <div class="alert alert-warning" role="alert">
+      Your admin request has been received and will be evaluated.
+    </div>
+  <% end %>
 
-    <% elsif @user.admin == nil %>
-      <div class="alert alert-warning" role="alert">
-        Your admin request has been received and will be evaluated by a current admin.
-      </div>
-    <% elsif @user.admin == false %>
-      <%= f.check_box :admin, label: "Request admin status (email required)" %>
-    <% else %>
-
-      <div class="alert alert-warning" role="alert">
-        Submit and confirm an email address in order to request admin status.
-      </div>
-
-    <% end %>
-
-<hr>
-
-    <%= f.submit class: "btn btn-default", value: "Update Account"%>
+  <%= f.submit class: "btn btn-default", value: "Update Account"%>
 <% end %>
 
 <br>
 <%= link_to "Delete Your Account", users_delete_path, method: :delete, class: "btn btn-default" %>
-
 
 <% if @user.admin %>
   <hr>

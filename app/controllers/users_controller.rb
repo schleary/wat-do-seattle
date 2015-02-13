@@ -74,13 +74,11 @@ class UsersController < ApplicationController
     end
   end
 
-
-
-
   def confirm
     @user = @current_user
     @user.confirm
     @user.save
+    flash[:notice] = "Your email has been confirmed."
     redirect_to users_path
   end
 
@@ -99,6 +97,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.turn_down
     @user.save
+    flash[:notice] = "We regret to inform you that your request for admin access has been denied!"
     redirect_to users_path
   end
 
@@ -106,12 +105,10 @@ class UsersController < ApplicationController
     @user = @current_user
   end
 
-
-
   private
 
   def users_params
-    params.require(:user).permit(:email, :name, :created_at, :admin, :image_url, :image, :confirmed)
+    params.require(:user).permit(:email, :name, :created_at, :admin, :image_url, :image, :confirmed, :notify)
   end
 
 end
