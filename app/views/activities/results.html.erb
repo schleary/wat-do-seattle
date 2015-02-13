@@ -6,7 +6,7 @@
 
 <h2>Your Top Results:</h2>
 
-<% if @activities.any?%>
+<% if @activities.any? %>
   <% @activities.each_with_index do |activity, i| %>
   <div class = "title">
     <%= i+ 1 %>).
@@ -19,12 +19,12 @@
     Price Range: $<%= activity.min_price %>.00 - $<%= activity.max_price %>.00 <br>
   </div>
   <% if current_user %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent'>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
       Create an Event
     </button><br><br>
 
     <!-- Modal -->
-    <div class="modal fade" id=createEvent tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id=createEvent<%=i%> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -44,6 +44,7 @@
         </div>
       </div>
     </div>
+    <% end %>
   <% end %>
 <% else %>
   Sorry! We couldn't find any matches for you! <%= link_to 'Try again!', activities_query_path %>
