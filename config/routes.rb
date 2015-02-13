@@ -3,6 +3,8 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
   mount Resque::Server, :at => "/resque"
 
   resources :sessions, only: [:create, :destroy]
