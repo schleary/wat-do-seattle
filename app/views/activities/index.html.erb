@@ -15,13 +15,14 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel"><%=activity.name%></h4>
           </div>
           <div class="modal-body">
             <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
               <%= f.hidden_field :activity_id, :value => activity.id %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.simple_format :description, :value => activity.description, label: "Description" %>
+
               <%= f.datetime_select :date_time_start, label: "Start Time"%>
               <%= f.datetime_select :date_time_end, label: "End Time"%>
               <!-- f.invites :date_time_start, label: "Start Time" -->

@@ -1,23 +1,18 @@
-<%= @event.activity.name %>
+<h2><%= @event.activity.name %></h2>
 <img src="<%= @event.activity.image_url %>" height="125px">
 Time: <%= @event.date_time_start %> -
 <%= @event.date_time_end %>
-<%= @event.activity.description %>
+<br>
+<br>
+<%= simple_format(@event.description) %>
 
 <br>
-Number of invites<br>
-<%= @event.invites.length %>
-<% @event.invites.each_with_index do |invite| %>
-  <%= invite.guest.name %>
-<% end %>
-<br>
-
 <%= link_to "Edit #{@event.activity.name}", event_edit_path(@event), class:"btn btn-default" %>
 <%= link_to "delete", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
 <%= link_to "View All Events", events_path, class:"btn btn-default" %>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
-  Invite friendz!
+  Invite friends
 </button>
 
 <div class="modal fade" id=inviteFriends tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -47,3 +42,11 @@ Number of invites<br>
     </div>
   </div>
 </div>
+
+<h3> Invitees </h3>
+<br>
+<% @event.invites.each_with_index do |invite| %>
+  <%= invite.guest.name %>
+  <%= invite.status %><br>
+<% end %>
+<br>

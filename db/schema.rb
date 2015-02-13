@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213175518) do
+ActiveRecord::Schema.define(version: 20150213191149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150213175518) do
     t.string   "image_url"
     t.integer  "user_id"
     t.integer  "activity_id"
+    t.text     "description"
   end
 
   create_table "friendships", force: true do |t|
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150213175518) do
   end
 
   create_table "invites", force: true do |t|
-    t.string   "status"
+    t.string   "status",     default: "not yet responded"
     t.integer  "event_id"
     t.integer  "user_id"
     t.datetime "created_at"
