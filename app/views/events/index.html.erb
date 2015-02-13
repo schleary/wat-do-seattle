@@ -2,9 +2,11 @@
 
 <% @events.each do |event| %>
   <hr>
-  <%= event.activity.name %>
-  <img src="<%= event.activity.image_url %>" height="125px">
-  Time: <%= event.date_time_start %> -
-  <%= event.date_time_end %>
-  <%= event.activity.description %>
+  <%= link_to event_show_path(event.id) do %>
+    <%= event.activity.name %>
+    <img src="<%= event.activity.image_url %>" height="125px">
+    Time: <%= event.date_time_start %> -
+    <%= event.date_time_end %>
+    <%= event.activity.description %>
+  <% end %>
 <% end %>
