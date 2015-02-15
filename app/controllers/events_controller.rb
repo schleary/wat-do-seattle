@@ -16,14 +16,24 @@ class EventsController < ApplicationController
   end
 
   def index
-    # @events = []
+    @events = []
     # @events << Event.all.where("(user_id in (?) OR #{get_guest_id} in (?))", current_user, current_user)
-    @events = Event.all.where(:user_id => current_user)
-    # @invites = Invite.all.where(:guest_id => current_user)
+    @events = Event.where(:user_id => current_user)
+
+    # @events << Event.where(:user_id => current_user)
+    # @invites = Invite.where(:guest_id => current_user)
+    # num = @invites.all.first.event_id
+    # @event = Event.where(:id => num)
+    # puts "THIS"
+    # puts @event.inspect
+    # puts "THIS"
+    #
     # @invites.each do |invite|
-    #   @events << Event.find_by(:id => invite.event_id)
+    #   @event = Event.where(:id => invite.event_id)
+    #   @events << @event
+    #
     # end
-    puts @events.inspect
+
 
   end
 
@@ -48,6 +58,14 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+    @invites = Invite.where(:event_id => @event.id)
+    @invites.each do |invite|
+      invite.destroy
+    end
+    @notifications = Notification.where(:event_id => @event.id)
+    @notifications.each do |notification|
+      notification.destroy
+    end
     redirect_to events_path
   end
 
