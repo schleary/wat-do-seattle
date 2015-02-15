@@ -44,6 +44,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @activity = Activity.find_by(:id => @event.activity_id)
   end
 
   def update

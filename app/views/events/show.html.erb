@@ -7,8 +7,12 @@ Time: <%= @event.date_time_start %> -
 <%= simple_format(@event.description) %>
 
 <br>
-<%= link_to "Edit #{@event.activity.name}", event_edit_path(@event), class:"btn btn-default" %>
-<%= link_to "delete", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
+
+<% if (@event.user_id == current_user.id) %>
+
+  <%= link_to "Edit #{@event.activity.name}", event_edit_path(@event), class:"btn btn-default" %>
+  <%= link_to "delete", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
+<% end %>
 <%= link_to "View All Events", events_path, class:"btn btn-default" %>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
