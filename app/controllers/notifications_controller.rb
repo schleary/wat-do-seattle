@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notification.where(:user_id => current_user.id)
+    @notifications = Notification.relevant_notifications(current_user)
   end
 
   def create
