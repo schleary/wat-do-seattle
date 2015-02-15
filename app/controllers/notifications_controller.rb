@@ -1,6 +1,10 @@
 class NotificationsController < ApplicationController
+  before_action :current_user
+
   def index
-    @notifications = Notification.relevant_notifications(current_user)
+    if current_user != nil
+      @notifications = Notification.relevant_notifications(current_user)
+    end
   end
 
   def create

@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   # protect_from_forgery with: :exception
 
-  before_filter :current_user
+  before_action :current_user
   helper_method :current_user
 
-  before_filter :get_notifications
+  before_action :get_notifications
   helper_method :get_notifications
 
   def current_user
@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_notifications
-    @notifications = Notification.relevant_notifications(current_user)
-    puts "WELL?"
+    @notifications = Notification.relevant_notifications(@current_user)
   end
 
 end
