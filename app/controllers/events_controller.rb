@@ -16,8 +16,15 @@ class EventsController < ApplicationController
   end
 
   def index
+    # @events = []
+    # @events << Event.all.where("(user_id in (?) OR #{get_guest_id} in (?))", current_user, current_user)
     @events = Event.all.where(:user_id => current_user)
-    # .where(:user_id => @current_user.id)
+    # @invites = Invite.all.where(:guest_id => current_user)
+    # @invites.each do |invite|
+    #   @events << Event.find_by(:id => invite.event_id)
+    # end
+    puts @events.inspect
+
   end
 
   def show

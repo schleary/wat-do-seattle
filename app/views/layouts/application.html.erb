@@ -58,10 +58,10 @@
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-exclamation-circle"></i> Notifications</a>
                 <ul class="dropdown-menu" role="menu">
-                
+
                   <% if @notifications != nil %>
                     <% @notifications.each do |notification| %>
-                      <li><a href="#"><%= notification.description %></a></li>
+                      <li><a href="<%=event_show_path(notification.event_id)%>"><%= notification.description %></a></li>
                     <% end %>
                     <li class="divider"></li>
                   <% end %>

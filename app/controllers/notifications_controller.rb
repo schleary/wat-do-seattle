@@ -8,11 +8,11 @@ class NotificationsController < ApplicationController
   end
 
   def create
-    @notification = Notification.new(notification_params)
-    if @notification.save
-      puts "CREATED"
-
-    end
+    # @notification = Notification.new(notification_params)
+    # if @notification.save
+    #   puts "CREATED"
+    #
+    # end
   end
 
   def destroy
