@@ -51,20 +51,26 @@ Time: <%= @event.date_time_start %> -
 </div>
 <br>
 <br>
-
 <div class="dropdown">
+
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
     <%= @invite.status %>
     <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li><a href="<%=invite_going_path(@invite) %>">Going</a></li>
 
-    <li role="presentation"><form action="<%=invite_going_path(@invite) %>" method="post">
-          <input type="submit" value="Going" />
-        </form></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%=invite_going_path(@invite) %>">Going</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%invite_maybe_path(@invite) %>">Maybe</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="<%invite_not_going_path(@invite) %>">Not Going</a></li>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+    <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+      <%= invite.hidden_field :status, :value => "Going" %>
+      <%= invite.submit "Going" %>
+    <% end %></li>
+    <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+      <%= invite.hidden_field :status, :value => "Maybe" %>
+      <%= invite.submit "Maybe" %>
+    <% end %></li>
+    <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+      <%= invite.hidden_field :status, :value => "Not Going" %>
+      <%= invite.submit "Not Going" %>
+    <% end %></li>
   </ul>
 </div>
