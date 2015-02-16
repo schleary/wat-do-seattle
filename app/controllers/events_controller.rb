@@ -23,7 +23,15 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @user = current_user
     @invite = Invite.find_by(:guest_id => current_user.id, :event_id => @event.id)
-
+    @invites = []
+    @going_invites = Invite.where(:event_id => @event.id, :status => "Going")
+    @not_going_invites = Invite.where(:event_id => @event.id, :status => "Not Going")
+    @maybe_invites = Invite.where(:event_id => @event.id, :status => "Maybe")
+    @not_yet_invites = Invite.where(:event_id => @event.id, :status => "Not Yet Responded")
+    @invites << @going_invites
+    @invites << @not_going_invites
+    @invites << @maybe_invites
+    @invites << @not_yet_invites
   end
 
   def edit

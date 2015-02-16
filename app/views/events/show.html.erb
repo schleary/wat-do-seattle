@@ -27,17 +27,16 @@ Time: <%= @event.date_time_start %> -
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for(@event, url: event_invite_create_path(:id =>@event.id), method: :post, layout: :inline) do |f| %>
-          Invite stuff
           <ul>
             <% @user.friendships.each_with_index do |friendship, index| %>
-              <li>
+
                 <%= check_box_tag("event[invites]["+index.to_s+"]", friendship.friend_id.to_s, @event.invites.select{|invite| invite.guest_id == friendship.friend_id}.length > 0) %>
                 <%= friendship.friend.name %>
-              </li>
+
             <% end %>
           </ul>
           <br><br>
@@ -51,25 +50,118 @@ Time: <%= @event.date_time_start %> -
 </div>
 <br>
 <br>
-<div class="dropdown">
+<% if (@invite) %>
+  <div class="dropdown">
 
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    <%= @invite.status %>
-    <span class="caret"></span>
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+      <%= @invite.status %>
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+        <%= invite.hidden_field :status, :value => "Going" %>
+        <%= invite.submit "Going" %>
+      <% end %></li>
+      <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+        <%= invite.hidden_field :status, :value => "Maybe" %>
+        <%= invite.submit "Maybe" %>
+      <% end %></li>
+      <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+        <%= invite.hidden_field :status, :value => "Not Going" %>
+        <%= invite.submit "Not Going" %>
+      <% end %></li>
+    </ul>
+  </div>
+<% end %>
+
+<% if (@invites.any?) %>
+  <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal1">
+    <%= @going_invites.length %> Going
   </button>
+  <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal2">
+    <%= @maybe_invites.length %> Maybe
+  </button>
+  <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal3">
+    <%= @not_yet_invites.length %> Not Yet Responded
+  </button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+    <%= @not_going_invites.length %> Not Going
+  </button>
+<% end %>
 
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
-      <%= invite.hidden_field :status, :value => "Going" %>
-      <%= invite.submit "Going" %>
-    <% end %></li>
-    <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
-      <%= invite.hidden_field :status, :value => "Maybe" %>
-      <%= invite.submit "Maybe" %>
-    <% end %></li>
-    <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
-      <%= invite.hidden_field :status, :value => "Not Going" %>
-      <%= invite.submit "Not Going" %>
-    <% end %></li>
-  </ul>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Going</h4>
+      </div>
+      <div class="modal-body">
+        <% @going_invites.each do |invite| %>
+          <%= invite.user.name %><br>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Maybe</h4>
+      </div>
+      <div class="modal-body">
+        <% @maybe_invites.each do |invite| %>
+          <%= invite.user.name %><br>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Not Yet Responded</h4>
+      </div>
+      <div class="modal-body">
+        <% @not_yet_invites.each do |invite| %>
+          <%= invite.user.name %><br>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Not Going</h4>
+      </div>
+      <div class="modal-body">
+        <% @not_going_invites.each do |invite| %>
+          <%= invite.user.name %><br>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
