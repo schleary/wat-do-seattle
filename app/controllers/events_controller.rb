@@ -28,6 +28,7 @@ class EventsController < ApplicationController
     @not_going_invites = Invite.where(:event_id => @event.id, :status => "Not Going")
     @maybe_invites = Invite.where(:event_id => @event.id, :status => "Maybe")
     @not_yet_invites = Invite.where(:event_id => @event.id, :status => "Not Yet Responded")
+    puts @not_yet_invites.inspect
     @invites << @going_invites
     @invites << @not_going_invites
     @invites << @maybe_invites

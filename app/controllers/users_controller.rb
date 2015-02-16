@@ -65,12 +65,28 @@ class UsersController < ApplicationController
 
   def destroy
     @user = current_user
+
+    @events = Event.where(:user_id => @user.id)
+    @events.each do |event|
+      @invites = Invite.where(:event_id => event.id)
+      @invites.each do |invite|
+        invite.destroy
+      end
+      @notifications = Notification.where(:event_id => event.id)
+      @notifications.each do |notification|
+        notification.destroy
+      end
+      event.destroy
+    end
+
     if @user.destroy
       session[:user_id] = nil
       redirect_to root_path
     else
       render "show"
     end
+    redirect_to events_path
+
   end
 
   def confirm

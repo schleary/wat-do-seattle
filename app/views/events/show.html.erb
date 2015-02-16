@@ -1,4 +1,5 @@
 <h2><%= @event.activity.name %></h2>
+Created by <%= @event.user.name %>
 <img src="<%= @event.activity.image_url %>" height="125px">
 Time: <%= @event.date_time_start %> -
 <%= @event.date_time_end %>
@@ -99,7 +100,7 @@ Time: <%= @event.date_time_start %> -
       </div>
       <div class="modal-body">
         <% @going_invites.each do |invite| %>
-          <%= invite.user.name %><br>
+          <%= invite.guest.name %><br>
         <% end %>
       </div>
       <div class="modal-footer">
@@ -118,7 +119,7 @@ Time: <%= @event.date_time_start %> -
       </div>
       <div class="modal-body">
         <% @maybe_invites.each do |invite| %>
-          <%= invite.user.name %><br>
+          <%= invite.guest.name %><br>
         <% end %>
       </div>
       <div class="modal-footer">
@@ -137,7 +138,7 @@ Time: <%= @event.date_time_start %> -
       </div>
       <div class="modal-body">
         <% @not_yet_invites.each do |invite| %>
-          <%= invite.user.name %><br>
+          <%= invite.guest.name %><br>
         <% end %>
       </div>
       <div class="modal-footer">
@@ -156,7 +157,7 @@ Time: <%= @event.date_time_start %> -
       </div>
       <div class="modal-body">
         <% @not_going_invites.each do |invite| %>
-          <%= invite.user.name %><br>
+          <%= invite.guest.name %><br>
         <% end %>
       </div>
       <div class="modal-footer">
