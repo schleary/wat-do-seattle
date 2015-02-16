@@ -1,4 +1,7 @@
 <h2>Friends</h2>
+
+<p><%= link_to "Find Friends", users_path %></p>
+
 <ul>
   <% @user.friendships.each do |friendship| %>
     <li>
@@ -7,8 +10,6 @@
     </li>
   <% end %>
 </ul>
-
-<p><%= link_to "Find Friends", users_path %></p>
 
 <h2>Friended by Users</h2>
 <ul>

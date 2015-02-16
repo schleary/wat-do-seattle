@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
   def create
+    puts params.inspect
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
       flash[:notice] = "Friend Added."
@@ -23,7 +24,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
     flash[:notice] = "Friend Removed."
-    redirect_to friendship_path
+    redirect_to users_path
   end
 
 

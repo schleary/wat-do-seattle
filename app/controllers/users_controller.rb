@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where.not(id: current_user.id)
+    @friendship = Friendship.where(:user_id => current_user.id)
     # @users = Friendship.user.where.not(user_id: current_user.id)
     # @users = User.where.not(id: current_user.friendships.friend_id)
   end

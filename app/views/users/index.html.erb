@@ -2,5 +2,19 @@
 
 <% @users.each do |user| %>
   <%= user.name %>
-  <%= link_to "Add Friend", friendship_create_path(:friend_id => user), :method => :post %><br>
+
+  <% count = 0 %>
+  <% @friendship.each do |friendship| %>
+    <% if (friendship.user.id == current_user.id && friendship.friend_id == user.id) %>
+      (<%= link_to "remove", friendship_destroy_path(friendship) %>)
+      <% count += 1 %>
+      <%= count %>
+    <% else %>
+    <% end %>
+  <% end %>
+
+  <% if (count == 0) %>
+    <%= link_to "Add Friend", friendship_create_path(:friend_id => user), :method => :post %>
+  <% end %><br>
+
 <% end %>

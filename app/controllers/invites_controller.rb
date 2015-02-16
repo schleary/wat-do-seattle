@@ -16,7 +16,6 @@ class InvitesController < ApplicationController
       @invite = Invite.find_by(:guest_id => params["event"]["invites"][key], :event_id => @event.id)
       if (@invite == nil)
         new_invite = Invite.new
-
         new_invite.guest_id = params["event"]["invites"][key].to_i
         new_invite.user_id = @user.id
         new_invite.event_id = @event.id
