@@ -1,12 +1,16 @@
 <h1>My Events</h1>
 
-<% @events.each do |event| %>
-  <hr>
-  <%= link_to event_show_path(event.id) do %>
-    <%= event.activity.name %>
-    <img src="<%= event.activity.image_url %>" height="125px">
-    Time: <%= event.date_time_start %> -
-    <%= event.date_time_end %>
-    <%= event.activity.description %>
+<% if @events != nil %>
+  <% @events.each do |event| %>
+    <hr>
+    <%= link_to event_show_path(event.id) do %>
+      <%= event.activity.name %>
+      <img src="<%= event.activity.image_url %>" height="125px">
+      Created by <%= event.user.name %><br>
+      Time: <%= event.date_time_start %> -
+      <%= event.date_time_end %>
+      <%= event.activity.description %>
+    <% end %>
   <% end %>
+  <hr>
 <% end %>

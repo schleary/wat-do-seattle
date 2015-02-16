@@ -16,7 +16,8 @@ class EventsController < ApplicationController
     @invites = Invite.where(:guest_id => current_user)
 
     # @invites.first.event_id should be the whole array
-    @events = Event.where("(user_id in (?) OR id in (?))", current_user, @invites.first.event_id)
+    # @events = Event.where("(user_id in (?) OR id in (?))", current_user, @invites.first.event_id)
+    @events = Event.where(:user_id => current_user)
   end
 
   def show
