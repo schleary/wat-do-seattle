@@ -3,10 +3,6 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
       flash[:notice] = "Friend Added."
-      @notification = Notification.create(:user_id => params[:friend_id])
-      puts "%%%"
-      puts @notification.inspect
-      puts "$$$"
       redirect_to users_path
     else
       flash[:error] = "Unable to add friend."

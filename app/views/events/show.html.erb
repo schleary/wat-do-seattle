@@ -36,7 +36,7 @@ Time: <%= @event.date_time_start %> -
             <% @user.friendships.each_with_index do |friendship, index| %>
 
                 <%= check_box_tag("event[invites]["+index.to_s+"]", friendship.friend_id.to_s, @event.invites.select{|invite| invite.guest_id == friendship.friend_id}.length > 0) %>
-                <%= friendship.friend.name %>
+                <%= friendship.friend.name %><br>
 
             <% end %>
           </ul>

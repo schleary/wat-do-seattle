@@ -13,14 +13,17 @@ class InvitesController < ApplicationController
     @user = current_user
     new_invites = []
     params["event"]["invites"].keys.each do |key|
-      puts params["event"]["invites"][key]
-      new_invite = Invite.new
-      new_invite.guest_id = params["event"]["invites"][key].to_i
-      new_invite.user_id = @user.id
-      new_invite.event_id = @event.id
-      if new_invite.save
-        notification = Notification.new(:user_id => new_invite.guest_id, :description => "#{@user.name} has invited you to #{@event.activity.name}!", :event_id => @event.id)
-        notification.save
+      @invite = Invite.find_by(:guest_id => params["event"]["invites"][key], :event_id => @event.id)
+      if (@invite == nil)
+        new_invite = Invite.new
+
+        new_invite.guest_id = params["event"]["invites"][key].to_i
+        new_invite.user_id = @user.id
+        new_invite.event_id = @event.id
+        if new_invite.save
+          notification = Notification.new(:user_id => new_invite.guest_id, :description => "#{@user.name} has invited you to #{@event.activity.name}!", :event_id => @event.id)
+          notification.save
+        end
       end
 
     end
