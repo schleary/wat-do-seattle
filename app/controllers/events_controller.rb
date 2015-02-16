@@ -1,9 +1,6 @@
 class EventsController < ApplicationController
   def create
     @event = Event.new(events_params)
-    puts "Events"
-    puts params.inspect
-    puts "Events"
     if @event.save
       flash[:notice] = "You have successfully created a new event!"
       redirect_to event_show_path(@event)
@@ -16,25 +13,10 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = []
-    # @events << Event.all.where("(user_id in (?) OR #{get_guest_id} in (?))", current_user, current_user)
-    @events = Event.where(:user_id => current_user)
+    @invites = Invite.where(:guest_id => current_user)
 
-    # @events << Event.where(:user_id => current_user)
-    # @invites = Invite.where(:guest_id => current_user)
-    # num = @invites.all.first.event_id
-    # @event = Event.where(:id => num)
-    # puts "THIS"
-    # puts @event.inspect
-    # puts "THIS"
-    #
-    # @invites.each do |invite|
-    #   @event = Event.where(:id => invite.event_id)
-    #   @events << @event
-    #
-    # end
-
-
+    # @invites.first.event_id should be the whole array
+    @events = Event.where("(user_id in (?) OR id in (?))", current_user, @invites.first.event_id)
   end
 
   def show

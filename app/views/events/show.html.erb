@@ -59,7 +59,6 @@ Time: <%= @event.date_time_start %> -
   </button>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-
     <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
       <%= invite.hidden_field :status, :value => "Going" %>
       <%= invite.submit "Going" %>

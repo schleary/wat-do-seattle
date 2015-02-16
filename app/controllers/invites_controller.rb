@@ -44,31 +44,7 @@ class InvitesController < ApplicationController
     end
   end
 
-  # def invite_going
-  #   puts "GETTING TEHRE"
-  #   @invite = Invite.find(params[:id])
-  #   @invite.status = "Going"
-  #   if @invite.update(invite_params)
-  #     redirect_to event_show_path(@invite.event)
-  #   end
-  # end
-  #
-  # def invite_maybe
-  #   @invite = Invite.find(params[:id])
-  #   @invite.status = "Maybe"
-  #   if @invite.update(invite_params)
-  #     redirect_to event_show_path(@invite.event)
-  #   end
-  # end
-  #
-  # def invite_not_going
-  #   @invite = Invite.find(params[:id])
-  #   @invite.status = "Not Going"
-  #   if @invite.update(invite_params)
-  #     redirect_to event_show_path(@invite.event)
-  #   end
-  # end
-
+  
   def destroy
 
   end

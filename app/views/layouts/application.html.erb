@@ -58,7 +58,6 @@
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-exclamation-circle"></i> Notifications</a>
                 <ul class="dropdown-menu" role="menu">
-
                   <% if @notifications != nil %>
                     <% @notifications.each do |notification| %>
                       <li><a href="<%=event_show_path(notification.event_id)%>"><%= notification.description %></a></li>
@@ -68,6 +67,7 @@
                   <li><a href="<%= notifications_path %>">See all</a></li>
                 </ul>
               </li>
+              
               <li>
                 <a class="nav navbar-nav" href="<%=user_show_path(current_user)%>"><i class="fa fa-user"></i> <%= current_user.name %></a>
               </li>
