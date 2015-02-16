@@ -40,6 +40,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @user = current_user
+    # @invite = Invite.where(:guest_id => current_user.id, :event_id => @event.id)
   end
 
   def edit
@@ -50,7 +51,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(events_params)
-      redirect_to @event
+      redirect_to event_show_path@event
     else
       render :edit
     end

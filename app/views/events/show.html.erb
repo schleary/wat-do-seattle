@@ -15,6 +15,8 @@ Time: <%= @event.date_time_start %> -
 <% end %>
 <%= link_to "View All Events", events_path, class:"btn btn-default" %>
 
+<h3> Invitees </h3>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
   Invite friends
 </button>
@@ -46,11 +48,5 @@ Time: <%= @event.date_time_start %> -
     </div>
   </div>
 </div>
-
-<h3> Invitees </h3>
 <br>
-<% @event.invites.each_with_index do |invite| %>
-  <%= invite.guest.name %>
-  <%= invite.status %><br>
-<% end %>
 <br>

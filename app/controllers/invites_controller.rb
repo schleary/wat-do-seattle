@@ -38,10 +38,21 @@ class InvitesController < ApplicationController
   end
 
   def update
-
+    params.inspect
+    @invite = Invite.find(params[:id])
+    if @invite.update(invite_params)
+      redirect_to event_show_path(@invite.event)
+    end
   end
 
   def destroy
 
   end
+
+  private
+
+  def invite_params
+    params.require(:invite).permit(:guest_id, :user_id, :event_id, :status)
+  end
+
 end

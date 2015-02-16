@@ -1,5 +1,5 @@
 <h2><%= @activity.name %> </h2>
-<%= bootstrap_form_for(@event, url: event_edit_path) do |f| %>
+<%= bootstrap_form_for(@event, url: event_update_path) do |f| %>
   <%= f.text_area :description, label: "Description" %>
   <%= f.datetime_select :date_time_start, label: "Start Time"%>
   <%= f.datetime_select :date_time_end, label: "End Time"%>
