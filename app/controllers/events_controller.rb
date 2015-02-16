@@ -40,7 +40,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @user = current_user
-    # @invite = Invite.where(:guest_id => current_user.id, :event_id => @event.id)
+    @invite = Invite.find_by(:guest_id => current_user.id, :event_id => @event.id)
+
   end
 
   def edit
