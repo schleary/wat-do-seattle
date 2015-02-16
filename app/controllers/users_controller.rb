@@ -86,7 +86,6 @@ class UsersController < ApplicationController
     else
       render "show"
     end
-    redirect_to events_path
 
   end
 

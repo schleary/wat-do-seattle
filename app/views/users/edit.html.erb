@@ -9,7 +9,7 @@
 <hr>
 
 <h3>Edit Your Profile: </h3>
-<img src="<%= @user.image_url(:preview) %>">
+<img src="<%= @user.image_url(:profile) %>">
 
 <%= bootstrap_form_for @user, url: {action: "update"} do |f| %>
   <%= f.file_field :image, label: "Update Profile Picture" %>
