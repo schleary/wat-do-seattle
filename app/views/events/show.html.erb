@@ -1,18 +1,20 @@
-<h2><%= @event.activity.name %></h2>
-<img src="<%= @event.activity.image_url %>" height="125px">
-Created by <%= @event.user.name %><br>
-Time: <%= @event.date_time_start %> -
-<%= @event.date_time_end %>
-<br>
-<br>
-<%= simple_format(@event.description) %>
-
-<br>
+<div class="main-block">
+  <h1><%= @event.activity.name %></h1>
+</div>
+<img class="sub-images" src="<%= @event.activity.image_url(:profile) %>" height="300px">
+<div class="sub-block">
+  Created by: <%= @event.user.name %><br>
+  <hr>
+  Time: <%= @event.date_time_start %> -
+  <%= @event.date_time_end %>
+  <hr>
+  <%= simple_format(@event.description) %>
+</div>
 
 <% if (@event.user_id == current_user.id) %>
 
-  <%= link_to "Edit #{@event.activity.name}", event_edit_path(@event), class:"btn btn-default" %>
-  <%= link_to "delete", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
+  <%= link_to "Edit Event", event_edit_path(@event), class:"btn btn-default" %>
+  <%= link_to "Delete Event", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
 <% end %>
 
 <%= link_to "View All Events", events_path, class:"btn btn-default" %>
@@ -20,36 +22,36 @@ Time: <%= @event.date_time_start %> -
 <h3> Invitees </h3>
 
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
-    Invite friends
-  </button>
+<button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
+  Invite friends
+</button>
 
-  <div class="modal fade" id=inviteFriends tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
-        </div>
-        <div class="modal-body">
-          <%= bootstrap_form_for(@event, url: event_invite_create_path(:id =>@event.id), method: :post, layout: :inline) do |f| %>
-            <ul>
-              <% @user.friendships.each_with_index do |friendship, index| %>
+<div class="modal fade" id=inviteFriends tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for(@event, url: event_invite_create_path(:id =>@event.id), method: :post, layout: :inline) do |f| %>
+          <ul>
+            <% @user.friendships.each_with_index do |friendship, index| %>
 
-                  <%= check_box_tag("event[invites]["+index.to_s+"]", friendship.friend_id.to_s, @event.invites.select{|invite| invite.guest_id == friendship.friend_id}.length > 0) %>
-                  <%= friendship.friend.name %><br>
+                <%= check_box_tag("event[invites]["+index.to_s+"]", friendship.friend_id.to_s, @event.invites.select{|invite| invite.guest_id == friendship.friend_id}.length > 0) %>
+                <%= friendship.friend.name %><br>
 
-              <% end %>
-            </ul>
-            <br><br>
-            <hr>
-            <!--  f.select :guests_ids, User.all.collect {|x| [x.name, x.id]}, {}, :multiple => true -->
-            <%= f.submit "Save", class: "btn btn-default"%>
-          <% end %>
-        </div>
+            <% end %>
+          </ul>
+          <br><br>
+          <hr>
+          <!--  f.select :guests_ids, User.all.collect {|x| [x.name, x.id]}, {}, :multiple => true -->
+          <%= f.submit "Save", class: "btn btn-default"%>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
 <br>
 <br>

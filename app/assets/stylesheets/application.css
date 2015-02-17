@@ -17,7 +17,7 @@
 
 h1{
   color: #777;
-  margin-top: 3px;
+  margin: 0;
   font-family: "Raleway", Helvetica, sans-serif;
   font-weight: 200;
   font-size: 25px;
@@ -25,7 +25,7 @@ h1{
 
 h2{
   color: #777;
-  margin-top: 3px;
+  margin: 0;
   font-family: "Raleway", Helvetica, sans-serif;
   font-weight: 200;
   font-size: 20px;
@@ -33,7 +33,7 @@ h2{
 
 h3{
   color: #777;
-  margin-top: 3px;
+  margin: 0;
   font-family: "Raleway", Helvetica, sans-serif;
   font-weight: 200;
   font-size: 18px;
@@ -41,7 +41,7 @@ h3{
 
 h4{
   color: #777;
-  margin-top: 3px;
+  margin: 0;
   font-family: "Raleway", Helvetica, sans-serif;
   font-weight: 200;
 }
@@ -123,7 +123,28 @@ body{
   border-style: solid;
   border-width: 7px;
   border-color:  #e7e7e7;
+}
 
+.sub-images{
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  border-style: solid;
+  border-width: 7px;
+  border-color:  #e7e7e7;
+  display: inline-block;
+  float: left;
+}
+.btn{
+  /*background-color: #e7e7e7;
+  border: none;*/
+  /*color: #333;*/
+  /*-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75)!important;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75)!important;*/
+  margin-top: 3px;
+  font-family: "Raleway", Helvetica, sans-serif;
+  font-weight: 200;
 }
 
 .container{
@@ -140,8 +161,8 @@ body{
     .navbar {
         border-radius: 0;
         -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     }
 }
 
@@ -164,7 +185,20 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .main-block{
-  width: 100%;
+  max-width: 100%;
+  min-width: 50%;
+  height: 100%;
+  background-color: #e7e7e7;
+  padding:2% 0% 2% 2%;
+  margin: 0% 3% 2% 0%;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.sub-block{
+  display: inline-block;
+  width: 67%;
   height: 100%;
   background-color: #e7e7e7;
   padding:2% 0% 1% 3%;
@@ -172,12 +206,12 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  float: right;
 }
 
 sidebar{
   float: right;
   margin-left:5px;
-
 }
 
 .form-horizontal{

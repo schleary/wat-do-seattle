@@ -1,14 +1,15 @@
 <div class="main-block">
   <h1>Notifications </h1>
 </div>
-<div class="main-block">
-  <br>
+
   <% if @notifications.any? %>
     <% @notifications.each do |notification| %>
-      <%= notification.description %>
-      <hr>
+    <div class="main-block">
+      <i class="fa fa-calendar"></i>&nbsp&nbsp  <%= link_to notification.description, event_show_path(notification.event_id) %>
+    </div>
     <% end %>
   <% else %>
-    You have no new notifications.
+    <div class="main-block">
+      You have no new notifications.
+    </div>
   <% end %>
-</div>

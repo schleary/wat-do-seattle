@@ -10,15 +10,12 @@
   <% end %>
 </div>
 
-<div class="main-block">
-  <h2>Edit Your Profile: </h2>
-</div>
-
 <img class="images" src="<%= @user.image_url(:profile) %>">
 
-<div class="main-block">
+<div class="sub-block">
+  <h2>Edit Your Profile: </h2>
+  <hr>
   <%= bootstrap_form_for @user, url: {action: "update"} do |f| %>
-    <%= f.file_field :image, label: "Update Profile Picture" %>
 
     <% if @user.email %>
       <%= f.email_field :email %>
@@ -39,8 +36,12 @@
       </div>
     <% end %>
 
-    <%= f.submit class: "btn btn-default", value: "Update Account"%> <%= link_to "Delete Your Account", users_delete_path, method: :delete, class: "btn btn-default" %>
+    <%= f.file_field :image, label: "Update Profile Picture" %>
 
+    <hr>
+    <%= f.submit class: "btn btn-default", value: "Update Account"%> <%= link_to "Delete Your Account", users_delete_path, method: :delete, class: "btn btn-default" %>
+    <br>
+    <br>
   <% end %>
 
 
