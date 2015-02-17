@@ -20,7 +20,6 @@ class EventMailer < ActionMailer::Base
   end
 
   def notify(user_id)
-    puts "Gets to the mailer"
     @user = User.find(user_id)
     mail(
       to: @user.email,

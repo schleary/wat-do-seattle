@@ -22,9 +22,6 @@ class InvitesController < ApplicationController
         if new_invite.save
           notification = Notification.new(:user_id => new_invite.guest_id, :description => "#{@user.name} has invited you to #{@event.activity.name}!", :event_id => @event.id)
           notification.save
-          puts "HERE's THE ID"
-          puts notification.user_id
-          puts "/END"
           Resque.enqueue(EmailNotifyJob, notification.user_id)
         end
       end
