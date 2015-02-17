@@ -58,148 +58,163 @@
 
   <div class="container">
 
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<%=root_path%>"> Wat Do? [Seattle]</a>
-        </div>
+    <div class="row">
+      <div class="col-lg-12">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a class="navbar-nav" href="<%=activities_query_path%>"><i class="fa fa-binoculars"></i> Find an Activity!</a>
-            <% if current_user && current_user.admin %>
-              <li><a class="navbar-nav" href="<%=activity_new_path%>"><i class="fa fa-pencil-square-o"></i> Suggest an Activity!</a>
-            <% end %>
-          </ul>
-          <!-- <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="<%=root_path%>"> Wat Do? [Seattle]</a>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form> -->
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-              <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-exclamation-circle"></i> Notifications</a>
-                <ul class="dropdown-menu" role="menu">
-                  <% if @notifications != nil %>
-                    <% @notifications.each do |notification| %>
-                      <li><a href="<%=event_show_path(notification.event_id)%>"><%= notification.description %></a></li>
-                    <% end %>
-                    <li class="divider"></li>
-                  <% end %>
-                  <li><a href="<%= notifications_path %>">See all</a></li>
-                </ul>
-              </li>
 
-              <li>
-                <a class="nav navbar-nav" href="<%=user_show_path(current_user)%>"><i class="fa fa-user"></i> <%= current_user.name %></a>
-              </li>
-              <li>
-                <a class="nav navbar-nav" href="<%=signout_path%>"><i class="fa fa-sign-out"></i> Sign Out</a>
-              </li>
-            <% else %>
-              <li>
-                <a class="nav navbar-nav" href="/auth/google_oauth2"><i class="fa fa-sign-in"></i> Sign In</a>
-              </li>
-
-            <% end %>
-
-            <!-- <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a class="navbar-nav" href="<%=activities_query_path%>"><i class="fa fa-binoculars"></i> Find an Activity!</a>
+                <% if current_user && current_user.admin %>
+                  <li><a class="navbar-nav" href="<%=activity_new_path%>"><i class="fa fa-pencil-square-o"></i> Suggest an Activity!</a>
+                <% end %>
               </ul>
-            </li> -->
-            <!-- <ul class="nav navbar-nav"> -->
+              <!-- <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form> -->
+              <ul class="nav navbar-nav navbar-right">
+                <% if current_user %>
+                  <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-exclamation-circle"></i> Notifications</a>
+                    <ul class="dropdown-menu" role="menu">
+                      <% if @notifications != nil %>
+                        <% @notifications.each do |notification| %>
+                          <li><a href="<%=event_show_path(notification.event_id)%>"><%= notification.description %></a></li>
+                        <% end %>
+                        <li class="divider"></li>
+                      <% end %>
+                      <li><a href="<%= notifications_path %>">See all</a></li>
+                    </ul>
+                  </li>
 
-            <!-- </ul> -->
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+                  <li>
+                    <a class="nav navbar-nav" href="<%=user_show_path(current_user)%>"><i class="fa fa-user"></i> <%= current_user.name %></a>
+                  </li>
+                  <li>
+                    <a class="nav navbar-nav" href="<%=signout_path%>"><i class="fa fa-sign-out"></i> Sign Out</a>
+                  </li>
+                <% else %>
+                  <li>
+                    <a class="nav navbar-nav" href="/auth/google_oauth2"><i class="fa fa-sign-in"></i> Sign In</a>
+                  </li>
 
-    <sidebar>
-      <% if current_user %>
-        <div style="background-image: url('<%= current_user.image_url (:thumb) %>')" >
-      <% else %>
-        <div class = "nav-profile">
-      <% end %>
-        <% if current_user %>
-          <%= link_to user_show_path(current_user.id) do %>
-            <div class="side-nav" >
-              <i class="fa fa-user"></i> Profile
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to '/auth/google_oauth2' do %>
-            <div class="side-nav">
-              <i class="fa fa-user"></i> Profile
-            </div>
-          <% end %>
-        <% end %>
-      </div><br>
+                <% end %>
 
-      <% if current_user %>
-        <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
-      <% else %>
-        <div class = "nav-events">
-      <% end %>
-        <% if current_user %>
-          <%= link_to events_path do %>
-            <div class="side-nav">
-              <i class="fa fa-calendar"></i> Events
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to '/auth/google_oauth2' do %>
-            <div class="side-nav">
-              <i class="fa fa-calendar"></i> Events
-            </div>
-          <% end %>
-        <% end %>
-      </div><br>
+                <!-- <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li> -->
+                <!-- <ul class="nav navbar-nav"> -->
 
-      <% if current_user %>
-        <div style="background-image: url('<%= current_user.image_url (:profile) %>')" >
-      <% else %>
-        <div class = "nav-friends">
-      <% end %>
-        <% if current_user %>
-          <%= link_to friendship_path do %>
-            <div class="side-nav">
-              <i class="fa fa-users"></i> Friends
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to '/auth/google_oauth2' do %>
-            <div class="side-nav">
-              <i class="fa fa-users"></i> Friends
-            </div>
-          <% end %>
-        <% end %>
-      </div><br>
-
-    </sidebar>
-
-    <div class="mid-content">
-
-      <%= yield %>
-
+                <!-- </ul> -->
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-10">
+
+        <div class="mid-content">
+
+          <%= yield %>
+
+        </div>
+        
+      </div>
+
+      <div class="col-lg-2">
+
+        <sidebar>
+          <% if current_user %>
+            <div style="background-image: url('<%= current_user.image_url (:thumb) %>')" >
+          <% else %>
+            <div class = "nav-profile">
+          <% end %>
+            <% if current_user %>
+              <%= link_to user_show_path(current_user.id) do %>
+                <div class="side-nav" >
+                  <i class="fa fa-user"></i> Profile
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to '/auth/google_oauth2' do %>
+                <div class="side-nav">
+                  <i class="fa fa-user"></i> Profile
+                </div>
+              <% end %>
+            <% end %>
+          </div><br>
+
+          <% if current_user %>
+            <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
+          <% else %>
+            <div class = "nav-events">
+          <% end %>
+            <% if current_user %>
+              <%= link_to events_path do %>
+                <div class="side-nav">
+                  <i class="fa fa-calendar"></i> Events
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to '/auth/google_oauth2' do %>
+                <div class="side-nav">
+                  <i class="fa fa-calendar"></i> Events
+                </div>
+              <% end %>
+            <% end %>
+          </div><br>
+
+          <% if current_user %>
+            <div style="background-image: url('<%= current_user.image_url (:profile) %>')" >
+          <% else %>
+            <div class = "nav-friends">
+          <% end %>
+            <% if current_user %>
+              <%= link_to friendship_path do %>
+                <div class="side-nav">
+                  <i class="fa fa-users"></i> Friends
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to '/auth/google_oauth2' do %>
+                <div class="side-nav">
+                  <i class="fa fa-users"></i> Friends
+                </div>
+              <% end %>
+            <% end %>
+          </div><br>
+
+        </sidebar>
+    </div>
+
+
 
   </div>
 
