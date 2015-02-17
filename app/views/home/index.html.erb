@@ -1,51 +1,20 @@
 <div class="jumbotron">
-  <h1><%= link_to 'Wat Do? ', root_path %><small>[Seattle]</small></h1>
+  <h1>Wat Do? <small>[Seattle]</small></h1>
+  <hr>
   <p>
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    when an unknown printer took a galley of type and scrambled it to make a type specimen
-    book.
+    Most social networks keep you tuned in to screens and out of
+    your life.
+  </p>
+  <p>
+    Wat Do? [Seattle] is a different kind of social tool - an <i>actual</i> social tool. It
+    gets you away from screens and helps you start interacting with
+    people again. Simply click on the 'Find an
+    Activity' button, enter a few parameters, and Wat Do? [Seattle] will
+    generate a list of great ideas just for you!
   </p><br>
 
   <!-- Button trigger modal -->
-  <%= link_to 'Sign In', "#", data: {toggle: "modal", target: "#myModal"} %>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign In</h4>
-        </div>
-        <div class="modal-body">
-          <% if current_user %>
-            <li><%= link_to "Sign Out", session_path(session[:user_id]), method: :delete  %> <span class="sr-only">(current)</span></li>
-          <% else %>
-            <li><%= link_to 'Sign In With Google', 'auth/google' %> <span class="sr-only">(current)</span></li>
-          <% end %>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <% if !current_user %>
+    <a class="nav navbar-nav" href="/auth/google_oauth2"><i class="fa fa-sign-in"></i> Sign Up</a>
+  <% end %>
 </div>
-
-
-<script>
-  function displayContent(json) {
-		 var string = "<table>";
-            var len = json.feed.entry.length;
-            for (var i=0; i<len; i++) {
-                  var itemNum = json.feed.entry[i];
-                  var cost = json.feed.entry[i];
-                  var msrp = json.feed.entry[i];
-
-            }
-			string += "</table>";
-			$(string).appendTo('body');
-        }
-		</script>
-<script src="https://docs.google.com/spreadsheets/d/16UQqqGfytzWGxnJbA-2VfSM85LhEOFD0-Ny8dj6sSTU/pubhtml" type="text/javascript"></script>
