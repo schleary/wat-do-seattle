@@ -33,6 +33,8 @@ group :development do
   gem 'capistrano-passenger'
 end
 
+gem "capistrano-resque", "~> 0.2.1", require: false
+
 gem 'resque'
 
 gem 'therubyracer', platforms: :ruby
