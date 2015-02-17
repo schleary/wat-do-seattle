@@ -1,19 +1,28 @@
-<h2>Friends</h2>
+<div class="main-block">
+  <h1>Friends</h1>
+</div>
 
-<p><%= link_to "Find Friends", users_path %></p>
+<div class="main-block">
+  <p><h2><%= link_to "Find Friends", users_path %></h2></p>
+</div>
+<div class="main-block">
+  <h3>My Friends</h3>
+  <hr>
+  <ul>
+    <% @user.friendships.each do |friendship| %>
 
-<ul>
-  <% @user.friendships.each do |friendship| %>
-    <li>
-      <%= friendship.friend.name %>
-      (<%= link_to "remove", friendship_destroy_path(friendship) %>)
-    </li>
-  <% end %>
-</ul>
-
-<h2>Friended by Users</h2>
-<ul>
-  <% for user in @user.inverse_friends %>
-    <li><%=h user.name %></li>
-  <% end %>
-</ul>
+        <%= friendship.friend.name %>
+        (<%= link_to "remove", friendship_destroy_path(friendship) %>)
+        <br>
+    <% end %>
+  </ul>
+</div>
+<div class="main-block">
+  <h3>Friended by Users</h3>
+  <hr>
+  <ul>
+    <% for user in @user.inverse_friends %>
+      <%=h user.name %><br>
+    <% end %>
+  </ul>
+</div>

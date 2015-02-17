@@ -1,5 +1,8 @@
-<h2>My Profile </h2>
-<img src="<%= @user.image_url(:profile) %>" >
-<% if current_user %>
-  <%= link_to "Account", users_edit_path %>
-<% end %>
+<div class="main-block">
+  <h1>My Profile </h1>
+</div>
+
+  <img src="<%= @user.image_url(:profile) %>" >
+  <% if current_user %>
+    <%= link_to "Account", users_edit_path %>
+  <% end %>

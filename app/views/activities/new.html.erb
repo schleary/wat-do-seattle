@@ -1,7 +1,8 @@
 <div class="main-block">
-  <h2>Suggest a Thing</h2>
+  <h1>Suggest a Thing</h1>
+</div>
+<div class="main-block">
   <br>
-
   <%= bootstrap_form_for @activity, url: {action: "create"}, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
     <%= f.text_field :name %>
     <%= f.text_field :url %>
@@ -19,16 +20,14 @@
     <br>
 
     <%= f.file_field :image %>
-
+    <hr>
     <%= f.submit "Submit" %>
+    <br><br>
   <% end %>
-  <br>
 
   <%= javascript_include_tag 'jquery.nouislider.all.min' %>
   <%= javascript_include_tag 'slider' %>
   <%= stylesheet_link_tag    'jquery.nouislider.min', media: 'all', 'data-turbolinks-track' => true %>
-  <br>
-  <br>
 
   <script>
   $( document ).ready(function() {

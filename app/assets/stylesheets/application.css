@@ -36,6 +36,7 @@ h3{
   margin-top: 3px;
   font-family: "Raleway", Helvetica, sans-serif;
   font-weight: 200;
+  font-size: 18px;
 }
 
 h4{
@@ -105,8 +106,24 @@ body{
 .rainbow-row .col-sm-1{
   height: 10px;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.notifications{
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.images{
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  border-style: solid;
+  border-width: 7px;
+  border-color:  #e7e7e7;
+
 }
 
 .container{
@@ -184,31 +201,34 @@ sidebar{
 
 .nav-profile{
   background-image: url("speaker.jpg");
-  background-size: 150px 150px;
+  background-size: 200px 200px;
   background-repeat: no-repeat;
 }
 
 .nav-events{
   background-image: url("http://placekitten.com/g/150/150");
-  background-size: 150px 150px;
+  background-size: 200px 200px;
   background-repeat: no-repeat;
 }
 
 .nav-friends{
   background-image: url("http://placekitten.com/g/150/150");
-  background-size: 150px 150px;
+  background-size: 200px 200px;
   background-repeat: no-repeat;
 }
 
 .nav-great{
   background-image: url("http://placekitten.com/g/150/150");
-  background-size: 150px 150px;
+  background-size: 200px 200px;
   background-repeat: no-repeat;
 }
 
 .jumbotron{
   width: 970px;
   background-color: #e7e7e7;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 #slider-snap{
