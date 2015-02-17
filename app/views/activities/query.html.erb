@@ -1,67 +1,69 @@
-<h2>Find a Thing</h2>
-<%= link_to "See All Activities", activities_path %>
-<br>
-
-<%= bootstrap_form_for @activity, url: {action: "results"}, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
-  <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
-  <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
-  <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>
-  <div class="activity-text">Activity Level</div><div id='slider-snap'></div>
-  <span class="min-example-val" id="slider-snap-value-lower"></span>
+<div class="main-block">
+  <h2>Find a Thing</h2>
+  <%= link_to "See All Activities", activities_path %>
   <br>
-  <span class="max-example-val" id="slider-snap-value-upper"></span>
+
+  <%= bootstrap_form_for @activity, url: {action: "results"}, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
+    <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
+    <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
+    <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>
+    <div class="activity-text">Activity Level</div><div id='slider-snap'></div>
+    <span class="min-example-val" id="slider-snap-value-lower"></span>
+    <br>
+    <span class="max-example-val" id="slider-snap-value-upper"></span>
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+  <% end %>
+
+  <%= javascript_include_tag 'jquery.nouislider.all.min' %>
+  <%= javascript_include_tag 'slider' %>
+  <%= stylesheet_link_tag    'jquery.nouislider.min', media: 'all', 'data-turbolinks-track' => true %>
   <br>
   <br>
-  <%= f.submit "Submit" %>
-<% end %>
 
-<%= javascript_include_tag 'jquery.nouislider.all.min' %>
-<%= javascript_include_tag 'slider' %>
-<%= stylesheet_link_tag    'jquery.nouislider.min', media: 'all', 'data-turbolinks-track' => true %>
-<br>
-<br>
+  <script>
+  $( document ).ready(function() {
+    $('#slider-snap').noUiSlider({
+      start: [ 1, 3 ],
+      snap: true,
+      connect: true,
+      range: {
+        'min': 0,
+        '20%': 1,
+        '40%': 2,
+        '60%': 3,
+        '80%': 4,
+        'max': 5
+      }
+    });
 
-<script>
-$( document ).ready(function() {
-  $('#slider-snap').noUiSlider({
-    start: [ 1, 3 ],
-    snap: true,
-    connect: true,
-    range: {
-      'min': 0,
-      '20%': 1,
-      '40%': 2,
-      '60%': 3,
-      '80%': 4,
-      'max': 5
-    }
+    $('#slider-snap').Link('lower').to(function(minSliderValue) {
+      var values = ['Inactive (ex: Watching a Movie)',
+                    'Some Mental Activity (ex: Reading a Book)',
+                    'Mentally Active (ex: Playing Chess)',
+                    'Moderate (ex: Light Yoga)',
+                    'Vigorous (ex: Running)',
+                    'Extreme (ex: Mountain Climbing)',
+                    'Dont Care (Surprise Me!)'];
+
+      $("#min_activity_level").attr("value", parseInt(minSliderValue));
+       $('#slider-snap-value-lower').html(values[parseInt(minSliderValue)]);
+    });
+
+    $('#slider-snap').Link('upper').to(function(maxSliderValue) {
+      var values = ['Inactive (ex: Watching a Movie)',
+                    'Some Mental Activity (ex: Reading a Book)',
+                    'Mentally Active (ex: Playing Chess)',
+                    'Moderate (ex: Light Yoga)',
+                    'Vigorous (ex: Running)',
+                    'Extreme (ex: Mountain Climbing)',
+                    'Dont Care (Surprise Me!)'];
+
+      $("#max_activity_level").attr("value", parseInt(maxSliderValue));
+       $('#slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
+    });
+
   });
-
-  $('#slider-snap').Link('lower').to(function(minSliderValue) {
-    var values = ['Inactive (ex: Watching a Movie)',
-                  'Some Mental Activity (ex: Reading a Book)',
-                  'Mentally Active (ex: Playing Chess)',
-                  'Moderate (ex: Light Yoga)',
-                  'Vigorous (ex: Running)',
-                  'Extreme (ex: Mountain Climbing)',
-                  'Dont Care (Surprise Me!)'];
-
-    $("#min_activity_level").attr("value", parseInt(minSliderValue));
-     $('#slider-snap-value-lower').html(values[parseInt(minSliderValue)]);
-  });
-
-  $('#slider-snap').Link('upper').to(function(maxSliderValue) {
-    var values = ['Inactive (ex: Watching a Movie)',
-                  'Some Mental Activity (ex: Reading a Book)',
-                  'Mentally Active (ex: Playing Chess)',
-                  'Moderate (ex: Light Yoga)',
-                  'Vigorous (ex: Running)',
-                  'Extreme (ex: Mountain Climbing)',
-                  'Dont Care (Surprise Me!)'];
-
-    $("#max_activity_level").attr("value", parseInt(maxSliderValue));
-     $('#slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
-  });
-
-});
-</script>
+  </script>
+</div>

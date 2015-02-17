@@ -151,7 +151,7 @@
             </div>
           <% end %>
         <% end %>
-      </div>
+      </div><br>
 
       <% if current_user %>
         <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
@@ -171,7 +171,7 @@
             </div>
           <% end %>
         <% end %>
-      </div>
+      </div><br>
 
       <% if current_user %>
         <div style="background-image: url('<%= current_user.image_url (:profile) %>')" >
@@ -191,29 +191,7 @@
             </div>
           <% end %>
         <% end %>
-      </div>
-
-      <% if current_user %>
-        <div style="background-image: url('<%= current_user.image_url (:full) %>')" >
-      <% else %>
-        <div class = "nav-friends">
-      <% end %>
-        <% if current_user %>
-          <%= link_to friendship_path do %>
-            <div class="side-nav">
-              <i class="fa fa-users"></i> Friends
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to '/auth/google_oauth2' do %>
-            <div class="side-nav">
-              <i class="fa fa-users"></i> Friends
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-      <br>
-      <br>
+      </div><br>
 
     </sidebar>
 

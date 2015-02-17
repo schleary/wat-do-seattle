@@ -1,7 +1,9 @@
-<h2><%= link_to @activity.name, @activity.url, :target => '_blank' %></h2>
+<div class="main-block">
+  <h2><%= link_to @activity.name, @activity.url, :target => '_blank' %></h2>
 
-  <%= image_tag @activity.image_url.to_s %>
+    <%= image_tag @activity.image_url.to_s %>
 
-<%= @activity.description %><br>
-Price: $<%= @activity.min_price %> - $<%= @activity.min_price %><br>
-Activity Level Range: <%= @activity.min_activity_level %> - <%= @activity.max_activity_level %>
+  <%= @activity.description %><br>
+  Price: $<%= @activity.min_price %> - $<%= @activity.min_price %><br>
+  Activity Level Range: <%= @activity.min_activity_level %> - <%= @activity.max_activity_level %>
+</div>
