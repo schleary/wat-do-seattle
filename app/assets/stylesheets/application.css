@@ -47,15 +47,31 @@
 
 
 body{
-  /*background-color: #333;*/
-  height:100%;
-  /*background-image: url("speaker.jpg");*/
-  /*background: -webkit-linear-gradient(lightpink, green); /* For Safari 5.1 to 6.0 */
-  /*background: -o-linear-gradient(lightpink, green); /* For Opera 11.1 to 12.0 */
-  /*background: -moz-linear-gradient(lightpink, green); /* For Firefox 3.6 to 15 */
-  /*background: linear-gradient(lightpink, green); /* Standard syntax */
+  /* fallback */
+  background-color: #333;
+  background-image: url(images/linear_bg_1.png);
+  background-repeat: repeat-y;
 
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#373737), to(#333));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #333, #373737);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #333, #373737);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #333, #373737);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, #333, #373737);
 }
+
+.rainbow-row .col-sm-1{
+  height: 10px;
+}
+
 .container{
   padding-top: 25px;
   padding-right: 25px;
@@ -63,7 +79,6 @@ body{
   margin-right: 0;
   margin-left: 0;
   width: 100%;
-  height: 775px;
   float: center;
 }
 
