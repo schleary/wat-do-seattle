@@ -33,11 +33,11 @@
     </div>
   <% end %>
 
-  <%= f.submit class: "btn btn-default", value: "Update Account"%>
+  <%= f.submit class: "btn btn-default", value: "Update Account"%> <%= link_to "Delete Your Account", users_delete_path, method: :delete, class: "btn btn-default" %>
+
 <% end %>
 
-<br>
-<%= link_to "Delete Your Account", users_delete_path, method: :delete, class: "btn btn-default" %>
+
 
 <% if @user.admin %>
   <hr>
