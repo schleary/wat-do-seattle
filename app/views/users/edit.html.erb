@@ -14,51 +14,57 @@
   <% end %>
 </div>
 
-<img class="images" src="<%= @user.image_url(:profile) %>">
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs ">
+    <img class="sub-images" src="<%= @user.image_url(:profile) %>">
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+    <div class="main-block">
+      <h2>Edit Your Profile: </h2>
+      <hr>
+      <%= bootstrap_form_for @user, url: {action: "update"} do |f| %>
 
-<div class="sub-block">
-  <h2>Edit Your Profile: </h2>
-  <hr>
-  <%= bootstrap_form_for @user, url: {action: "update"} do |f| %>
+        <% if @user.email %>
+          <%= f.email_field :email %>
+          <% unless @user.confirmed %>
+            <div class="alert alert-warning" role="alert">
+              Unconfirmed email address.
+            </div>
+          <% end %>
+        <% else %>
+          <%= f.email_field :email, placeholder: "Email unconfirmed" %>
+        <% end %>
 
-    <% if @user.email %>
-      <%= f.email_field :email %>
-      <% unless @user.confirmed %>
-        <div class="alert alert-warning" role="alert">
-          Unconfirmed email address.
+        <% if @user.admin == false %>
+          <%= f.check_box :admin, label: "Request admin status (email required)" %>
+        <% elsif (@user.admin == nil) %>
+          <div class="alert alert-warning" role="alert">
+            Your admin request has been received and will be evaluated.
+          </div>
+        <% end %>
+
+        <%= f.file_field :image, label: "Update Profile Picture" %>
+
+        <hr>
+        <%= f.submit class: "btn btn-default", value: "Update Account"%> <%= link_to "Delete Your Account", users_delete_path, method: :delete, class: "btn btn-default" %>
+        <br>
+        <br>
+      <% end %>
+    </div>
+    <% if @user.admin %>
+
+        <% if @users.length > 0 %>
+        <div class="main-block">
+          <h3>Admin candidates:</h3>
+          <hr>
+          <% @users.each do |user| %>
+            <%= user.name %>&nbsp
+            <%= link_to "Make Admin", adminify_path(user.id), class: "btn btn-default" %>
+            <%= link_to "Deny Request", deny_request_path(user.id), class: "btn btn-default" %><br>
+          <% end %>
         </div>
-      <% end %>
-    <% else %>
-      <%= f.email_field :email, placeholder: "Email unconfirmed" %>
+        <% end %>
+
     <% end %>
-
-    <% if @user.admin == false %>
-      <%= f.check_box :admin, label: "Request admin status (email required)" %>
-    <% elsif (@user.admin == nil) %>
-      <div class="alert alert-warning" role="alert">
-        Your admin request has been received and will be evaluated.
-      </div>
-    <% end %>
-
-    <%= f.file_field :image, label: "Update Profile Picture" %>
-
-    <hr>
-    <%= f.submit class: "btn btn-default", value: "Update Account"%> <%= link_to "Delete Your Account", users_delete_path, method: :delete, class: "btn btn-default" %>
-    <br>
-    <br>
-  <% end %>
-
-
-
-  <% if @user.admin %>
-    <% if @users.length > 0 %>
-    <hr>
-      <h3>Admin candidates:</h3>
-      <% @users.each do |user| %>
-        <%= user.name %>
-        <%= link_to "Make admin", adminify_path(user.id), class: "btn btn-default" %>
-        <%= link_to "Deny request", deny_request_path(user.id), class: "btn btn-default" %><br>
-      <% end %>
-    <% end %>
-  <% end %>
+  </div>
 </div>
