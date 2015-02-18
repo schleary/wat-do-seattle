@@ -10,10 +10,34 @@ set :use_sudo, false
 
 set :deploy_to, '/var/www/wat-do-seattle'
 
+
+
+
+
+# Specify the server that Resque will be deployed on. If you are using Cap v3
+# and have multiple stages with different Resque requirements for each, then
+# these __must__ be set inside of the applicable config/deploy/... stage files
+# instead of config/deploy.rb:
 role :resque_worker, "wat-do-seattle.com"
 role :resque_scheduler, "wat-do-seattle.com"
 
 set :workers, { "my_queue_name" => 2 }
+
+
+set :resque_environment_task, true
+after "deploy:restart", "resque:restart"
+
+
+
+
+
+# We default to storing PID files in a tmp/pids folder in your shared path, but
+# you can customize it here (make sure to use a full path). The path will be
+# created before starting workers if it doesn't already exist.
+set :resque_pid_path, -> { File.join(shared_path, 'tmp', 'pids') }
+
+# Uncomment this line if your workers need access to the Rails environment:
+# set :resque_environment_task, true
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
