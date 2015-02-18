@@ -2,23 +2,28 @@
   <h1>Wat Do? [Seattle] Users </h1>
 </div>
 
-<div class="main-block">
+<div class="row">
   <% @users.each do |user| %>
-    <%= user.name %>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ">
+      <img class="sub-images" src="<%= user.image_url %>">
+    </div>
+    <div class="main-block-2">
+        <%= user.name %>
 
-    <% count = 0 %>
-    <% @friendship.each do |friendship| %>
-      <% if (friendship.user.id == current_user.id && friendship.friend_id == user.id) %>
-        (<%= link_to "Remove Friend", friendship_destroy_path(friendship) %>)
-        <% count += 1 %>
-      <% else %>
-      <% end %>
-    <% end %>
+        <% count = 0 %>
+        <% @friendship.each do |friendship| %>
+          <% if (friendship.user.id == current_user.id && friendship.friend_id == user.id) %>
+            (<%= link_to "Remove Friend", friendship_destroy_path(friendship) %>)
+            <% count += 1 %>
+          <% else %>
+          <% end %>
+        <% end %>
 
-    <% if (count == 0) %>
-      (<%= link_to "Add Friend", friendship_create_path(:friend_id => user), :method => :post %>)
-    <% end %><br>
-    <hr>
+        <% if (count == 0) %>
+          (<%= link_to "Add Friend", friendship_create_path(:friend_id => user), :method => :post %>)
+        <% end %>
+
+    </div>
 
   <% end %>
 </div>
