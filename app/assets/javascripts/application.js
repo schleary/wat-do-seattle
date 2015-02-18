@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require_tree .
 
-$( document ).ready(function() {
+$( window ).resize(function() {
+  console.log("resize");
   $('#slider-snap').noUiSlider({
     start: [ 1, 3 ],
     snap: true,
@@ -30,7 +31,7 @@ $( document ).ready(function() {
   });
 
   $('#slider-snap').Link('lower').to(function(minSliderValue) {
-    var values = ['Inactive (ex: Watching a Movie)',
+    var values = ['Physically & Mentally Inactive (ex: Watching TV)',
                   'Some Mental Activity (ex: Reading a Book)',
                   'Mentally Active (ex: Playing Chess)',
                   'Moderate (ex: Light Yoga)',
@@ -43,7 +44,7 @@ $( document ).ready(function() {
   });
 
   $('#slider-snap').Link('upper').to(function(maxSliderValue) {
-    var values = ['Inactive (ex: Watching a Movie)',
+    var values = ['Physically & Mentally Inactive (ex: Watching a Movie)',
                   'Some Mental Activity (ex: Reading a Book)',
                   'Mentally Active (ex: Playing Chess)',
                   'Moderate (ex: Light Yoga)',
@@ -54,5 +55,4 @@ $( document ).ready(function() {
     $("#max_activity_level").attr("value", parseInt(maxSliderValue));
      $('#slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
   });
-
 });

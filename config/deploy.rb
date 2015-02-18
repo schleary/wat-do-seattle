@@ -10,6 +10,11 @@ set :use_sudo, false
 
 set :deploy_to, '/var/www/wat-do-seattle'
 
+role :resque_worker, "wat-do-seattle.com"
+role :resque_scheduler, "wat-do-seattle.com"
+
+set :workers, { "my_queue_name" => 2 }
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
