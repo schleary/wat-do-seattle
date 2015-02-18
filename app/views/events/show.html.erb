@@ -1,14 +1,20 @@
 <div class="main-block">
   <h1><%= @event.activity.name %></h1>
 </div>
-<img class="sub-images" src="<%= @event.activity.image_url(:profile) %>" height="300px">
-<div class="sub-block">
-  Created by: <%= @event.user.name %><br>
-  <hr>
-  Time: <%= @event.date_time_start %> -
-  <%= @event.date_time_end %>
-  <hr>
-  <%= simple_format(@event.description) %>
+<div class="row">
+  <div class="col-lg-2 col-md-2 col-sm-2">
+    <img class="sub-images" src="<%= @event.activity.image_url(:profile) %>">
+  </div>
+  <div class="col-lg-10 col-md-10 col-sm-10">
+    <div class="sub-block">
+      Created by: <%= @event.user.name %><br>
+      <hr>
+      Time: <%= @event.date_time_start %> -
+      <%= @event.date_time_end %>
+      <hr>
+      <%= simple_format(@event.description) %>
+    </div>
+  </div>
 </div>
 
 <% if (@event.user_id == current_user.id) %>
