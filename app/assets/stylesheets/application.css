@@ -15,6 +15,14 @@
 
 /* Flatten das boostrap */
 
+hr{
+  width: 94%;
+  margin: 2% 2% 0 0;
+  padding: 2%;
+  border-top: 1px solid #999;
+  align: right;
+}
+
 h1{
   color: #777;
   margin: 0;
@@ -233,21 +241,21 @@ sidebar{
 }
 
 @media (max-width: 845px) {
-  .full-browser-option{
+  .web-layout{
         display: none;
     }
 }
 
 @media (min-width: 845px) {
-  .mobile-option{
+  .mobile-layout{
         display: none;
     }
 }
 
-.new-side{
+/*.new-side{
   display: inline;
   float: center;
-}
+}*/
 
 .form-horizontal{
   width: 950px;
@@ -300,8 +308,8 @@ sidebar{
 }
 
 #slider-snap{
-  width: 31%;
-  margin: 3% 5% 2% 17.5%;
+  width: 31.5%;
+  margin: 3% 5% 2% 17.25%;
 }
 
 

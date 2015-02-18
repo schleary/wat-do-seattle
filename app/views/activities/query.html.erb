@@ -4,15 +4,17 @@
 <div class="main-block">
   <h2><%= link_to "See All Activities", activities_path %></h2>
   <hr>
-  <%= bootstrap_form_for @activity, url: {action: "results"}, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
+  <%= bootstrap_form_for @activity, url: {action: "results"}, layout: :horizontal, label_col: "col-lg-2 col-md-2 col-sm-2", control_col: "col-sm-4" do |f| %>
     <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
     <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
     <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>
-    <div class="activity-text">Activity Level</div><div id='slider-snap'></div>
+    <div class="activity-text">Activity Level</div>
+    <div id="slider-snap"></div>
     <span class="min-example-val" id="slider-snap-value-lower"></span>
     <br>
     <span class="max-example-val" id="slider-snap-value-upper"></span>
-    <hr>
+    <br>
+
     <%= f.submit "Submit" %>
   <% end %>
 

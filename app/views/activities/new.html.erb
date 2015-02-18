@@ -3,7 +3,7 @@
 </div>
 <div class="main-block">
   <br>
-  <%= bootstrap_form_for @activity, url: {action: "create"}, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
+  <%= bootstrap_form_for @activity, url: {action: "create"}, layout: :horizontal, label_col: "col-lg-2 col-md-2 col-sm-2", control_col: "col-sm-4" do |f| %>
     <%= f.text_field :name %>
     <%= f.text_field :url %>
     <%= f.text_area :description %>
