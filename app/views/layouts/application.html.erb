@@ -3,25 +3,20 @@
 <head>
   <title>WatDoSeattle22</title>
   <%= favicon_link_tag 'favicon.ico' %>
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
   <!-- Latest compiled and minified CSS -->
-
   <%= javascript_include_tag 'application' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 
 </head>
-<!-- = watDoModule -->
+
 <body >
   <br>
   <!-- <div class="row">
@@ -41,7 +36,7 @@
 
   <div class="row">
     <div class="rainbow-row">
-      <div class="col-sm-1" height="20px;" style="background-color:#f49ac2;" > </div>
+      <div class="col-sm-1" style="background-color:#f49ac2;" > </div>
       <div class="col-sm-1" style="background-color:#8882be;"></div>
       <div class="col-sm-1" style="background-color:#8493ca;"></div>
       <div class="col-sm-1" style="background-color:#7ea7d8;"></div>
@@ -58,9 +53,9 @@
 
   <div class="container">
 
+    <!-- navigation bar -->
     <div class="row">
       <div class="col-lg-12">
-
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -82,12 +77,6 @@
                   <li><a class="navbar-nav" href="<%=activity_new_path%>"><i class="fa fa-pencil-square-o"></i> Suggest an Activity!</a>
                 <% end %>
               </ul>
-              <!-- <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form> -->
               <ul class="nav navbar-nav navbar-right">
                 <% if current_user %>
                   <li class="dropdown">
@@ -102,10 +91,6 @@
                       <li><a href="<%= notifications_path %>">See all</a></li>
                     </ul>
                   </li>
-
-                  <li>
-                    <a class="nav navbar-nav" href="<%=user_show_path(current_user)%>"><i class="fa fa-user"></i> <%= current_user.name %></a>
-                  </li>
                   <li>
                     <a class="nav navbar-nav" href="<%=signout_path%>"><i class="fa fa-sign-out"></i> Sign Out</a>
                   </li>
@@ -113,109 +98,170 @@
                   <li>
                     <a class="nav navbar-nav" href="/auth/google_oauth2"><i class="fa fa-sign-in"></i> Sign In</a>
                   </li>
-
                 <% end %>
-
-                <!-- <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li> -->
-                <!-- <ul class="nav navbar-nav"> -->
-
-                <!-- </ul> -->
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
       </div>
     </div>
+    <!-- ........................end /nav.................... -->
 
-    <div class="row">
-      <div class="col-lg-10">
+    <!-- ************************************************************************************ -->
 
-        <div class="mid-content">
 
-          <%= yield %>
 
+    <!-- ........................start div for mobile option.................... -->
+    <div class="mobile-option">
+
+    <!-- ........................start div for top sidebar row.................... -->
+      <div class="row">
+    <!-- ........................start and end div for sidebar col.................... -->
+        <div class="sidebar-2 col-sm-12">
+          <sidebar>
+            <div class="sub-block">
+                <% if current_user %>
+                  <%= link_to 'Profile', user_show_path(current_user.id)%>
+                <% else %>
+                  <%= link_to 'Profile', '/auth/google_oauth2' %>
+                <% end %>
+            </div>
+            <div class="sub-block">
+                <% if current_user %>
+                  <%= link_to 'Events', events_path %>
+                <% else %>
+                  <%= link_to 'Events','/auth/google_oauth2'%>
+                <% end %>
+            </div>
+            <div class="sub-block">
+                <% if current_user %>
+                  <%= link_to 'Friends', friendship_path %>
+                <% else %>
+                  <%= link_to 'Friends', '/auth/google_oauth2' %>
+                <% end %>
+            </div>
+          </sidebar>
         </div>
-        
+      </div>
+    <!-- ......................../end div for top sidebar row.................... -->
+
+    <!-- ........................start div for full mobile content row.................... -->
+      <div class="small-display row">
+
+    <!-- ........................start div for full content col.................... -->
+        <div class="col-lg-12">
+
+          <!-- <div class="mid-content"> -->
+
+            <%= yield %>
+
+          <!-- </div> -->
+
+    <!-- ........................this col contains the yield.................... -->
+        </div>
+    <!-- ......................../end div for full content col.................... -->
+
+      </div>
+    <!-- ......................../end div for full mobile content row.................... -->
+
+
+    </div>
+    <!-- ......................../end div for mobile option.................... -->
+
+
+
+    <!-- ************************************************************************************ -->
+
+
+
+
+    <!-- ........................start div for full-browser option.................... -->
+    <div class="full-browser-option">
+
+    <!-- ........................start div both row.......................... -->
+      <div class="large-display row">
+
+    <!-- ........................this col contains the yield (10).................... -->
+        <div class="col-lg-10 col-md-9 col-sm-8">
+          <!-- <div class="mid-content"> -->
+
+            <%= yield %>
+
+          <!-- </div> -->
+        </div>
+
+    <!-- ........................this col contains the sidebar (2).................... -->
+        <div class="sidebar col-lg-2">
+          <sidebar>
+            <% if current_user %>
+              <div style="background-image: url('<%= current_user.image_url (:thumb) %>')" >
+            <% else %>
+              <div class = "nav-profile">
+            <% end %>
+              <% if current_user %>
+                <%= link_to user_show_path(current_user.id) do %>
+                  <div class="side-nav" >
+                    <i class="fa fa-user"></i> Profile
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to '/auth/google_oauth2' do %>
+                  <div class="side-nav">
+                    <i class="fa fa-user"></i> Profile
+                  </div>
+                <% end %>
+              <% end %>
+            </div><br>
+
+            <% if current_user %>
+              <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
+            <% else %>
+              <div class = "nav-events">
+            <% end %>
+              <% if current_user %>
+                <%= link_to events_path do %>
+                  <div class="side-nav">
+                    <i class="fa fa-calendar"></i> Events
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to '/auth/google_oauth2' do %>
+                  <div class="side-nav">
+                    <i class="fa fa-calendar"></i> Events
+                  </div>
+                <% end %>
+              <% end %>
+            </div><br>
+
+            <% if current_user %>
+              <div style="background-image: url('<%= current_user.image_url (:profile) %>')" >
+            <% else %>
+              <div class = "nav-friends">
+            <% end %>
+              <% if current_user %>
+                <%= link_to friendship_path do %>
+                  <div class="side-nav">
+                    <i class="fa fa-users"></i> Friends
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to '/auth/google_oauth2' do %>
+                  <div class="side-nav">
+                    <i class="fa fa-users"></i> Friends
+                  </div>
+                <% end %>
+              <% end %>
+            </div><br>
+          </sidebar>
       </div>
 
-      <div class="col-lg-2">
+      </div>
+    <!-- ......................../end div for both row....................... -->
 
-        <sidebar>
-          <% if current_user %>
-            <div style="background-image: url('<%= current_user.image_url (:thumb) %>')" >
-          <% else %>
-            <div class = "nav-profile">
-          <% end %>
-            <% if current_user %>
-              <%= link_to user_show_path(current_user.id) do %>
-                <div class="side-nav" >
-                  <i class="fa fa-user"></i> Profile
-                </div>
-              <% end %>
-            <% else %>
-              <%= link_to '/auth/google_oauth2' do %>
-                <div class="side-nav">
-                  <i class="fa fa-user"></i> Profile
-                </div>
-              <% end %>
-            <% end %>
-          </div><br>
-
-          <% if current_user %>
-            <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
-          <% else %>
-            <div class = "nav-events">
-          <% end %>
-            <% if current_user %>
-              <%= link_to events_path do %>
-                <div class="side-nav">
-                  <i class="fa fa-calendar"></i> Events
-                </div>
-              <% end %>
-            <% else %>
-              <%= link_to '/auth/google_oauth2' do %>
-                <div class="side-nav">
-                  <i class="fa fa-calendar"></i> Events
-                </div>
-              <% end %>
-            <% end %>
-          </div><br>
-
-          <% if current_user %>
-            <div style="background-image: url('<%= current_user.image_url (:profile) %>')" >
-          <% else %>
-            <div class = "nav-friends">
-          <% end %>
-            <% if current_user %>
-              <%= link_to friendship_path do %>
-                <div class="side-nav">
-                  <i class="fa fa-users"></i> Friends
-                </div>
-              <% end %>
-            <% else %>
-              <%= link_to '/auth/google_oauth2' do %>
-                <div class="side-nav">
-                  <i class="fa fa-users"></i> Friends
-                </div>
-              <% end %>
-            <% end %>
-          </div><br>
-
-        </sidebar>
     </div>
+    <!-- ......................../end div for full-browser option.................... -->
 
-
-
+<!-- container -->
   </div>
 
   <div class="row">

@@ -110,6 +110,15 @@ body{
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
+@media (max-width: 845px) {
+  .rainbow-row .col-sm-1{
+        height: 1px;
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+}
+
 .notifications{
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -157,7 +166,7 @@ body{
   float: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 60px) {
     .navbar {
         border-radius: 0;
         -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -178,16 +187,11 @@ body{
     border-radius: 0;
 }
 
-.mid-content{
-  min-width: 85%;
-  max-width:800px;
-  display: inline-block;
-}
 
 .main-block{
-  max-width: 100%;
+  /*max-width: 100%;
   min-width: 50%;
-  height: 100%;
+  height: 100%;*/
   background-color: #e7e7e7;
   padding:2% 0% 2% 2%;
   margin: 0% 0% 2% 0%;
@@ -197,7 +201,7 @@ body{
 }
 
 .sub-block{
-  display: inline-block;
+  display: inline;
   width: 67%;
   height: 100%;
   background-color: #e7e7e7;
@@ -212,6 +216,28 @@ body{
 sidebar{
   float: right;
   margin-left:5px;
+}
+
+topbar{
+
+  display: inline-block;
+}
+
+@media (max-width: 845px) {
+  .full-browser-option{
+        display: none;
+    }
+}
+
+@media (min-width: 845px) {
+  .mobile-option{
+        display: none;
+    }
+}
+
+.new-side{
+  display: inline;
+  float: center;
 }
 
 .form-horizontal{
