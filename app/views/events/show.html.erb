@@ -2,11 +2,11 @@
   <h1><%= @event.activity.name %></h1>
 </div>
 <div class="row">
-  <div class="col-lg-2 col-md-2 col-sm-2">
-    <img class="sub-images" src="<%= @event.activity.image_url(:profile) %>">
+  <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs ">
+    <img class="sub-images" src="<%= @event.activity.image_url %>">
   </div>
-  <div class="col-lg-10 col-md-10 col-sm-10">
-    <div class="sub-block">
+  <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+    <div class="main-block">
       Created by: <%= @event.user.name %><br>
       <hr>
       Time: <%= @event.date_time_start %> -
@@ -14,23 +14,62 @@
       <hr>
       <%= simple_format(@event.description) %>
     </div>
+    <div >
+      <% if (@invites.any?) %>
+        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal1">
+          <%= @going_invites.length %> Going
+        </button>
+        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal2">
+          <%= @maybe_invites.length %> Maybe
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+          <%= @not_going_invites.length %> Not Going
+        </button>
+        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal3">
+          <%= @not_yet_invites.length %> Not Yet Responded
+        </button>
+      <% end %>
+
+      <% if (@event.user_id == current_user.id) %>
+        <br>
+        <button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
+          Invite friends
+        </button>
+
+        <%= link_to "Edit Event", event_edit_path(@event), class:"btn btn-default" %>
+        <%= link_to "Delete Event", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
+      <% end %>
+
+      <% if (@invite) %>
+        <div class="dropdown">
+
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+              <%= invite.hidden_field :status, :value => "Going" %>
+              <%= invite.submit "Going" %>
+            <% end %>
+            <%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+              <%= invite.hidden_field :status, :value => "Maybe" %>
+              <%= invite.submit "Maybe" %>
+            <% end %>
+            <%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
+              <%= invite.hidden_field :status, :value => "Not Going" %>
+              <%= invite.submit "Not Going" %>
+            <% end %>
+          </ul>
+
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            <%= @invite.status %>
+            <span class="caret"></span>
+          </button>
+        </div>
+      <% end %>
+
+      <%= link_to "View All Events", events_path, class:"btn btn-default" %>
+
+    </div>
   </div>
 </div>
-
-<% if (@event.user_id == current_user.id) %>
-
-  <%= link_to "Edit Event", event_edit_path(@event), class:"btn btn-default" %>
-  <%= link_to "Delete Event", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
-<% end %>
-
-<%= link_to "View All Events", events_path, class:"btn btn-default" %>
-
-<h3> Invitees </h3>
-
-
-<button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
-  Invite friends
-</button>
 
 <div class="modal fade" id=inviteFriends tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -61,45 +100,9 @@
 
 <br>
 <br>
-<% if (@invite) %>
-  <div class="dropdown">
 
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-      <%= @invite.status %>
-      <span class="caret"></span>
-    </button>
-
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-      <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
-        <%= invite.hidden_field :status, :value => "Going" %>
-        <%= invite.submit "Going" %>
-      <% end %></li>
-      <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
-        <%= invite.hidden_field :status, :value => "Maybe" %>
-        <%= invite.submit "Maybe" %>
-      <% end %></li>
-      <li><%= bootstrap_form_for(@invite, url: invite_update_path(@invite)) do |invite| %>
-        <%= invite.hidden_field :status, :value => "Not Going" %>
-        <%= invite.submit "Not Going" %>
-      <% end %></li>
-    </ul>
-  </div>
-<% end %>
 <br>
-<% if (@invites.any?) %>
-  <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal1">
-    <%= @going_invites.length %> Going
-  </button>
-  <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal2">
-    <%= @maybe_invites.length %> Maybe
-  </button>
-  <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal3">
-    <%= @not_yet_invites.length %> Not Yet Responded
-  </button>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
-    <%= @not_going_invites.length %> Not Going
-  </button>
-<% end %>
+
 
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

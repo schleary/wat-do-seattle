@@ -23,6 +23,7 @@
             </div>
             <div class="modal-body">
               <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
+                <%= f.url_field :image_url, :value => activity.image_url %>
                 <%= f.hidden_field :activity_id, :value => activity.id %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
                 <%= f.text_area :description, label: "Description" %>

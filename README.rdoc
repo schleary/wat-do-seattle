@@ -44,3 +44,7 @@ curl -X POST -H "Content-Type: application/json" -u "name:password" -d '{"activi
 
 
 All attributes must be filled out, with internal quotes and apostrophes escaped.
+
+
+
+To push JSON string to db via script, simply navigate to wat-do-seattle.com/activities/init_activities and enter admin credentials upon prompt.
