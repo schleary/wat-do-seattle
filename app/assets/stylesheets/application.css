@@ -15,6 +15,35 @@
 
 /* Flatten das boostrap */
 
+/* unvisited link */
+
+a{
+    color: #777 !important;
+    text-decoration: none ;
+}
+
+
+a:link{
+    color: #777 !important;
+    text-decoration: none ;
+}
+
+/* visited link */
+/*a:visited {
+    color: #00FF00;
+}*/
+
+/* mouse over link */
+a:hover{
+    text-decoration: none !important;
+    color: #333 !important;
+}
+
+/* selected link */
+/*a:active {
+    color: #0000FF;
+}*/
+
 hr{
   width: 94%;
   margin: 2% 2% 0 0;
