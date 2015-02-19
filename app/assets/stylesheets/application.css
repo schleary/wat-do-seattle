@@ -19,6 +19,25 @@
 
 .wat-do-logo{
   font-family: 'Rock Salt', cursive !important;
+  /*color: #7bcdc8 !important;
+  text-shadow: 3px 3px #333;*/
+}
+
+.black{
+  color:black !important;
+  display: inline-block;
+}
+
+.gray{
+  color: #777 !important;
+  display: inline-block;
+  font-size: 80%;
+}
+
+.wat-do-logo a{
+  font-family: 'Rock Salt', cursive !important;
+  /*color: #7bcdc8 !important;
+  text-shadow: 1px 1px #333;*/
 }
 
 a{
@@ -140,7 +159,7 @@ body{
   background: -o-linear-gradient(left, #333, #373737);
 
   margin-top: 3px;
-  font-family: "Raleway", Helvetica, sans-serif;
+  font-family:  Helvetica, sans-serif;
   font-weight: 200;
 }
 
@@ -277,6 +296,7 @@ body{
   height: 100%;
   background-color: #e7e7e7;
   padding:4% 4% 4% 4%;
+
   margin: 2% 2% 20px 4%;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
