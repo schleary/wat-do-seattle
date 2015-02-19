@@ -106,16 +106,116 @@
       </div>
     </div>
 
-    <div class="mobile-layout">
-      <%= render "layouts/mobile_layout" %>
+
+
+    <div class="row all-stuff">
+
+
+      <div class="sidebar-2     hidden-lg   hidden-md  col-sm-12  col-xs-12">
+        <div class="row">
+          <div class="col-sm-4 col-xs-4">
+            <div class="top-block"><i class="fa fa-user"></i>
+              <% if current_user %>
+                <%= link_to 'Profile', user_show_path(current_user.id)%>
+              <% else %>
+                <%= link_to 'Profile', '/auth/google_oauth2' %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-4">
+            <div class="top-block"><i class="fa fa-calendar"></i>
+              <% if current_user %>
+                <%= link_to 'Events', events_path %>
+              <% else %>
+                <%= link_to 'Events','/auth/google_oauth2'%>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-4">
+            <div class="top-block"><i class="fa fa-users"></i>
+              <% if current_user %>
+                <%= link_to 'Friends', friendship_path %>
+              <% else %>
+                <%= link_to 'Friends', '/auth/google_oauth2' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="              col-lg-10   col-md-10   col-sm-12   col-xs-12">
+          <%= yield %>
+      </div>
+
+
+      <div class="sidebar-2     col-lg-2   col-md-2   hidden-sm   hidden-xs">
+        <sidebar>
+          <% if current_user %>
+            <div style="background-image: url('<%= current_user.image_url (:thumb) %>')" >
+          <% else %>
+            <div class = "nav-profile">
+          <% end %>
+            <% if current_user %>
+              <%= link_to user_show_path(current_user.id) do %>
+                <div class="side-nav" >
+                  <i class="fa fa-user"></i> Profile
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to '/auth/google_oauth2' do %>
+                <div class="side-nav">
+                  <i class="fa fa-user"></i> Profile
+                </div>
+              <% end %>
+            <% end %>
+            </div><br>
+
+          <% if current_user %>
+            <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
+          <% else %>
+            <div class = "nav-events">
+          <% end %>
+            <% if current_user %>
+              <%= link_to events_path do %>
+                <div class="side-nav">
+                  <i class="fa fa-calendar"></i> Events
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to '/auth/google_oauth2' do %>
+                <div class="side-nav">
+                  <i class="fa fa-calendar"></i> Events
+                </div>
+              <% end %>
+            <% end %>
+            </div><br>
+
+          <% if current_user %>
+            <div style="background-image: url('<%= current_user.image_url (:profile) %>')" >
+          <% else %>
+            <div class = "nav-friends">
+          <% end %>
+            <% if current_user %>
+              <%= link_to friendship_path do %>
+                <div class="side-nav">
+                  <i class="fa fa-users"></i> Friends
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to '/auth/google_oauth2' do %>
+                <div class="side-nav">
+                  <i class="fa fa-users"></i> Friends
+                </div>
+              <% end %>
+            <% end %>
+            </div><br>
+          </sidebar>
+        </div>
+
+
     </div>
 
-
-    <!-- ************************************************************************************ -->
-
-    <div class="web-layout">
-      <%= render "layouts/web_layout" %>
-    </div>
 
 
 <!-- container -->

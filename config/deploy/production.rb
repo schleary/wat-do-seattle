@@ -17,12 +17,13 @@
 
 server '54.149.91.239',
   user: 'ubuntu',
-  roles: %w{web app db},
+  roles: %w{web app db resque_worker resque_scheduler},
   ssh_options: {
     keys: %w(/Users/hollyleary/.ssh/ec2-wat-do.pem),
     forward_agent: false,
     auth_methods: %w(publickey)
   }
+
 
 
 # Custom SSH Options

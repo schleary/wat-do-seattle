@@ -18,8 +18,7 @@ set :deploy_to, '/var/www/wat-do-seattle'
 # and have multiple stages with different Resque requirements for each, then
 # these __must__ be set inside of the applicable config/deploy/... stage files
 # instead of config/deploy.rb:
-role :resque_worker, "wat-do-seattle.com"
-role :resque_scheduler, "wat-do-seattle.com"
+
 #
 set :workers, { "*" => 2 }
 #
