@@ -4,8 +4,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
-    port:                 25,
-    domain:               'wat-do-seattle.com',
+    port:                 25,                   # this was 587
+    domain:               'wat-do-seattle.com', # this was example.com
     user_name:            ENV["MAIL_USERNAME"], # your gmail login
     password:             ENV["MAIL_PASSWORD"], # your gmail password
     authentication:       'plain',
