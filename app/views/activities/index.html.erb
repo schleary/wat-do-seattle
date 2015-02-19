@@ -2,45 +2,57 @@
   <h1>All Activities</h1>
 </div>
 
-<div class="main-block">
+
   <% @activities.each_with_index do |activity, i| %>
-    <hr>
-    <%= activity.name %>
-    <img src="<%= activity.image_url %>" height="125px">
 
-    <%= activity.description %>
-    <% if current_user %>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
-        <i class="fa fa-calendar"></i> Create an Event
-      </button><br><br>
+  <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs ">
+      <img class="sub-images" <img class="sub-images" <img src="<%= activity.image_url %>">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+      <div class="main-block">
+        <%= activity.name %>
 
-      <!-- Modal -->
-      <div class="modal fade" id=createEvent<%=i%> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel"><%=activity.name%></h4>
-            </div>
-            <div class="modal-body">
-              <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
-                <%= f.text_area :description, label: "Description" %>
-                <%= f.hidden_field :activity_id, :value => activity.id %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.datetime_select :date_time_start, label: "Start Time"%>
-                <%= f.datetime_select :date_time_end, label: "End Time"%>
-                <!-- f.invites :date_time_start, label: "Start Time" -->
-                <br><br>
-                <hr>
-                <!--  f.select :guests_ids, User.all.collect {|x| [x.name, x.id]}, {}, :multiple => true -->
-                <%= f.submit "Save", class: "btn btn-default"%>
-              <% end %>
+
+        <%= activity.description %>
+        <% if current_user %>
+        <br>
+        <br>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
+            <i class="fa fa-calendar"></i> Create an Event
+          </button><br><br>
+
+          <!-- Modal -->
+          <div class="modal fade" id=createEvent<%=i%> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel"><%=activity.name%></h4>
+                </div>
+                <div class="modal-body">
+                  <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
+                    <%= f.text_area :description, label: "Description" %>
+                    <%= f.hidden_field :activity_id, :value => activity.id %>
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
+                    <%= f.datetime_select :date_time_start, label: "Start Time"%>
+                    <%= f.datetime_select :date_time_end, label: "End Time"%>
+                    <!-- f.invites :date_time_start, label: "Start Time" -->
+                    <br><br>
+                    <hr>
+                    <!--  f.select :guests_ids, User.all.collect {|x| [x.name, x.id]}, {}, :multiple => true -->
+                    <%= f.submit "Save", class: "btn btn-default"%>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+
       </div>
+    </div>
+  </div>
 
     <% end %>
 
+
   <% end %>
-</div>
