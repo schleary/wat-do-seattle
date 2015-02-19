@@ -116,7 +116,7 @@
           <div class="col-sm-4 col-xs-4">
             <div class="top-block"><i class="fa fa-user"></i>
               <% if current_user %>
-                <%= link_to 'Profile', user_show_path(current_user.id)%>
+                <%= link_to 'Profile', users_edit_path(current_user)%>
               <% else %>
                 <%= link_to 'Profile', '/auth/google_oauth2' %>
               <% end %>
@@ -157,7 +157,7 @@
             <div class = "nav-profile">
           <% end %>
             <% if current_user %>
-              <%= link_to user_show_path(current_user.id) do %>
+              <%= link_to users_edit_path(current_user) do %>
                 <div class="side-nav" >
                   <i class="fa fa-user"></i> Profile
                 </div>
@@ -220,7 +220,7 @@
 
 <!-- container -->
   </div>
-
+  <br>
   <div class="row">
     <div class="rainbow-row">
       <div class="col-sm-1" height="20px;" style="background-color:#f49ac2;" > </div>
