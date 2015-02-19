@@ -15,6 +15,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    puts params.inspect
     @activity = Activity.new(activities_params)
     if @activity.save
       flash[:notice] = "Thank you for the activity suggestion!"

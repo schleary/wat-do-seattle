@@ -7,6 +7,8 @@
     <hr>
     <%= activity.name %>
     <img src="<%= activity.image_url %>" height="125px">
+    <img src="<%= activity.image %>">
+
     <%= activity.description %>
     <% if current_user %>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
