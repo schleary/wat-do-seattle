@@ -1,9 +1,46 @@
 <div class="main-block">
-  <h2><%= link_to @activity.name, @activity.url, :target => '_blank' %></h2>
+  <h1><%= link_to @activity.name, @activity.url, :target => '_blank' %></h1>
+</div>
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs ">
+    <div class="sub-images"> <%= image_tag @activity.image_url (:profile)%></div>
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+    <div class="main-block">
+      <%= @activity.description %><br>
+      Price: $<%= @activity.min_price %> - $<%= @activity.min_price %><br>
+      Activity Level Range: <%= @activity.min_activity_level %> - <%= @activity.max_activity_level %>
+    </div>
 
-    <%= image_tag @activity.image_url.to_s %>
+    <% if current_user %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent'>
+        <i class="fa fa-calendar"></i> Create an Event
+      </button><br><br>
+    <% end %>
 
-  <%= @activity.description %><br>
-  Price: $<%= @activity.min_price %> - $<%= @activity.min_price %><br>
-  Activity Level Range: <%= @activity.min_activity_level %> - <%= @activity.max_activity_level %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id=createEvent tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%=@activity.name%></h4>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
+          <%= f.text_area :description, label: "Description" %>
+          <%= f.hidden_field :activity_id, :value => @activity.id %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.datetime_select :date_time_start, label: "Start Time"%>
+          <%= f.datetime_select :date_time_end, label: "End Time"%>
+          <br><br>
+          <hr>
+          <%= f.submit "Save", class: "btn btn-default"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -45,6 +45,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts "USER:"
+    puts params.inspect
     @user = current_user
     email1 = @user.email
     @user.update(users_params)
@@ -126,7 +128,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:email, :name, :created_at, :admin, :image_url, :image, :confirmed, :notify)
+    params.require(:user).permit(:email, :name, :created_at, :admin, :image, :confirmed, :notify)
   end
 
 end

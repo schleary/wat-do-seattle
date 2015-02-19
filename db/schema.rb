@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219172624) do
+ActiveRecord::Schema.define(version: 20150219183057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20150219172624) do
     t.datetime "updated_at"
     t.integer  "min_price"
     t.integer  "max_price"
-    t.string   "image_url"
     t.text     "image"
   end
 
@@ -41,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150219172624) do
     t.datetime "date_time_end"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_url"
     t.integer  "user_id"
     t.integer  "activity_id"
     t.text     "description"
@@ -79,7 +77,6 @@ ActiveRecord::Schema.define(version: 20150219172624) do
     t.datetime "updated_at"
     t.boolean  "admin",            default: false
     t.string   "uid"
-    t.string   "image_url"
     t.string   "oauth_token"
     t.text     "image"
     t.datetime "oauth_expires_at"

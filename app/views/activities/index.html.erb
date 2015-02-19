@@ -7,7 +7,6 @@
     <hr>
     <%= activity.name %>
     <img src="<%= activity.image_url %>" height="125px">
-    <img src="<%= activity.image %>">
 
     <%= activity.description %>
     <% if current_user %>
@@ -25,11 +24,9 @@
             </div>
             <div class="modal-body">
               <%= bootstrap_form_for(@event, url: event_create_path, layout: :inline) do |f| %>
-                <%= f.url_field :image_url, :value => activity.image_url %>
+                <%= f.text_area :description, label: "Description" %>
                 <%= f.hidden_field :activity_id, :value => activity.id %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.text_area :description, label: "Description" %>
-
                 <%= f.datetime_select :date_time_start, label: "Start Time"%>
                 <%= f.datetime_select :date_time_end, label: "End Time"%>
                 <!-- f.invites :date_time_start, label: "Start Time" -->

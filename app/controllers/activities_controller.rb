@@ -40,6 +40,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @event = Event.new
   end
 
   def edit
@@ -74,7 +75,7 @@ class ActivitiesController < ApplicationController
       :min_activity_level,
       :max_activity_level,
       :image,
-      :image_url
+
     )
   end
 
