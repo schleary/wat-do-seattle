@@ -18,14 +18,14 @@ set :deploy_to, '/var/www/wat-do-seattle'
 # and have multiple stages with different Resque requirements for each, then
 # these __must__ be set inside of the applicable config/deploy/... stage files
 # instead of config/deploy.rb:
-# role :resque_worker, "wat-do-seattle.com"
-# role :resque_scheduler, "wat-do-seattle.com"
+role :resque_worker, "wat-do-seattle.com"
+role :resque_scheduler, "wat-do-seattle.com"
 #
-# set :workers, { "my_queue_name" => 2 }
+set :workers, { "*" => 2 }
 #
 #
 # set :resque_environment_task, true
-# after "deploy:restart", "resque:restart"
+after "deploy:restart", "resque:restart"
 
 
 

@@ -16,7 +16,7 @@
 
 $( window ).resize(function() {
   console.log("resize");
-  $('#slider-snap').noUiSlider({
+  $('.slider-snap').noUiSlider({
     start: [ 1, 3 ],
     snap: true,
     connect: true,
@@ -30,7 +30,7 @@ $( window ).resize(function() {
     }
   });
 
-  $('#slider-snap').Link('lower').to(function(minSliderValue) {
+  $('.slider-snap').Link('lower').to(function(minSliderValue) {
     var values = ['Physically & Mentally Inactive (ex: Watching TV)',
                   'Some Mental Activity (ex: Reading a Book)',
                   'Mentally Active (ex: Playing Chess)',
@@ -40,10 +40,10 @@ $( window ).resize(function() {
                   'Dont Care (Surprise Me!)'];
 
     $("#min_activity_level").attr("value", parseInt(minSliderValue));
-     $('#slider-snap-value-lower').html(values[parseInt(minSliderValue)]);
+     $('.slider-snap-value-lower').html(values[parseInt(minSliderValue)]);
   });
 
-  $('#slider-snap').Link('upper').to(function(maxSliderValue) {
+  $('.slider-snap').Link('upper').to(function(maxSliderValue) {
     var values = ['Physically & Mentally Inactive (ex: Watching a Movie)',
                   'Some Mental Activity (ex: Reading a Book)',
                   'Mentally Active (ex: Playing Chess)',
@@ -53,6 +53,6 @@ $( window ).resize(function() {
                   'Dont Care (Surprise Me!)'];
 
     $("#max_activity_level").attr("value", parseInt(maxSliderValue));
-     $('#slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
+     $('.slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
   });
 });
