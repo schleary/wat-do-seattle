@@ -9,22 +9,19 @@
   <h1>Your Top Results:</h1>
 </div>
 
-  <% if @activities.any? %>
-    <% @activities.each_with_index do |activity, i| %>
-    <div class="main-block">
-      <div class = "title">
-        <!-- <%= i+ 1 %>). -->
-      <!-- make this a link with the provided url -->
+<% if @activities.any? %>
+  <% @activities.each_with_index do |activity, i| %>
+  <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs ">
+      <img class="sub-images" <img class="sub-images" src="<%= activity.image %>">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+      <div class="main-block">
         <h2><%= link_to activity.name, "#{activity.url}", :target => '_blank' %></h2><br>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 ">
-          <img class="sub-images" src="<%= activity.image  %>" height="125px">
-        </div>
-      </div>
-      <div class = "content">
+        <hr>
         Price Range: $<%= activity.min_price %>.00 - $<%= activity.max_price %>.00 <br>
         Description: <%= activity.description %>
-      </div>
-      <div class="add-event-button">
+
         <% if current_user %>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
             <i class="fa fa-calendar"></i> Create an Event
@@ -51,12 +48,15 @@
               </div>
             </div>
           </div>
-        </div >
-        <% end %>
+
       </div>
-      <% end %>
-  <% else %>
-    <div class="main-block">
-      Sorry! We couldn't find any matches for you! <%= link_to 'Try again!', activities_query_path %>
     </div>
+  </div>
+      <% end %>
+
   <% end %>
+<% else %>
+  <div class="main-block">
+    Sorry! We couldn't find any matches for you! <%= link_to 'Try again!', activities_query_path %>
+  </div>
+<% end %>
