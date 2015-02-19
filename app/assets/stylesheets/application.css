@@ -17,6 +17,10 @@
 
 /* unvisited link */
 
+.wat-do-logo{
+  font-family: 'Rock Salt', cursive !important;
+}
+
 a{
     color: #777 !important;
     text-decoration: none ;
