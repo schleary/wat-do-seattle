@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def update
     puts "USER:"
-    puts params.inspect
+  
     @user = current_user
     email1 = @user.email
     @user.update(users_params)

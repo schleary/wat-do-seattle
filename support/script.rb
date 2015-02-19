@@ -16,12 +16,12 @@ class Script
   JSON_INPUT = "{
     \"activities\": [
       {
-        \"name\": \"Seattle Center1\",
+        \"name\": \"Seattle CenterAWESOME\",
         \"url\": \"http://www.seattlecenter.com/\",
         \"min_price\": \"0\",
         \"max_price\": \"0\",
         \"description\": \"International Fountain that plays music, Space Needle, Armory, EMP Museum, Chihuly Garden, Kobe Bell, Key Arena, Outdoor Mural Amphitheater, Pacific Science Center and IMAX, Seattle Center Skate Park, Children’s Museum.\",
-        \"image_url\": \"http://www.seattle.gov/tour/image/center10.jpg\",
+        \"image\": \"#<ActionDispatch::Http::UploadedFile:0x007fe340e4efa0 @tempfile=#<Tempfile:/var/folders/gf/7qb_g44102j8xmnrdl1vgrjw0000gn/T/RackMultipart20150219-11159-1uigfh5>, @original_filename=\"unnamed.jpg\", @content_type=\"image/jpeg\", @headers=\"Content-Disposition: form-data; name=\"user[image]\"; filename=\"unnamed.jpg\"\r\nContent-Type: image/jpeg\r\n\">\",
         \"min_activity_level\": \"1\",
         \"max_activity_level\": \"4\"
       },
