@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :inverse_invites, :class_name => "Invite", :foreign_key => "guest_id"
 
   validates :name, presence: true
-  validates :email, uniqueness: true, format: { with: /@/ }
+  # validates :email, uniqueness: true, format: { with: /@/ }
   validates :admin, default: false
 
   def self.from_omniauth(auth)
