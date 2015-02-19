@@ -7,4 +7,6 @@ class Event < ActiveRecord::Base
   has_many :guests, :through => :invites
   has_many :notifications
 
+  mount_uploader :image, ImageUploader
+
 end
