@@ -28,6 +28,7 @@
         <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal3">
           <%= @not_yet_invites.length %> Not Yet Responded
         </button>
+        <br>
       <% end %>
 
       <% if (@event.user_id == current_user.id) %>
@@ -35,8 +36,9 @@
         <button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
           Invite friends
         </button>
-
-        <%= link_to "Edit Event", event_edit_path(@event), class:"btn btn-default" %>
+        <button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target='#editEvent'>
+          Edit Event
+        </button>
         <%= link_to "Delete Event", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
       <% end %>
 
@@ -91,6 +93,26 @@
           <br><br>
           <hr>
           <!--  f.select :guests_ids, User.all.collect {|x| [x.name, x.id]}, {}, :multiple => true -->
+          <%= f.submit "Save", class: "btn btn-default"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id=editEvent tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
+      </div>
+      <div class="modal-body">
+        <h2><%= @event.activity.name %> </h2>
+        <%= bootstrap_form_for(@event, url: event_update_path) do |f| %>
+          <%= f.text_area :description, label: "Description" %>
+          <%= f.datetime_select :date_time_start, label: "Start Time"%>
+          <%= f.datetime_select :date_time_end, label: "End Time"%>
           <%= f.submit "Save", class: "btn btn-default"%>
         <% end %>
       </div>

@@ -16,7 +16,7 @@ class Script
   JSON_INPUT = "{
     \"activities\": [
       {
-        \"name\": \"Children's Museum1\",
+        \"name\": \"Children's Museum\",
         \"url\": \"http://thechildrensmuseum.org/\",
         \"min_price\": \"9\",
         \"max_price\": \"17\",
@@ -26,7 +26,7 @@ class Script
         \"max_activity_level\": \"3\"
       },
       {
-        \"name\": \"Tractor Tavern Square Dancing1\",
+        \"name\": \"Tractor Tavern Square Dancing\",
         \"url\": \"http://www.tractortavern.com/\",
         \"min_price\": \"7\",
         \"max_price\": \"30\",
@@ -36,7 +36,7 @@ class Script
         \"max_activity_level\": \"4\"
       },
       {
-        \"name\": \"EMP (Sci-fi Music Center)1\",
+        \"name\": \"EMP (Sci-fi Music Center)\",
         \"url\": \"http://www.empmuseum.org/\",
         \"min_price\": \"20\",
         \"max_price\": \"20\",
@@ -46,7 +46,7 @@ class Script
         \"max_activity_level\": \"3\"
       },
       {
-        \"name\": \"Vertical World1\",
+        \"name\": \"Vertical World\",
         \"url\": \"http://verticalworld.com/\",
         \"min_price\": \"10\",
         \"max_price\": \"25\",
