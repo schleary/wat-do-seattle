@@ -3,7 +3,8 @@
 </div>
 <div class="row">
   <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs ">
-    <div class="sub-images"> <%= image_tag @activity.image_url (:profile)%></div>
+
+    <img class="sub-images" src="<%= @activity.image_url %>">
   </div>
   <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
     <div class="main-block">
@@ -15,6 +16,10 @@
     <% if current_user %>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent'>
         <i class="fa fa-calendar"></i> Create an Event
+      </button><br><br>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#editActivity'>
+        <i class="fa fa-calendar"></i> Edit Activity
       </button><br><br>
     <% end %>
 
@@ -44,3 +49,40 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id=editActivity tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%=@activity.name%></h4>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for @activity, url: {action: "update"}, layout: :horizontal, label_col: "col-lg-2 col-md-2 col-sm-2", control_col: "col-sm-4" do |f| %>          <%= f.text_field :name %>
+          <%= f.text_field :url %>
+          <%= f.text_area :description %>
+          <%= f.number_field :min_price, prepend: "$", append: ".00"  %>
+          <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
+          <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
+          <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>
+
+          <div class="activity-text">Activity Level</div><div class='slider-snap'></div>
+          <span class="min-example-val" id="slider-snap-value-lower"></span>
+          <br>
+          <span class="max-example-val" id="slider-snap-value-upper"></span>
+          <br>
+          <br>
+
+          <%= f.file_field :image %>
+
+        <%= f.submit "Submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'jquery.nouislider.all.min' %>
+<%= javascript_include_tag 'slider' %>
+<%= stylesheet_link_tag    'jquery.nouislider.min', media: 'all', 'data-turbolinks-track' => true %>
