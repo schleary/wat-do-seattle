@@ -77,7 +77,6 @@ class ActivitiesController < ApplicationController
       :min_activity_level,
       :max_activity_level,
       :image,
-
     )
   end
 

@@ -67,6 +67,7 @@ class Script
     end
 
     def create_activites(json_hash)
+      puts "In create_activities"
       if json_hash['activities'] != nil && json_hash['activities'].length > 0
         json_hash['activities'].each do |activity|
           a = Activity.new(activity)
