@@ -52,7 +52,7 @@ Rails.application.routes.draw do
 
   get   '/users/:id/confirm',             to: 'users#confirm',                                    as: :confirm_user
   get   '/users/:id/deny_admin',          to: 'users#deny_request',                               as: :deny_request
-  get   '/users/:id/ENV["SECRET_URL"]',to: 'users#admin_request'
+  get   '/users/:id/9847hfh9f824oifnsdlkvhosiehlrisklevish',to: 'users#admin_request'
   get   '/users/:id/4ruoirwnv24vpoifho4ehvjrhg4owihfaoihfaajksdhviuwgifbw4f', to: 'users#become_admin', as: :adminify
 
 
