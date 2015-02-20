@@ -7,6 +7,10 @@ RSpec.describe Friendship, :type => :model do
     )
   }
 
+  it "takes parameters and returns an object" do
+    friendship.should be_an_instance_of Friendship
+  end
+
   describe 'validations' do
     it 'is valid' do
       expect(friendship).to be_valid

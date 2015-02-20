@@ -12,4 +12,10 @@ RSpec.describe Invite, :type => :model do
       expect(invite).to be_valid
     end
   end
+
+  it "takes parameters and returns an object" do
+    invite.should be_an_instance_of Invite
+  end
+
+
 end

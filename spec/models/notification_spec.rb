@@ -12,4 +12,9 @@ RSpec.describe Notification, :type => :model do
       expect(notification).to be_valid
     end
   end
+
+  it "takes parameters and returns an object" do
+    notification.should be_an_instance_of Notification
+  end
+
 end

@@ -9,6 +9,10 @@ RSpec.describe User, :type => :model do
     )
   }
 
+  it "takes parameters and returns an object" do
+    user.should be_an_instance_of User
+  end
+
   describe 'validations' do
     it 'is valid' do
       expect(user).to be_valid
@@ -25,9 +29,11 @@ RSpec.describe User, :type => :model do
     it 'has a notify default value of false' do
       expect(user.notify).to eq(false)
     end
+
   end
 
   describe '.adminify' do
+
     it 'should make a user an admin' do
       user.adminify
       expect(user.admin).to eq(true)

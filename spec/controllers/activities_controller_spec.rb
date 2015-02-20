@@ -24,10 +24,12 @@ RSpec.describe ActivitiesController, :type => :controller do
 
 
   describe "GET 'new'" do
+
     it "has a 200 status code" do
       get :new
       expect(response.status).to eq(200)
     end
+
   end
 
   # describe "POST 'create'" do
@@ -97,6 +99,9 @@ RSpec.describe ActivitiesController, :type => :controller do
        expect(response).to redirect_to activity_show_path
      end
    end
+
+
+
 
   #  describe "DELETE 'destroy'" do
   #    it 'deletes an activity' do

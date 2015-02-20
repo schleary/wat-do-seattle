@@ -12,4 +12,8 @@ RSpec.describe Event, :type => :model do
       expect(event).to be_valid
     end
   end
+
+  it "takes parameters and returns an object" do
+    event.should be_an_instance_of Event
+  end
 end

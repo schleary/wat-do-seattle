@@ -20,4 +20,10 @@ RSpec.describe Activity, :type => :model do
     end
   end
 
+  describe "name" do
+    it "returns the correct title" do
+        activity.name.should eql "goast-tating"
+    end
+end
+
 end
