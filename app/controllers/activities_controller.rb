@@ -62,6 +62,7 @@ class ActivitiesController < ApplicationController
 
   def init_activities
     Script.quick_create
+    redirect_to activities_path
   end
 
   private

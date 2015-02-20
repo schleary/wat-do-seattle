@@ -6,7 +6,7 @@ class Script
   #    \"activities\": [
   #      {
   #        \"name\": \"Seattle Shenter ONE\",
-  #        \"image_url\": \"http://www.seattlecenter.com/\",
+  #        \"image\": \"http://www.seattlecenter.com/\",
   #        \"min_price\": \"0\"
   #      }
   #    ]
@@ -16,22 +16,12 @@ class Script
   JSON_INPUT = "{
     \"activities\": [
       {
-        \"name\": \"Seattle CenterAWESOME\",
-        \"url\": \"http://www.seattlecenter.com/\",
-        \"min_price\": \"0\",
-        \"max_price\": \"0\",
-        \"description\": \"International Fountain that plays music, Space Needle, Armory, EMP Museum, Chihuly Garden, Kobe Bell, Key Arena, Outdoor Mural Amphitheater, Pacific Science Center and IMAX, Seattle Center Skate Park, Children’s Museum.\",
-        \"image\": \"#<ActionDispatch::Http::UploadedFile:0x007fe340e4efa0 @tempfile=#<Tempfile:/var/folders/gf/7qb_g44102j8xmnrdl1vgrjw0000gn/T/RackMultipart20150219-11159-1uigfh5>, @original_filename=\"unnamed.jpg\", @content_type=\"image/jpeg\", @headers=\"Content-Disposition: form-data; name=\"user[image]\"; filename=\"unnamed.jpg\"\r\nContent-Type: image/jpeg\r\n\">\",
-        \"min_activity_level\": \"1\",
-        \"max_activity_level\": \"4\"
-      },
-      {
         \"name\": \"Children's Museum1\",
         \"url\": \"http://thechildrensmuseum.org/\",
         \"min_price\": \"9\",
         \"max_price\": \"17\",
         \"description\": \"Mini Metropolitan Market, Discovery Bay, Fort Adventure, Global Village, Imagination Studio, Mountain, Neighborhood, Story Telling Circle, Construction Zone, Mini Bean Sprouts Cafe\",
-        \"image_url\": \"http://redtricom.files.wordpress.com/2013/12/kids-quest-museum.jpg\",
+        \"image\": \"http://redtricom.files.wordpress.com/2013/12/kids-quest-museum.jpg\",
         \"min_activity_level\": \"1\",
         \"max_activity_level\": \"3\"
       },
@@ -41,7 +31,7 @@ class Script
         \"min_price\": \"7\",
         \"max_price\": \"30\",
         \"description\": \"Traditional Square Dance and Two Stepping night with an instructor who teaches you how to swing your partner to and fro.  All skill levels welcome! \",
-        \"image_url\": \"http://i.ticketweb.com/i/00/05/55/67/99_Edp.jpg\",
+        \"image\": \"http://i.ticketweb.com/i/00/05/55/67/99_Edp.jpg\",
         \"min_activity_level\": \"3\",
         \"max_activity_level\": \"4\"
       },
@@ -51,7 +41,7 @@ class Script
         \"min_price\": \"20\",
         \"max_price\": \"20\",
         \"description\": \"EMP Museum is a nonprofit museum, dedicated to contemporary popular culture. EMP Museum is home to exhibits, interactive activity stations, sound sculpture, and various educational resources\",
-        \"image_url\": \"http://www.azahner.com/resources/exterior/image/emp.aerial2.jpg\",
+        \"image\": \"http://www.azahner.com/resources/exterior/image/emp.aerial2.jpg\",
         \"min_activity_level\": \"1\",
         \"max_activity_level\": \"3\"
       },
@@ -61,7 +51,7 @@ class Script
         \"min_price\": \"10\",
         \"max_price\": \"25\",
         \"description\": \"The Seattle Vertical World is the Puget Sound's premiere Rock Climbing, Fitness, Bootcamp and Yoga destination.\",
-        \"image_url\": \"http://s3-media4.fl.yelpcdn.com/bphoto/j2S6OTrZ7xbA2a7u1aHAsA/o.jpg\",
+        \"image\": \"http://s3-media4.fl.yelpcdn.com/bphoto/j2S6OTrZ7xbA2a7u1aHAsA/o.jpg\",
         \"min_activity_level\": \"3\",
         \"max_activity_level\": \"5\"
       }

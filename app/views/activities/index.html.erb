@@ -11,7 +11,7 @@
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
       <div class="main-block">
-        <%= activity.name %>
+        <h2><%= activity.name %></h2><br>
 
 
         <%= activity.description %>
@@ -20,7 +20,7 @@
         <br>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
             <i class="fa fa-calendar"></i> Create an Event
-          </button><br><br>
+          </button>
 
           <!-- Modal -->
           <div class="modal fade" id=createEvent<%=i%> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -48,11 +48,13 @@
             </div>
           </div>
 
+
+        <% end %>
+        <%= link_to "See Activity", activity_show_path(activity), class:"btn btn-default" %><br>
+        <br>
       </div>
     </div>
   </div>
-
-    <% end %>
 
 
   <% end %>
