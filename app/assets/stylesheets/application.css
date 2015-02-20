@@ -72,7 +72,7 @@ a:hover{
 hr{
   width: 94%;
   margin: 2% 2% 0 0;
-  padding: 2%;
+  padding:2% 2% 0 0;
   border-top: 1px solid #999;
   align: right;
 }
@@ -220,6 +220,12 @@ body{
   margin-top: 3px;
   font-family: "Raleway", Helvetica, sans-serif;
   font-weight: 200;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+  color: #333 !important;
+  background-color: #e7e7e7;
+  border: solid 1px #888;
 }
 
 .container{

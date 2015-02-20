@@ -19,7 +19,6 @@ module Api
         # data might be json. need to test
         puts "API CONTROLLER"
         Script.create_activites(params[:data])
-        respond_with Activity.all
       end
 
       def index
@@ -34,7 +33,6 @@ module Api
         puts "CREATE API"
         Script.create_activites(params.to_h)
         # respond_with Activity.create(params[:product])
-        respond_with Activity.all
       end
 
       def update

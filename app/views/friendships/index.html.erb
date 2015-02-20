@@ -3,16 +3,11 @@
 </div>
 
 <div class="main-block">
-  <p><h2><%= link_to "Find Friends", users_path %></h2></p>
-</div>
-
-
-<div class="main-block">
-  <h3>My Friends</h3>
+  <h2>My Friends </h2>
   <hr>
+  <%= link_to "Find Friends", users_path, class:"btn btn-default" %><br><br>
   <ul>
     <% @user.friendships.each do |friendship| %>
-
         <%= friendship.friend.name %>
         (<%= link_to "remove", friendship_destroy_path(friendship) %>)
         <br>
@@ -20,7 +15,7 @@
   </ul>
 </div>
 <div class="main-block">
-  <h3>Friended by Users</h3>
+  <h2>Friended by Users</h2>
   <hr>
   <ul>
     <% for user in @user.inverse_friends %>
