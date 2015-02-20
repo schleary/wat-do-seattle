@@ -2,9 +2,8 @@
   <h1>Find an Activity</h1>
 </div>
 <div class="main-block">
-  <h2><%= link_to "See All Activities", activities_path %></h2>
-  <hr>
   <%= bootstrap_form_for @activity, url: {action: "results"}, layout: :horizontal, label_col: "col-lg-2 col-md-2 col-sm-2", control_col: "col-sm-4" do |f| %>
+    <br>
     <%= f.number_field :max_price, prepend: "$", append: ".00"  %>
     <%= f.hidden_field :min_activity_level, :id => "min_activity_level" %>
     <%= f.hidden_field :max_activity_level, :id => "max_activity_level" %>
@@ -16,6 +15,8 @@
     <br><br>
 
     <%= f.submit "Submit" %>
+    <%= link_to "See All Activities", activities_path, class:"btn btn-default" %>
+
   <% end %>
 
   <%= javascript_include_tag 'jquery.nouislider.all.min' %>

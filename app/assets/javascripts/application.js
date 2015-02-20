@@ -40,7 +40,7 @@ $( document ).ready(function() {
                   'Dont Care (Surprise Me!)'];
 
     $("#min_activity_level").attr("value", parseInt(minSliderValue));
-     $('.slider-snap-value-lower').html(values[parseInt(minSliderValue)]);
+     $('#slider-snap-value-lower').html(values[parseInt(minSliderValue)]);
   });
 
   $('.slider-snap').Link('upper').to(function(maxSliderValue) {
@@ -53,7 +53,7 @@ $( document ).ready(function() {
                   'Dont Care (Surprise Me!)'];
 
     $("#max_activity_level").attr("value", parseInt(maxSliderValue));
-     $('.slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
+     $('#slider-snap-value-upper').html(values[parseInt(maxSliderValue)]);
   });
 
 });
