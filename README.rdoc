@@ -39,7 +39,7 @@ IF you are granted access:
 
 In console (with hash and name:password examples), you can POST (create) one or many Activities via JSON hash with the following command:
 
-curl -X POST -H "Content-Type: application/json" -u "name:password" -d '{"activities": [{"name": "Seattle Shenter", "url": "http://www.seattlecenter.com", "min_price": "0", "max_price": "10", "min_activity_level": "0", "max_activity_level": "5", "description": "What a cool place to go"}]}' http://wat-do-seattle.com/api/activities
+curl -X POST -H "Content-Type: application/json" -u "admin:secret" -d '{"activities": [{"name": "Blomb", "url": "www.seattlecenter.com", "min_price": "0", "max_price": "10", "min_activity_level": "0", "max_activity_level": "5", "description": "What a cool place to go"}]}' http://wat-do-seattle.com/api/activities
 
 
 
