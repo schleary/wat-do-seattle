@@ -50,6 +50,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
+    puts "UPDATING"
     if @activity.update(activities_params)
       redirect_to activity_show_path
     else
