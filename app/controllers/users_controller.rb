@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def update
     puts "USER:"
-  
+
     @user = current_user
     email1 = @user.email
     @user.update(users_params)
@@ -104,7 +104,7 @@ class UsersController < ApplicationController
     if @user.confirmed
       @user.adminify
       @user.save
-      flash[:notice] = "Congratulations! You have been granted admin status."
+      flash[:notice] = "Congratulations! You have been granted admin status. Your user name is '#{ENV["API_KEY"]}' and your password is '#{ENV["API_SECRET"]}'. Please record these for your records."
       Resque.enqueue(EmailAdminifyJob, @user.id)
       redirect_to users_path
     else

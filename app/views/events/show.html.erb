@@ -7,18 +7,18 @@
   </div>
   <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
     <div class="main-block">
-      Created by: <%= @event.user.name %><br>
+      <b>Creator: </b><%= @event.user.name %><br>
       <hr>
-      Date: <%= @event.date_time_start.strftime("%b. %e") %> -
+      <b>Date: </b><%= @event.date_time_start.strftime("%b. %e") %> -
       <%= @event.date_time_end.strftime("%b. %e, %Y")%><br><br>
-      Time: <%= @event.date_time_start.strftime("%I:%M %P") %> -
+      <b>Time: </b><%= @event.date_time_start.strftime("%I:%M %P") %> -
       <%= @event.date_time_end.strftime("%I:%M %P")%>
 
       <hr>
       <%= simple_format(@event.description) %>
-      <hr>
     <div >
       <% if (@invites.any?) %>
+        <hr>
         <button type="button" class="btn btn-default " data-toggle="modal" data-target="#myModal1">
           <%= @going_invites.length %> Going
         </button>
@@ -31,7 +31,6 @@
         <button type="button" class="btn btn-default " data-toggle="modal" data-target="#myModal3">
           <%= @not_yet_invites.length %> Not Yet Responded
         </button>
-        <br>
         <br>
       <% end %>
 
