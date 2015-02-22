@@ -17,8 +17,10 @@ class EventsController < ApplicationController
     @invites = Invite.where(:guest_id => current_user)
 
     # @invites.first.event_id should be the whole array
-    # @events = Event.where("(user_id in (?) OR id in (?))", current_user, @invites.first.event_id)
-    @events = Event.where(:user_id => current_user)
+    @events = Event.where("(user_id in (?) OR id in (?))", current_user, all_events(@invites))
+  
+    # @events = Event.where(:user_id => current_user)
+    # @events += Invite.where(:guest_id => current_user)
   end
 
   def show
@@ -69,6 +71,12 @@ class EventsController < ApplicationController
 
   def events_params
     params.require(:event).permit(:date_time_start, :date_time_end, :activity_id, :user_id, :description, :image)
+  end
+
+  def all_events(invites)
+    @invites.map do |invite|
+      invite.event_id
+    end
   end
 
 end

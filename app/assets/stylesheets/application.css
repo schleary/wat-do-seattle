@@ -71,11 +71,11 @@ a:hover{
 }*/
 
 hr{
-  width: 94%;
+  /*width: 94%;
   margin: 2% 2% 0 0;
-  padding:2% 2% 0 0;
-  border-top: 1px solid #999;
-  align: right;
+  padding:2% 2% 0 0;*/
+  /*border-top: solid #999;*/
+  /*align: right;*/
 }
 
 h1{
@@ -120,25 +120,6 @@ h4{
 	background-image: none !important;
 }
 
-.btn-geckoboard {
-	background: #7EB348;
-	background-image: none;
-	border:none;
-	color: #fff;
-	letter-spacing: 1px;
-	font-weight: 600;
-	text-decoration: none ! important;
-	text-shadow: none;
-	text-transform: uppercase;
-	transition: all 0.3s ease-in-out 0s;
-	-webkit-transition: all 0.3s ease-in-out 0s;
-}
-.btn-geckoboard:hover {
-	background: #333;
-	color: #fff;
-}
-
-
 body{
   color: black;
   /* fallback */
@@ -173,8 +154,21 @@ body{
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
+.rainbow-row-2 .col-sm-1{
+  height: 10px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
 @media (max-width: 845px) {
   .rainbow-row .col-sm-1{
+        height: 1px;
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+  .rainbow-row-2 .col-sm-1{
         height: 1px;
         -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -221,12 +215,12 @@ body{
   margin-top: 3px;
   font-family: "Raleway", Helvetica, sans-serif;
   font-weight: 200;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+  /*-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75) !important;*/
   color: #333 !important;
-  background-color: #e7e7e7;
-  border: solid 1px #888;
+  /*background-color: #e7e7e7;
+  border: solid 1px #999;*/
 }
 
 .container{
@@ -237,6 +231,7 @@ body{
   margin-left: 0;
   width: 100%;
   float: center;
+  margin-bottom: 85px;
 }
 
 @media (min-width: 60px) {

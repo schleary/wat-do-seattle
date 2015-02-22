@@ -1,22 +1,21 @@
 <div class="main-block">
-  <h1>Your Search Terms:</h1>
-</div>
-<div class="main-block">
+  <h1>Your Search Terms</h1>
+<hr>
   Maximum Price: <%=@query["activity"]["max_price"]%> <br>
   Activity Level Range: <%= @query["activity"]["min_activity_level"]%> - <%= @query["activity"]["max_activity_level"] %>
 </div>
 
 <div class="main-block">
-  <h1>Your Top Results:</h1>
+  <h1>Your Top Results</h1>
 </div>
 
 <% if @activities.any? %>
   <% @activities.each_with_index do |activity, i| %>
   <div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs ">
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs ">
       <img class="sub-images" <img class="sub-images" src="<%= activity.image %>">
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <div class="main-block">
         <h2><%= link_to activity.name, "#{activity.url}", :target => '_blank' %></h2><br>
         Price Range: $<%= activity.min_price %>.00 - $<%= activity.max_price %>.00 <br>
@@ -57,6 +56,7 @@
     </div>
   </div>
 </div>
+<hr>
   <% end %>
 <% else %>
   <div class="main-block">
