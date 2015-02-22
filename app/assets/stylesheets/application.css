@@ -18,7 +18,8 @@
 /* unvisited link */
 
 .wat-do-logo{
-  font-family: 'Rock Salt', cursive !important;
+  font-family: 'Permanent Marker', cursive !important;
+  font-size: 150%;
   /*color: #7bcdc8 !important;*/
   /*text-shadow: 3px 3px #333;*/
   /*text-shadow: 2px 2px ;*/
@@ -36,7 +37,7 @@
 }
 
 .wat-do-logo a{
-  font-family: 'Rock Salt', cursive !important;
+  font-family: 'Permanent Marker', cursive !important;
   /*text-shadow: 1px 1px;*/
   /*color: #7bcdc8 !important;
   text-shadow: 1px 1px #333;*/
