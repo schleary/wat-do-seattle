@@ -12,11 +12,13 @@
       <div class="col-lg-10 col-md-10 col-sm-9 col-xs-8">
         <div class="main-block">
           <%= link_to event_show_path(event.id) do %>
-            Event: <%= event.activity.name %><br>
-            Created by: <%= event.user.name %><br>
-            Time: <%= event.date_time_start %> -
-            <%= event.date_time_end %><br>
-            Description: <%= event.activity.description %>
+            <b>Event: </b><%= event.activity.name %><br>
+            <b>Created by: </b><%= event.user.name %><br>
+            <b>Date: </b><%= event.date_time_start.strftime("%b. %e") %> -
+            <%= event.date_time_end.strftime("%b. %e, %Y")%><br>
+            <b>Time: </b><%= event.date_time_start.strftime("%I:%M %P") %> -
+            <%= event.date_time_end.strftime("%I:%M %P")%><br>
+            <b>Description: </b><%= event.activity.description %>
           <% end %>
         </div>
       </div>

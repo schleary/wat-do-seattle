@@ -106,6 +106,9 @@ Rails.application.routes.draw do
 
   get   '/notifications/index',    to: "notifications#index",         as: :notifications
   patch '/invites/:id',            to: "invites#update",              as: :invite_update
+  get     "/notifications/:id/delete",    to: "notifications#destroy",  as: :notification_destroy
+  delete  "/notifications/:id",           to:	"notifications#destroy",  as: :notification_delete
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

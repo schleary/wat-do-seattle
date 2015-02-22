@@ -18,7 +18,9 @@ class EventsController < ApplicationController
 
     # @invites.first.event_id should be the whole array
     @events = Event.where("(user_id in (?) OR id in (?))", current_user, all_events(@invites))
-  
+
+
+
     # @events = Event.where(:user_id => current_user)
     # @events += Invite.where(:guest_id => current_user)
   end

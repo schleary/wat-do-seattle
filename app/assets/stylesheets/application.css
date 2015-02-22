@@ -120,6 +120,22 @@ h4{
 	background-image: none !important;
 }
 
+.modal-content{
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+  border-collapse: collapse !important;
+  background-image: none !important;
+}
+
+.form-control{
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+  border-collapse: collapse !important;
+  background-image: none !important;
+}
+
 body{
   color: black;
   /* fallback */
@@ -460,4 +476,11 @@ background-size: 100% auto;
   display: inline-block;
   float: left;
   margin-left: 5%;
+}
+
+.x{
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  padding-right: 10px;
 }

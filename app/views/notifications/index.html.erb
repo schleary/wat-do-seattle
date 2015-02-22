@@ -6,6 +6,9 @@
     <% @notifications.each do |notification| %>
     <div class="main-block">
       <i class="fa fa-calendar"></i>&nbsp&nbsp  <%= link_to notification.description, event_show_path(notification.event_id) %>
+      <div class="x">
+        <%= link_to 'X', notification_destroy_path(notification) %>
+      </div>
     </div>
     <% end %>
   <% else %>

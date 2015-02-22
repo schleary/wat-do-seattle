@@ -9,8 +9,11 @@
     <div class="main-block">
       Created by: <%= @event.user.name %><br>
       <hr>
-      Time: <%= @event.date_time_start %> -
-      <%= @event.date_time_end %>
+      Date: <%= @event.date_time_start.strftime("%b. %e") %> -
+      <%= @event.date_time_end.strftime("%b. %e, %Y")%><br><br>
+      Time: <%= @event.date_time_start.strftime("%I:%M %P") %> -
+      <%= @event.date_time_end.strftime("%I:%M %P")%>
+
       <hr>
       <%= simple_format(@event.description) %>
       <hr>
@@ -106,14 +109,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
+        <h4 class="modal-title" id="myModalLabel"><%= @event.activity.name %></h4>
       </div>
       <div class="modal-body">
-        <h2><%= @event.activity.name %> </h2>
-        <%= bootstrap_form_for(@event, url: event_update_path) do |f| %>
-          <%= f.text_area :description, label: "Description" %>
-          <%= f.datetime_select :date_time_start, label: "Start Time"%>
-          <%= f.datetime_select :date_time_end, label: "End Time"%>
+        <%= bootstrap_form_for(@event, url: event_update_path, layout: :inline) do |f| %>
+          <%= f.text_area :description, label: "Description", inline: false %><br><br>
+          <%= f.datetime_select :date_time_start, label: "Start Time", order: [:year, :month, :day], inline: true%><br><br>
+          <%= f.datetime_select :date_time_end, label: "End Time", inline: true%>
+          <hr>
           <%= f.submit "Save", class: "btn btn-default"%>
         <% end %>
       </div>
