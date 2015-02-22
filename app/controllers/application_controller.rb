@@ -19,4 +19,6 @@ class ApplicationController < ActionController::Base
     @notifications = Notification.relevant_notifications(@current_user)
   end
 
+
+
 end

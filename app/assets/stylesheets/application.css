@@ -355,21 +355,51 @@ sidebar{
 }
 
 .nav-profile{
-  background-image: url("https://v.cdn.vine.co/v/avatars/991E1EEF-C631-4EC8-800D-6BC1EB03E37F-12696-0000053ED0993D6C.jpg?versionId=qQfi1efVlbwUL9Te5B6zZLRYRYPLxz6r");
-  background-size: 200px 200px;
+
+  background-image: url("/ada_lovelace.jpg");
+
+-webkit-background-size: 100% auto;
+
+-moz-background-size: 100% auto;
+
+-ms-background-size: 100% auto;
+
+-o-background-size: 100% auto;
+
+background-size: 100% auto;
+  /*background-size: 200px 200px;*/
   background-repeat: no-repeat;
+
 }
 
 .nav-events{
-  background-image: url("http://cdn.traveler.es/uploads/images/thumbs/201452/nicaragua_epicentro_cool_6546_200x200.jpg");
-  background-size: 200px 200px;
+  background-color: green;
+  background-image: url("/events-calendar.png");
+  -webkit-background-size: 100% auto;
+
+  -moz-background-size: 100% auto;
+
+  -ms-background-size: 100% auto;
+
+  -o-background-size: 100% auto;
+
+  background-size: 100% auto;
   background-repeat: no-repeat;
 }
 
 .nav-friends{
-  background-image: url("http://cs406124.vk.me/v406124056/5d89/6Xx2JHY8XBo.jpg");
+  background-color: #00CCCC;
+  background-image: url("/purple.png");
   /*"http://static.vecteezy.com/system/resources/previews/000/074/737/original/21aacd82a024cd48babe1b59651a955b.jpg");*/
-  background-size: 200px 200px;
+  -webkit-background-size: 100% auto;
+
+  -moz-background-size: 100% auto;
+
+  -ms-background-size: 100% auto;
+
+  -o-background-size: 100% auto;
+
+  background-size: 100% auto;
   background-repeat: no-repeat;
 }
 
