@@ -38,6 +38,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :sidebar do
     process :resize_to_fit => [200, 200]
+    puts "HIT"
   end
 
   version :profile do

@@ -1,7 +1,7 @@
 <div class="main-block">
   <h1>Your Search Terms</h1>
 <hr>
-  Maximum Price: <%=@query["activity"]["max_price"]%> <br>
+  Maximum Price: $<%=@query["activity"]["max_price"]%> <br>
   Activity Level Range: <%= @query["activity"]["min_activity_level"]%> - <%= @query["activity"]["max_activity_level"] %>
 </div>
 
@@ -22,7 +22,7 @@
         Description: <%= activity.description %>
 
         <% if current_user %>
-          <br>
+          <br><br>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent<%=i%>'>
             <i class="fa fa-calendar"></i> Create an Event
           </button>
