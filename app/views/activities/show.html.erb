@@ -11,17 +11,19 @@
       <%= @activity.description %><br>
       Price: $<%= @activity.min_price %> - $<%= @activity.min_price %><br>
       Activity Level Range: <%= @activity.min_activity_level %> - <%= @activity.max_activity_level %>
-    </div>
 
     <% if current_user %>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#createEvent'>
+    <br><br>
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target='#createEvent'>
         <i class="fa fa-calendar"></i> Create an Event
-      </button><br><br>
+      </button>
 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target='#editActivity'>
-        <i class="fa fa-calendar"></i> Edit Activity
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target='#editActivity'>
+        <i class="fa fa-pencil-square-o"></i></i> Edit Activity
       </button><br><br>
     <% end %>
+
+  </div>
 
   </div>
 </div>
@@ -75,6 +77,7 @@
           <br>
 
           <%= f.file_field :image %>
+          <hr>
 
         <%= f.submit "Submit" %>
         <% end %>

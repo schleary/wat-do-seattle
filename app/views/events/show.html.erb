@@ -19,16 +19,16 @@
       <hr>
     <div >
       <% if (@invites.any?) %>
-        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal1">
+        <button type="button" class="btn btn-default " data-toggle="modal" data-target="#myModal1">
           <%= @going_invites.length %> Going
         </button>
-        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal2">
+        <button type="button" class="btn btn-default " data-toggle="modal" data-target="#myModal2">
           <%= @maybe_invites.length %> Maybe
         </button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal4">
           <%= @not_going_invites.length %> Not Going
         </button>
-        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal3">
+        <button type="button" class="btn btn-default " data-toggle="modal" data-target="#myModal3">
           <%= @not_yet_invites.length %> Not Yet Responded
         </button>
         <br>
@@ -37,13 +37,13 @@
 
       <% if (@event.user_id == current_user.id) %>
         <br>
-        <button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target='#inviteFriends'>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target='#inviteFriends'>
           Invite friends
         </button>
-        <button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target='#editEvent'>
+        <button  type="button" class="btn btn-default" data-toggle="modal" data-target='#editEvent'>
           Edit Event
         </button>
-        <%= link_to "Delete Event", event_destroy_path(@event), class: "btn btn-danger", onclick: "myFunction(event)" %>
+        <%= link_to "Delete Event", event_destroy_path(@event), class: "btn btn-default", onclick: "myFunction(event)" %>
       <% end %>
 
       <% if (@invite) %>
@@ -71,7 +71,6 @@
         </div>
       <% end %>
 
-      <%= link_to "View All Events", events_path, class:"btn btn-default" %>
     </div>
     </div>
   </div>
