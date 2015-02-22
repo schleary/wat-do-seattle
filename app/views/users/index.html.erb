@@ -1,29 +1,30 @@
 <div class="main-block">
   <h1> Users </h1>
 </div>
+<div class="row">
   <% @users.each do |user| %>
-  <div class="row">
+
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs ">
       <img class="sub-images" src="<%= user.image_url %>">
-      <br><br><br><br><br><br><br><br><br><br>
-
-
+      <br><br><br><br>  <br><br><br><br>
       <div class="main-block">
+
         <%= user.name %>
         <% count = 0 %>
         <% @friendship.each do |friendship| %>
-          <% if (friendship.user.id == current_user.id && friendship.friend_id == user.id) %>
+          <% if (friendship.user.id == current_user.id && friendship.friend_id == user.id) %><br>
             (<%= link_to "Remove Friend", friendship_destroy_path(friendship) %>)
             <% count += 1 %>
           <% else %>
           <% end %>
         <% end %>
         <% if (count == 0) %>
+        <br>
           (<%= link_to "Add Friend", friendship_create_path(:friend_id => user), :method => :post %>)
         <% end %>
       </div>
-
     </div>
-  </div>
-  <br>
+
+
   <% end %>
+</div>

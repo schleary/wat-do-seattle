@@ -3,7 +3,7 @@
 </div>
 
 
-<% if @events != nil %>
+<% if @events.any? %>
   <% @events.each do |event| %>
     <div class="row">
       <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 ">
@@ -23,4 +23,8 @@
     </div>
     <hr>
   <% end %>
+<% else %>
+  <div class="main-block">
+    You have no events to show
+  </div>
 <% end %>

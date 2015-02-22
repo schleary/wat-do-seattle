@@ -3,23 +3,32 @@
 </div>
 
 <div class="main-block">
-  <h2>My Friends </h2>
+  <h2>Following </h2>
   <hr>
-  <%= link_to "Find Friends", users_path, class:"btn btn-default" %><br><br>
   <ul>
-    <% @user.friendships.each do |friendship| %>
+    <% if @user.friendships.any? %>
+      <% @user.friendships.each do |friendship| %>
         <%= friendship.friend.name %>
         (<%= link_to "remove", friendship_destroy_path(friendship) %>)
         <br>
+      <% end %>
+    <% else %>
+      You are not following any users
     <% end %>
+    <hr>
+    <%= link_to "Find Friends", users_path, class:"btn btn-default" %>
   </ul>
 </div>
 <div class="main-block">
-  <h2>Friended by Users</h2>
+  <h2>Followers</h2>
   <hr>
   <ul>
-    <% for user in @user.inverse_friends %>
-      <%=h user.name %><br>
+    <% if @user.inverse_friends.any? %>
+      <% for user in @user.inverse_friends %>
+        <%=h user.name %><br>
+      <% end %>
+    <% else %>
+      You do not yet have any followers
     <% end %>
   </ul>
 </div>
