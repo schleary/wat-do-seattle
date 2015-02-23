@@ -139,7 +139,11 @@
       <div class="sidebar-2     col-lg-2   col-md-2   hidden-sm   hidden-xs">
         <sidebar>
           <% if current_user %>
-            <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
+            <% if current_user.image == nil %>
+              <div style="background-image: url('http://iwfoflagrangepark.files.wordpress.com/2014/07/bb-35-pc-purple2-jpg_opt.jpg')" >
+            <% else %>
+              <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
+            <% end %>
           <% else %>
             <div class = "nav-profile">
           <% end %>
@@ -159,9 +163,11 @@
             </div><br>
 
           <% if current_user %>
-
+            <% if @rel_events.first == nil %>
+              <div style="background-image: url('http://iwfoflagrangepark.files.wordpress.com/2014/07/bb-35-pc-purple2-jpg_opt.jpg')" >
+            <% else %>
               <div style="background-image: url(' <%= @rel_events.first.activity.image_url (:sidebar) %>')">
-
+            <% end %>
 
           <% else %>
             <div class = "nav-events">
@@ -182,8 +188,11 @@
             </div><br>
 
           <% if current_user %>
-
-            <div style="background-image: url('<%= @friends.first.friend.image_url (:thumb) %>')" >
+            <% if @friends.first == nil %>
+              <div style="background-image: url('http://iwfoflagrangepark.files.wordpress.com/2014/07/bb-35-pc-purple2-jpg_opt.jpg')" >
+            <% else %>
+              <div style="background-image: url('<%= @friends.first.friend.image_url (:thumb) %>')" >
+            <% end %>
 
           <% else %>
             <div class = "nav-friends">
