@@ -485,3 +485,26 @@ sidebar{
   margin-right: 10px;
   padding-right: 10px;
 }
+
+.photo-images{
+  border-style: solid;
+  border-width: 7px;
+  border-color:  #e7e7e7;
+  display: inline-block;
+  float: left;
+  width: 100%;
+
+  max-width: 400px;
+}
+
+.photo-block{
+  /*max-width: 100%;
+  min-width: 50%;
+  height: 100%;*/
+  background-color: #e7e7e7;
+  padding:2% 2% 2% 2%;
+  margin: 0% 0% 2% 0%;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}

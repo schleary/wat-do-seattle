@@ -1,15 +1,20 @@
 <div class="main-block">
   <h1> Users </h1>
 </div>
+<hr>
 <div class="row">
+  <% linecount = 0 %>
   <% @users.each do |user| %>
 
-    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs ">
-      <img class="sub-images" src="<%= user.image_url %>">
-      <br><br><br><br>  <br><br><br><br>
-      <div class="main-block">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
+      <div class="photo-block">
+      <img class="photo-images" src="<%= user.image_url %>">
+
+
 
         <%= user.name %>
+        <% linecount += 1 %>
+
         <% count = 0 %>
         <% @friendship.each do |friendship| %>
           <% if (friendship.user.id == current_user.id && friendship.friend_id == user.id) %><br>
@@ -22,9 +27,15 @@
         <br>
           (<%= link_to "Add Friend", friendship_create_path(:friend_id => user), :method => :post %>)
         <% end %>
+
       </div>
     </div>
-
-
+    <% if (linecount % 4 == 0) %>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+      <hr>
+    </div>
   <% end %>
+    <% end %>
+
+
 </div>
