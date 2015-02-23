@@ -1,6 +1,7 @@
 <div class="main-block" class="one">
   <div class="one"><h1>All Activities</h1></div>
 </div>
+<hr>
 
 
   <% @activities.each_with_index do |activity, i| %>
@@ -18,7 +19,7 @@
         <% if current_user %>
         <br>
         <br>
-        
+
           <button type="button" class="btn btn-default" data-toggle="modal" data-target='#createEvent<%=i%>'>
             <i class="fa fa-calendar"></i> Create an Event
           </button>
@@ -52,7 +53,7 @@
           <%= link_to "See Activity", activity_show_path(activity), class:"btn btn-default" %><br>
         <% end %>
 
-        <br>
+    
       </div>
 
     </div>

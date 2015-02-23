@@ -369,24 +369,25 @@ sidebar{
 
 .nav-profile{
 
-  background-image: url("/ada_lovelace.jpg");
+  background-image: url("/arng.jpeg");
 
--webkit-background-size: 100% auto;
 
--moz-background-size: 100% auto;
+  -webkit-background-size: 200% auto;
 
--ms-background-size: 100% auto;
+  -moz-background-size: 200% auto;
 
--o-background-size: 100% auto;
+  -ms-background-size: 200% auto;
 
-background-size: 100% auto;
+  -o-background-size: 200% auto;
+
+  background-size: 200% auto;
   /*background-size: 200px 200px;*/
   background-repeat: no-repeat;
 
 }
 
 .nav-events{
-  background-color: green;
+  background-color: green;;
   background-image: url("/events-calendar.png");
   -webkit-background-size: 100% auto;
 
@@ -402,7 +403,7 @@ background-size: 100% auto;
 
 .nav-friends{
   background-color: #00CCCC;
-  background-image: url("/purple.png");
+  background-image: url("/yella.jpg");
   /*"http://static.vecteezy.com/system/resources/previews/000/074/737/original/21aacd82a024cd48babe1b59651a955b.jpg");*/
   -webkit-background-size: 100% auto;
 
@@ -413,7 +414,7 @@ background-size: 100% auto;
   -o-background-size: 100% auto;
 
   background-size: 100% auto;
-  background-repeat: no-repeat;
+  /*background-repeat: no-repeat;*/
 }
 
 .nav-great{

@@ -21,8 +21,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
 
-    "lime.jpg"
-
+    # "arng.jpeg"
+    "http://m1.behance.net/rendition/modules/65013487/disp/7a312d3181a5a4b2334089e3cea1708a.jpg"
     # "http://cs406124.vk.me/v406124056/5d89/6Xx2JHY8XBo.jpg"
   end
 
@@ -39,7 +39,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :sidebar do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_fit => [225, 225]
     puts "HIT"
   end
 

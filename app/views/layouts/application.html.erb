@@ -140,7 +140,7 @@
         <sidebar>
           <% if current_user %>
             <% if current_user.image == nil %>
-              <div style="background-image: url('http://iwfoflagrangepark.files.wordpress.com/2014/07/bb-35-pc-purple2-jpg_opt.jpg')" >
+              <div height="200px" style="background-image: url('http://iwfoflagrangepark.files.wordpress.com/2014/07/bb-35-pc-purple2-jpg_opt.jpg')" >
             <% else %>
               <div style="background-image: url('<%= current_user.image_url (:sidebar) %>')" >
             <% end %>
@@ -189,7 +189,7 @@
 
           <% if current_user %>
             <% if @friends.first == nil %>
-              <div style="background-image: url('http://iwfoflagrangepark.files.wordpress.com/2014/07/bb-35-pc-purple2-jpg_opt.jpg')" >
+              <div style="background-image: url('http://m1.behance.net/rendition/modules/65013497/disp/037eec6287d5b3251d89ca0f8b17f51a.jpg');">
             <% else %>
               <div style="background-image: url('<%= @friends.first.friend.image_url (:thumb) %>')" >
             <% end %>
